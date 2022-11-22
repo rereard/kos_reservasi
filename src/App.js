@@ -63,7 +63,7 @@ const App = () => {
           }}
         />
         <Tab.Screen
-          name="Setting"
+          name="Settings"
           component={SettingScreen}
           options={{
             tabBarIcon: ({color, size}) => (
