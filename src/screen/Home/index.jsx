@@ -10,7 +10,7 @@ import {
   FlatList,
 } from 'react-native';
 import {useEffect, useState} from 'react';
-export default function SearchScreen() {
+export default function Home() {
   useEffect(() => {
     axios
       .get('https://hotels4.p.rapidapi.com/properties/get-hotel-photos', {
