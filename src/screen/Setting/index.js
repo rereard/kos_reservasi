@@ -2,12 +2,12 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {useState} from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import SettingsRow from '../Setting/components/SettingsRow';
+import SettingsRow from './components/SettingsRow';
 
 export default function SettingScreen() {
   const [username, setUsername] = useState('rerea');
   const [fullname, setFullname] = useState('Rere Ardany');
-  const [password, setPassword] = useState('WIP');
+  const [password, setPassword] = useState('tespassword');
 
   return (
     <ScrollView>
@@ -15,7 +15,7 @@ export default function SettingScreen() {
         <View style={styles.box}>
           <Text style={styles.boxHeader}>My Account</Text>
           <SettingsRow
-            titleIcon={<Ionicons name="person" style={{color: '#e75874'}} />}
+            titleIcon={<Ionicons name="person" style={{color: '#0364CE'}} />}
             title="Username"
             dataEditable={true}
             data={username}
@@ -23,9 +23,10 @@ export default function SettingScreen() {
           />
           {/* Work in progress hiding password text */}
           <SettingsRow
-            titleIcon={<Ionicons name="key" style={{color: '#e75874'}} />}
+            titleIcon={<Ionicons name="key" style={{color: '#0364CE'}} />}
             title="Password"
             dataEditable={true}
+            isPassword={true}
             data={password}
             setEditedData={setPassword}
           />
@@ -36,7 +37,7 @@ export default function SettingScreen() {
             setEditedData={setFullname}
           />
           <SettingsRow
-            titleIcon={<Ionicons name="log-out" style={{color: '#e75874'}} />}
+            titleIcon={<Ionicons name="log-out" style={{color: '#0364CE'}} />}
             title="Logout"
             pressable={true}
             onPress={() => {}}
