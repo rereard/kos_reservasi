@@ -6,6 +6,8 @@ import Sign from './Sign';
 import Profile from './Profile';
 import SearchResult from './SearchResult';
 import Setting from './Setting';
+import Splash from './Splash';
+import GetStarted from './GetStarted';
 
 export {
   Sign,
@@ -16,4 +18,6 @@ export {
   Setting,
   Favorite,
   Profile,
+  Splash,
+  GetStarted,
 };

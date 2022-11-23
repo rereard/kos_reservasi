@@ -1,20 +1,23 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet} from 'react-native';
 import React from 'react';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
-export default function index({title}) {
+export default function Button({title, type, onPress}) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container(type)} onPress={onPress}>
       <Text style={styles.text}>{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container: type => ({
+    backgroundColor: type === 'secondary' ? 'white' : '#FFDD00',
     paddingVertical: 10,
     borderRadius: 10,
-  },
+  }),
   text: {
+    color: 'black',
     textAlign: 'center',
     fontSize: 16,
   },

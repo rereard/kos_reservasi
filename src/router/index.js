@@ -4,11 +4,13 @@ import {
   Booking,
   DetailHotel,
   Favorite,
+  GetStarted,
   Home,
   Profile,
   SearchResult,
   Setting,
   Sign,
+  Splash,
 } from '../screen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -20,7 +22,7 @@ const MainApp = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: '#e75874',
+        tabBarActiveTintColor: '#0364CE',
       }}>
       <Tab.Screen
         name="Home"
@@ -68,10 +70,20 @@ const MainApp = () => {
 
 const Router = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Splash">
+      <Stack.Screen
+        name="Splash"
+        component={Splash}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="Home"
         component={MainApp}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="GetStarted"
+        component={GetStarted}
         options={{headerShown: false}}
       />
       <Stack.Screen
