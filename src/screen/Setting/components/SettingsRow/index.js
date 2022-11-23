@@ -68,6 +68,7 @@ export default function SettingsRow({
               }}
               data={inputTextValue}
               onChangeText={setInputTextValue}
+              isPassword={isPassword}
             />
           </>
         )}

@@ -6,9 +6,25 @@ import {
     Modal,
     TextInput
 } from 'react-native';
+import { useState } from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Button from '../../../../component/atoms/Button';
 
-export default function EditModal({ title, visible, onRequestClose, onPressCancel, data, onChangeText, onPressEdit }) {
+export default function EditModal({ title, visible, onRequestClose, onPressCancel, data, onChangeText, onPressEdit, isPassword }) {
+
+    const [showPassword, setShowPassword] = useState(true);
+    const [iconEye, setIconEye] = useState('eye-off-outline');
+
+    const ShowPw = () => {
+        if (showPassword === false) {
+            setIconEye('eye-off-outline');
+            setShowPassword(!showPassword);
+        } else {
+            setIconEye('eye-outline');
+            setShowPassword(false);
+        }
+    };
+
     return(
         <Modal
             animationType='fade'
@@ -21,7 +37,20 @@ export default function EditModal({ title, visible, onRequestClose, onPressCance
                     <Text style={styles.modalHeader}>
                         Edit {title}
                     </Text>
-                    <TextInput style={styles.textInput} value={data} onChangeText={onChangeText} />
+                    {isPassword ? (
+                        <View style={{ justifyContent: "center" }}>
+                            <TextInput
+                                style={styles.textInput} 
+                                value={data}
+                                secureTextEntry={showPassword}
+                                onChangeText={onChangeText}
+                            />
+                            <Ionicons name={iconEye} style={styles.icon} onPress={ShowPw} />
+                        </View>
+                    ) : (
+                        <TextInput style={styles.textInput} value={data} onChangeText={onChangeText} />
+                    )}
+                    
                     <View style={styles.optionView}>
                         {/* <Button
                             title="Edit"
@@ -98,5 +127,10 @@ const styles = StyleSheet.create({
     textButton: { 
         textAlign: 'center',
         color: "#fff" 
-    }
+    },
+    icon: {
+        position: 'absolute',
+        right: 0,
+        fontSize: 15,
+    },
 })
