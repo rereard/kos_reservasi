@@ -80,28 +80,13 @@ const Router = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Favorite"
-        component={MainApp}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
         name="DetailHotel"
         component={DetailHotel}
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Profile"
-        component={MainApp}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
         name="SearchResult"
         component={SearchResult}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Setting"
-        component={MainApp}
         options={{headerShown: false}}
       />
       <Stack.Screen

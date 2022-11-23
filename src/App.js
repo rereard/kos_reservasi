@@ -8,17 +8,17 @@
 
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Router from './router';
-
-const Tab = createBottomTabNavigator();
+import {Provider} from 'react-redux';
+import store from './store';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Router />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Router />
+      </NavigationContainer>
+    </Provider>
   );
 };
 
