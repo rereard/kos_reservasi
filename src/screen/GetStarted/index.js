@@ -11,7 +11,7 @@ export default function GetStarted({navigation}) {
         <Logo width={120} />
         <Ilustraion1 />
         <Text style={styles.text}>
-          Find your hotel easily and travel anywhere you wante with us
+          Find your hotel easily and travel anywhere you want with us
         </Text>
       </View>
       <View>
