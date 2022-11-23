@@ -6,6 +6,7 @@ import {
     Modal,
     TextInput
 } from 'react-native';
+import Button from '../../../../component/atoms/Button';
 
 export default function EditModal({ title, visible, onRequestClose, onPressCancel, data, onChangeText, onPressEdit }) {
     return(
@@ -22,12 +23,22 @@ export default function EditModal({ title, visible, onRequestClose, onPressCance
                     </Text>
                     <TextInput style={styles.textInput} value={data} onChangeText={onChangeText} />
                     <View style={styles.optionView}>
+                        {/* <Button
+                            title="Edit"
+                            onPress={onPressEdit}
+                            buttonStyle={styles.button}
+                        /> */}
                         <TouchableOpacity style={styles.button} onPress={onPressEdit}>
                             <Text style={styles.textButton}>
                                 Edit
                             </Text>
                         </TouchableOpacity>
                         <View style={{ flex: 0.3 }}></View>
+                        {/* <Button
+                            title="Cancel"
+                            onPress={onPressCancel}
+                            buttonStyle={styles.button}
+                        /> */}
                         <TouchableOpacity style={styles.button} onPress={onPressCancel}>
                             <Text style={styles.textButton}>
                                 Cancel
@@ -70,7 +81,8 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0.5, 
         padding: 0, 
         width: "100%", 
-        fontSize: 15 
+        fontSize: 15,
+        color: "black" 
     },
     optionView: { 
         flexDirection: 'row', 
@@ -78,7 +90,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-around" 
     },
     button: { 
-        backgroundColor: "#e75874", 
+        backgroundColor: "#0364CE", 
         padding: 9, 
         borderRadius: 10, 
         flex: 1 

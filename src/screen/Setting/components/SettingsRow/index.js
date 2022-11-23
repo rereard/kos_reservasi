@@ -10,6 +10,7 @@ import {useState} from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 export default function SettingsRow({
+  isPassword,
   title,
   titleIcon,
   data,
@@ -26,7 +27,7 @@ export default function SettingsRow({
       <Pressable
         style={({pressed}) => [
           {
-            backgroundColor: pressed ? '#ffccd6' : 'white',
+            backgroundColor: pressed ? '#d4e8ff' : 'white',
           },
           styles.container,
         ]}
@@ -46,8 +47,9 @@ export default function SettingsRow({
           <>
             <TouchableOpacity
               style={styles.dataEditButton}
-              onPress={() => setModalVisible(true)}>
-              <Text style={styles.dataText}>{data} </Text>
+              onPress={() => setModalVisible(true)}
+            >
+              <Text style={styles.dataText}>{isPassword ? data.replace(/./gi, '•') : data} </Text>
               <Text style={styles.dataText}>
                 <FontAwesome5 name="chevron-right" />
               </Text>
