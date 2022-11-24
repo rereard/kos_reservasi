@@ -34,7 +34,7 @@ const hotelSlice = createSlice({
             state.errorMessage = action.error.message
         })
         .addCase(fetchHotels.fulfilled, (state, action) => {
-            state.products = action.payload
+            state.hotels = action.payload
             state.isSuccess = true
             state.isPending = false
             state.loading = false

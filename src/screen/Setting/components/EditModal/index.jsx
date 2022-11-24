@@ -132,5 +132,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 0,
         fontSize: 15,
+        color: "black"
     },
 })

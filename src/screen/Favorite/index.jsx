@@ -8,10 +8,14 @@ import {
   View,
   FlatList,
 } from 'react-native';
+import HotelCard from '../../component/molecules/HotelCard';
 export default function Favorite() {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <ScrollView style={{ padding: 10}}>
       <Text>Favorites</Text>
-    </View>
+      <HotelCard />
+      <HotelCard />
+      <HotelCard />
+    </ScrollView>
   );
 }
