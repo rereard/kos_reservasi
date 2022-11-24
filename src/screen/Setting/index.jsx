@@ -3,6 +3,8 @@ import {useState} from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SettingsRow from './components/SettingsRow';
+import Button from '../../component/atoms/Button';
+import {colors} from '../../utils';
 
 export default function SettingScreen() {
   const [username, setUsername] = useState('rerea');
@@ -36,13 +38,8 @@ export default function SettingScreen() {
             data={fullname}
             setEditedData={setFullname}
           />
-          <SettingsRow
-            titleIcon={<Ionicons name="log-out" style={{color: '#0364CE'}} />}
-            title="Logout"
-            pressable={true}
-            onPress={() => {}}
-          />
         </View>
+        <Button title="Logout" color={colors.darkBlue} />
       </View>
     </ScrollView>
   );
@@ -56,6 +53,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#fff',
     borderRadius: 10,
+    marginBottom: 20,
   },
   boxHeader: {
     color: '#000',

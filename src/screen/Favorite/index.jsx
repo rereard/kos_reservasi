@@ -11,8 +11,7 @@ import {
 import HotelCard from '../../component/molecules/HotelCard';
 export default function Favorite() {
   return (
-    <ScrollView style={{ padding: 10}}>
-      <Text>Favorites</Text>
+    <ScrollView style={{padding: 10}}>
       <HotelCard />
       <HotelCard />
       <HotelCard />

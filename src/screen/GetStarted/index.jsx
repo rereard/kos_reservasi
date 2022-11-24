@@ -2,6 +2,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import {Logo, Ilustraion1} from '../../assets/img';
 import Button from '../../component/atoms/Button';
+import {colors} from '../../utils';
 
 export default function GetStarted({navigation}) {
   return (
@@ -17,12 +18,13 @@ export default function GetStarted({navigation}) {
       <View>
         <Button
           title="Get Started"
+          color={colors.yellow}
           onPress={() => navigation.navigate('Home')}
         />
         <View style={{height: 10}}></View>
         <Button
           title="Sign in"
-          type="secondary"
+          color={colors.white}
           onPress={() => navigation.navigate('Sign')}
         />
       </View>
@@ -32,7 +34,7 @@ export default function GetStarted({navigation}) {
 
 const styles = StyleSheet.create({
   page: {
-    backgroundColor: '#0364CE',
+    backgroundColor: colors.darkBlue,
     flex: 1,
     justifyContent: 'space-between',
     padding: 30,
@@ -42,6 +44,6 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
-    color: 'white',
+    color: colors.white,
   },
 });

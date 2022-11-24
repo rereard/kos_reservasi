@@ -1,6 +1,7 @@
 import {View, StyleSheet, Text, Image} from 'react-native';
 import React, {useEffect} from 'react';
 import {Logo} from '../../assets/img';
+import {colors} from '../../utils';
 
 export default function Splash({navigation}) {
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function Splash({navigation}) {
 
 const styles = StyleSheet.create({
   page: {
-    backgroundColor: '#0364CE',
+    backgroundColor: colors.darkBlue,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
