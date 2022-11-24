@@ -4,7 +4,7 @@ import {colors} from '../../../utils';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function Input({placeholder, onChangeText, type}) {
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(type === "password" ? true : false);
   const [iconEye, setIconEye] = useState('eye-off-outline');
 
   const ShowPw = () => {
