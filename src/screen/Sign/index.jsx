@@ -2,13 +2,19 @@ import {View, Text, StyleSheet, TextInput} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Input from '../../component/atoms/Input';
 import Button from '../../component/atoms/Button';
-
+import { useDispatch, useSelector } from "react-redux"
+import { setUser } from '../../features/loginSlice';
 import axios from 'axios';
 import {colors} from '../../utils';
 import Header from '../../component/molecules/Header';
 import {Logo} from '../../assets/img';
 
 export default function Sign({navigation}) {
+
+  const dispatch = useDispatch()
+
+  const user = useSelector((state) => state.login.user)
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,6 +26,7 @@ export default function Sign({navigation}) {
       })
       .then(response => {
         console.log(response);
+        dispatch(setUser(response.data))
         navigation.navigate('Home');
       })
       .catch(err => {

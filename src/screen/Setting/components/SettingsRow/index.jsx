@@ -80,7 +80,6 @@ export default function SettingsRow({
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 15,
-    flex: 1,
     flexDirection: 'row',
     borderBottomWidth: 1,
   },
