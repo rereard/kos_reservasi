@@ -1,6 +1,5 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import {useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { StyleSheet, Text, View} from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SettingsRow from './components/SettingsRow';
 import Button from '../../component/atoms/Button';
@@ -13,10 +12,6 @@ export default function SettingScreen({navigation}) {
 
   const user = useSelector((state) => state.login.user)
 
-  const [username, setUsername] = useState('rerea');
-  const [fullname, setFullname] = useState('Rere Ardany');
-  const [password, setPassword] = useState('tespassword');
-
   return (
       <View style={styles.container}>
         <View style={styles.box}>
@@ -27,41 +22,39 @@ export default function SettingScreen({navigation}) {
                 titleIcon={<Ionicons name="person" style={{color: '#0364CE'}} />}
                 title="Username"
                 dataEditable={true}
-                data={user.username}
-                setEditedData={setUsername}
+                data={user?.username}
+                prop="username"
               />
               <SettingsRow
                 titleIcon={<Ionicons name="key" style={{color: '#0364CE'}} />}
                 title="Password"
                 dataEditable={true}
                 isPassword={true}
-                data={password}
-                setEditedData={setPassword}
+                data={user?.pass}
+                prop="pass"
               />
               <SettingsRow
-                titleIcon={<Ionicons name="key" style={{color: '#0364CE'}} />}
+                titleIcon={<Ionicons name="mail" style={{color: '#0364CE'}} />}
                 title="Email"
                 dataEditable={true}
-                data={user.email}
-                setEditedData={setPassword}
+                data={user?.email}
+                prop="email"
               />
               <SettingsRow
                 title="First Name"
                 dataEditable={true}
-                data={user.firstName}
-                setEditedData={setFullname}
+                data={user?.firstName}
+                prop="firstName"
               />
               <SettingsRow
                 title="Last Name"
                 dataEditable={true}
-                data={user.lastName}
-                setEditedData={setFullname}
+                data={user?.lastName}
+                prop="lastName"
               />
             </>
           ) : (
-            <>
               <Text style={{ color: colors.black }}>Sign in to see your account settings</Text>
-            </>
           )}
         </View>
         <Button 
