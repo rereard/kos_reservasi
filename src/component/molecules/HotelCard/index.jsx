@@ -10,13 +10,11 @@ import {
   Image,
   Pressable,
 } from 'react-native';
-import {Ilustraion1, Logo} from '../../../assets/img';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {useState} from 'react';
 import Button from '../../atoms/Button';
 import {colors} from '../../../utils';
 
-export default function HotelCard() {
+export default function HotelCard({navigation, onPress}) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
@@ -24,7 +22,8 @@ export default function HotelCard() {
       <Pressable
         style={({pressed}) => [
           {backgroundColor: pressed ? '#e5e5e5' : 'white', borderRadius: 10},
-        ]}>
+        ]}
+        onPress={onPress}>
         <Image
           source={{
             uri: 'https://img.inews.co.id/media/822/files/inews_new/2022/03/25/Hotel_Dekat_Malioboro.jpg',
@@ -45,8 +44,7 @@ export default function HotelCard() {
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text numberOfLines={2} style={styles.title}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Ducimus, dolor.
+                Golden Time Hotel
               </Text>
               <View>
                 <Text style={styles.text}>Rp 200.000</Text>
@@ -98,7 +96,6 @@ const styles = StyleSheet.create({
   content: {
     padding: 8,
   },
-
   title: {
     color: '#0364ce',
     fontWeight: 'bold',

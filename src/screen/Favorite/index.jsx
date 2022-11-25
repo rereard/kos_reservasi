@@ -9,12 +9,10 @@ import {
   FlatList,
 } from 'react-native';
 import HotelCard from '../../component/molecules/HotelCard';
-export default function Favorite() {
+export default function Favorite({navigation}) {
   return (
     <ScrollView style={{padding: 10}}>
-      <HotelCard />
-      <HotelCard />
-      <HotelCard />
+      <HotelCard onPress={() => navigation.navigate('DetailHotel')} />
     </ScrollView>
   );
 }
