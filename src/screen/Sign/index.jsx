@@ -6,7 +6,6 @@ import Button from '../../component/atoms/Button';
 import axios from 'axios';
 import {colors} from '../../utils';
 import Header from '../../component/molecules/Header';
-import {Logo} from '../../assets/img';
 
 export default function Sign({navigation}) {
   const [username, setUsername] = useState('');
