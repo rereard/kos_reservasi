@@ -4,13 +4,26 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {colors} from '../../../utils';
 import Icon from './icon';
 
-export default function Button({title, type, onPress, color, icon, size}) {
+export default function Button({
+  title,
+  type,
+  onPress,
+  color,
+  icon,
+  size,
+  width,
+}) {
   if (type === 'icon') {
     return <Icon onPress={onPress} color={color} icon={icon} size={size} />;
   }
   return (
     <TouchableOpacity
-      style={{backgroundColor: color, paddingVertical: 10, borderRadius: 10}}
+      style={{
+        backgroundColor: color,
+        paddingVertical: 10,
+        borderRadius: 10,
+        width: width,
+      }}
       onPress={onPress}>
       <Text style={styles.text(color)}>{title}</Text>
     </TouchableOpacity>

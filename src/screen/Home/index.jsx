@@ -1,40 +1,73 @@
-import axios from 'axios';
 import {
   SafeAreaView,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
   View,
-  FlatList,
+  Image,
 } from 'react-native';
-import {useEffect, useState} from 'react';
-export default function Home() {
-  // useEffect(() => {
-  //   axios
-  //     .get('https://hotels4.p.rapidapi.com/properties/get-hotel-photos', {
-  //       params: {
-  //         id: '1178275040',
-  //       },
-  //       headers: {
-  //         'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
-  //         'X-RapidAPI-Host': 'hotels4.p.rapidapi.com',
-  //       },
-  //     })
-  //     .then(response => {
-  //       console.log(response.data);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // }, []);
 
-  // console.log(process.env.REACT_APP_URL);
+import {colors} from '../../utils';
+import {Button, Date, Input} from '../../component/atoms';
+import Header from '../../component/molecules/Header';
 
+export default function Home({navigation}) {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Home and Search</Text>
-    </View>
+    <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
+      <ScrollView>
+        <View style={styles.header}>
+          <Header type="user" onPress={() => navigation.navigate('Sign')} />
+          <Text style={styles.title}>
+            Find deals on hotels, homes, and much more...
+          </Text>
+          <View style={styles.boxSearch}>
+            <Input placeholder="Search place or lacation.." />
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginVertical: 10,
+                alignItems: 'center',
+              }}>
+              <Input type="date" width={120} title="Check in" />
+              <Text style={{fontSize: 20}}>-</Text>
+              <Input type="date" width={120} title="Check Out" />
+            </View>
+            <Button title="Search" color={colors.darkBlue} />
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  header: {
+    padding: 20,
+  },
+  Sayhello: {
+    color: colors.darkBlue,
+    fontSize: 12,
+    fontWeight: 'bold',
+    marginRight: 10,
+  },
+  title: {
+    fontSize: 20,
+    color: colors.darkBlue,
+    width: 300,
+    marginTop: 30,
+  },
+  Image: {
+    height: 30,
+    width: 30,
+    borderRadius: 99,
+    borderWidth: 1,
+    borderColor: colors.darkBlue,
+  },
+  boxSearch: {
+    backgroundColor: colors.grey,
+    padding: 20,
+    marginTop: 30,
+    borderRadius: 20,
+  },
+});

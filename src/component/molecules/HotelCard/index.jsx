@@ -14,7 +14,7 @@ import {useState} from 'react';
 import Button from '../../atoms/Button';
 import {colors} from '../../../utils';
 
-export default function HotelCard({navigation, onPress}) {
+export default function HotelCard({onPress}) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (

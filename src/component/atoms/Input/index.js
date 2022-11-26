@@ -2,9 +2,19 @@ import {View, TextInput, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import {colors} from '../../../utils';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import InputDate from '../Date';
 
-export default function Input({placeholder, onChangeText, type}) {
-  const [showPassword, setShowPassword] = useState(type === "password" ? true : false);
+export default function Input({
+  placeholder,
+  onChangeText,
+  type,
+  backgroundColor,
+  title,
+  width,
+}) {
+  const [showPassword, setShowPassword] = useState(
+    type === 'password' ? true : false,
+  );
   const [iconEye, setIconEye] = useState('eye-off-outline');
 
   const ShowPw = () => {
@@ -16,10 +26,14 @@ export default function Input({placeholder, onChangeText, type}) {
       setShowPassword(false);
     }
   };
+
+  if (type === 'date') {
+    return <InputDate title={title} width={width} />;
+  }
   return (
     <View>
       <TextInput
-        style={styles.Input(type)}
+        style={styles.Input(type, backgroundColor)}
         placeholder={placeholder}
         onChangeText={onChangeText}
         secureTextEntry={showPassword}
@@ -34,16 +48,13 @@ export default function Input({placeholder, onChangeText, type}) {
 }
 
 const styles = StyleSheet.create({
-  Input: type => ({
+  Input: (type, backgroundColor) => ({
     borderRadius: 10,
-    backgroundColor: colors.white,
+    backgroundColor:
+      backgroundColor === colors.grey ? colors.grey : colors.white,
     paddingRight: type === 'password' ? 40 : 20,
     paddingLeft: 20,
   }),
-  label: {
-    color: colors.white,
-    marginVertical: 5,
-  },
   icon: {
     position: 'absolute',
     right: 0,
