@@ -54,7 +54,7 @@ export default function SettingScreen({navigation}) {
               />
             </>
           ) : (
-              <Text style={{ color: colors.black }}>Sign in to see your account settings</Text>
+              <Text style={{ color: colors.black, fontSize: 15 }}>Sign in to see your account settings</Text>
           )}
         </View>
         <Button 
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: colors.white,
     borderRadius: 10,
-    marginBottom: 20,
+    marginBottom: 10,
     shadowColor: "#000", 
     shadowOffset: { 
         width: 0, 
