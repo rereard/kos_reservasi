@@ -71,4 +71,17 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+  Sayhello: {
+    color: colors.darkBlue,
+    fontSize: 12,
+    fontWeight: 'bold',
+    marginRight: 10,
+  },
+  Image: {
+    height: 30,
+    width: 30,
+    borderRadius: 99,
+    borderWidth: 1,
+    borderColor: colors.darkBlue,
+  },
 });

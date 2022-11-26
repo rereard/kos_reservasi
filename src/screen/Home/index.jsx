@@ -45,24 +45,11 @@ const styles = StyleSheet.create({
   header: {
     padding: 20,
   },
-  Sayhello: {
-    color: colors.darkBlue,
-    fontSize: 12,
-    fontWeight: 'bold',
-    marginRight: 10,
-  },
   title: {
     fontSize: 20,
     color: colors.darkBlue,
     width: 300,
     marginTop: 30,
-  },
-  Image: {
-    height: 30,
-    width: 30,
-    borderRadius: 99,
-    borderWidth: 1,
-    borderColor: colors.darkBlue,
   },
   boxSearch: {
     backgroundColor: colors.grey,
