@@ -47,9 +47,10 @@ const styles = StyleSheet.create({
   Input: (type, backgroundColor) => ({
     borderRadius: 10,
     backgroundColor:
-      backgroundColor === colors.grey ? colors.grey : colors.white,
+    backgroundColor === colors.grey ? colors.grey : colors.white,
     paddingRight: type === 'password' ? 40 : 20,
     paddingLeft: 20,
+    color: colors.black
   }),
   icon: {
     position: 'absolute',
@@ -57,5 +58,6 @@ const styles = StyleSheet.create({
     top: 0,
     fontSize: 20,
     padding: 14,
+    color: colors.black
   },
 });

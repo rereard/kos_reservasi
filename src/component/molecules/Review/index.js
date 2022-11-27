@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   },
   description: {
     paddingVertical: 15,
+    color: colors.darkGrey,
   },
   badge: {
     marginLeft: 10,

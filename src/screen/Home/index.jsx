@@ -10,8 +10,9 @@ import {
 import {colors} from '../../utils';
 import {Button, Input} from '../../component/atoms';
 import Header from '../../component/molecules/Header';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import DatePicker from 'react-native-date-picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const maxDate = new Date();
 maxDate.setMonth(maxDate.getMonth() + 1);
@@ -30,19 +31,23 @@ function formatDate(date) {
 
 export default function Home({navigation}) {
   const [input, setInput] = useState('');
-  const [inputCheckIn, setInputCheckIn] = useState();
-  const [inputCheckOut, setInputCheckOut] = useState();
-  const [date, setDate] = useState(new Date());
+  const [inputCheckIn, setInputCheckIn] = useState(null);
+  const [inputCheckOut, setInputCheckOut] = useState(null);
+  const date = new Date();
   const [minimumDate, setMinimumDate] = useState();
   const [checkIn, setCheckIn] = useState('Check in');
   const [checkOut, setCheckOut] = useState('Check Out');
-  const [open, setOpen] = useState(false);
+  const [openCheckin, setOpenCheckin] = useState(false);
+  const [openCheckout, setOpenCheckout] = useState(false);
 
-  console.log(inputCheckIn);
+    console.log("Checkin", inputCheckIn);
+    console.log("Checkout", inputCheckOut);
+    console.log("min date", minimumDate);
+    console.log("max date", maxDate);
 
   const checkOutButton = () => {
-    if (checkIn === '') {
-      setOpen(true);
+    if (inputCheckIn) {
+      setOpenCheckout(true);
     } else {
       alert('Please input checkin');
     }
@@ -71,29 +76,45 @@ export default function Home({navigation}) {
               <View>
                 <Button
                   title={checkIn}
-                  onPress={() => setOpen(true)}
+                  onPress={() => setOpenCheckin(true)}
                   color={colors.yellow}
                   width={120}
                 />
-                <DatePicker
+                {openCheckin && (
+                  <DateTimePicker 
+                    value={date}
+                    mode={'date'}
+                    display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                    minimumDate={date}
+                    maximumDate={maxDate}
+                    onChange={(event, selectedDate) => {
+                      console.log("selectedDate", selectedDate.nativeEvent);
+                      setOpenCheckin(false)
+                      setInputCheckIn(formatDate(selectedDate))
+                      setCheckIn(selectedDate.toLocaleDateString('pt-PT'))
+                      setMinimumDate(selectedDate)
+                    }}
+                  />
+                )}
+                {/* <DatePicker
                   modal
-                  open={open}
+                  open={openCheckin}
                   minimumDate={date}
                   maximumDate={maxDate}
                   mode="date"
                   date={date}
                   onConfirm={date => {
-                    setOpen(false);
+                    setOpenCheckin(false);
                     setCheckIn(date.toLocaleDateString('pt-PT'));
                     setInputCheckIn(formatDate(date));
                     setMinimumDate(date);
                   }}
                   onCancel={() => {
-                    setOpen(false);
+                    setOpenCheckin(false);
                   }}
-                />
+                /> */}
               </View>
-              <Text style={{fontSize: 20}}>-</Text>
+              <Text style={{fontSize: 20, color: colors.black}}>-</Text>
               <View>
                 <Button
                   title={checkOut}
@@ -101,21 +122,34 @@ export default function Home({navigation}) {
                   color={colors.yellow}
                   width={120}
                 />
-                <DatePicker
+                {openCheckout && (
+                  <DateTimePicker 
+                    value={date}
+                    mode={'date'}
+                    display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                    minimumDate={minimumDate}
+                    onChange={(event, selectedDate) => {
+                      setOpenCheckout(false)
+                      setInputCheckOut(formatDate(selectedDate))
+                      setCheckOut(selectedDate.toLocaleDateString('pt-PT'))
+                    }}
+                  />
+                )}
+                {/* <DatePicker
                   modal
-                  open={open}
+                  open={openCheckout}
                   minimumDate={minimumDate}
                   mode="date"
                   date={date}
                   onConfirm={date => {
-                    setOpen(false);
+                    setOpenCheckout(false);
                     setCheckOut(date.toLocaleDateString('pt-PT'));
                     setInputCheckOut(formatDate(date));
                   }}
                   onCancel={() => {
-                    setOpen(false);
+                    setOpenCheckout(false);
                   }}
-                />
+                /> */}
               </View>
             </View>
             <Button title="Search" color={colors.darkBlue} />
