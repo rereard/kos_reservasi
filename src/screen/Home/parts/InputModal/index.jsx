@@ -17,9 +17,12 @@ export default function InputModal({
     <Modal transparent={true} onRequestClose={onRequestClose} visible={visible}>
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-          <Text>{`${guest} Guest & ${room} Room`}</Text>
+          <Text
+            style={{
+              color: colors.black,
+            }}>{`${guest} Guest & ${room} Room`}</Text>
           <View style={styles.content}>
-            <Text>Guest</Text>
+            <Text style={{color: colors.black}}>Guest</Text>
             <View
               style={{
                 flexDirection: 'row',
@@ -32,7 +35,9 @@ export default function InputModal({
                 onPress={buttonMinGuest}>
                 <Text style={styles.textButton}>-</Text>
               </TouchableOpacity>
-              <Text style={{paddingHorizontal: 20}}>{guest}</Text>
+              <Text style={{paddingHorizontal: 20, color: colors.black}}>
+                {guest}
+              </Text>
               <TouchableOpacity
                 style={styles.Button}
                 disabled={guest === 32 ? true : false}
@@ -42,7 +47,7 @@ export default function InputModal({
             </View>
           </View>
           <View style={styles.content}>
-            <Text>Room</Text>
+            <Text style={{color: colors.black}}>Room</Text>
             <View
               style={{
                 flexDirection: 'row',

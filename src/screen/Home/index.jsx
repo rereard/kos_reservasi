@@ -53,9 +53,6 @@ export default function Home({navigation}) {
   const [guest, setGuest] = useState(1);
   const [room, setRoom] = useState(1);
 
-  console.log('checkout', inputCheckOut);
-  console.log('minimum date', minimumDate);
-
   const checkOutButton = () => {
     if (inputCheckIn) {
       setOpenCheckout(true);

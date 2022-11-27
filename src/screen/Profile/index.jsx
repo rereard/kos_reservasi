@@ -71,15 +71,9 @@ export default function Profile({navigation}) {
               />{' '}
               Booking History
             </Text>
-            <BookHistoryCard
-              onPress={() => navigation.navigate('DetailHotel')}
-            />
-            <BookHistoryCard
-              onPress={() => navigation.navigate('DetailHotel')}
-            />
-            <BookHistoryCard
-              onPress={() => navigation.navigate('DetailHotel')}
-            />
+            <BookHistoryCard onPress={() => navigation.navigate('Invoice')} />
+            <BookHistoryCard onPress={() => navigation.navigate('Invoice')} />
+            <BookHistoryCard onPress={() => navigation.navigate('Invoice')} />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -142,7 +136,7 @@ const styles = StyleSheet.create({
     borderRadius: 99,
   },
   textHeader: color => ({
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '700',
     color: color,
   }),

@@ -8,6 +8,7 @@ import SearchResult from './SearchResult';
 import Setting from './Setting';
 import Splash from './Splash';
 import GetStarted from './GetStarted';
+import Invoice from './Invoice';
 
 export {
   Sign,
@@ -20,4 +21,5 @@ export {
   Profile,
   Splash,
   GetStarted,
+  Invoice
 };

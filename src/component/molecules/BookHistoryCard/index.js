@@ -48,7 +48,7 @@ export default function BookHistoryCard({onPress}) {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 20,
+    marginBottom: 15,
     backgroundColor: colors.white,
     borderRadius: 10,
     shadowColor: '#000',
@@ -72,13 +72,13 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   textHeader: color => ({
-    fontSize: 16,
-    fontWeight: '800',
+    fontSize: 13,
+    fontWeight: '600',
     color: color,
   }),
   text: color => ({
     color: color,
-    fontSize: 15,
+    fontSize: 12,
     fontWeight: '400',
   }),
 });
