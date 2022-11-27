@@ -53,9 +53,9 @@ export default function Profile({navigation}) {
             <Text style={[styles.textHeader(colors.black), { marginTop: 20, marginBottom: 10 }]}>
               <Ionicons name='md-timer-outline' style={{ fontSize: 18, color: colors.darkBlue }} /> Booking History
             </Text>
-            <BookHistoryCard onPress={() => navigation.navigate("DetailHotel")} />
-            <BookHistoryCard onPress={() => navigation.navigate("DetailHotel")} />
-            <BookHistoryCard onPress={() => navigation.navigate("DetailHotel")} />
+            <BookHistoryCard onPress={() => navigation.navigate("Invoice")} />
+            <BookHistoryCard onPress={() => navigation.navigate("Invoice")} />
+            <BookHistoryCard onPress={() => navigation.navigate("Invoice")} />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     borderRadius: 99 
   },
   textHeader: (color) => ({ 
-    fontSize: 18, 
+    fontSize: 16, 
     fontWeight: "700", 
     color: color 
   }),

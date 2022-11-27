@@ -57,7 +57,7 @@ export default function HotelCard({onPress}) {
                 icon={'star'}
                 color={colors.yellow}
                 size={15}></Button>
-              <Text>9.99 | 99 Review</Text>
+              <Text style={{ color: colors.darkGrey }}>9.99 | 99 Review</Text>
             </View>
           </View>
         </View>

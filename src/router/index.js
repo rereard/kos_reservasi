@@ -11,9 +11,11 @@ import {
   Setting,
   Sign,
   Splash,
+  Invoice
 } from '../screen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { colors } from '../utils';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -105,6 +107,17 @@ const Router = () => {
         name="Sign"
         component={Sign}
         options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Invoice"
+        component={Invoice}
+        options={{
+          title: 'Booking\'s Detail',
+          headerStyle: {
+            backgroundColor: colors.darkBlue
+          },
+          headerTintColor: colors.white
+        }}
       />
     </Stack.Navigator>
   );
