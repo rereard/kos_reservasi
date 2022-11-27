@@ -49,10 +49,11 @@ export default function Home({navigation}) {
     if (inputCheckIn) {
       setOpenCheckout(true);
     } else {
-      alert('Please input checkin');
+      alert('Please input Check-in');
     }
   };
 
+  console.log('minimum date ==>', minimumDate);
   return (
     <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
       <ScrollView>
@@ -118,7 +119,7 @@ export default function Home({navigation}) {
               <View>
                 <Button
                   title={checkOut}
-                  onPress={checkOutButton}
+                  onPress={CheckOutButton}
                   color={colors.yellow}
                   width={120}
                 />
@@ -140,7 +141,7 @@ export default function Home({navigation}) {
                   open={openCheckout}
                   minimumDate={minimumDate}
                   mode="date"
-                  date={date}
+                  date={minimumDate}
                   onConfirm={date => {
                     setOpenCheckout(false);
                     setCheckOut(date.toLocaleDateString('pt-PT'));
