@@ -14,6 +14,7 @@ import Header from '../../component/molecules/Header';
 import {useState, useEffect} from 'react';
 import DatePicker from 'react-native-date-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import InputModal from './parts/InputModal';
 
 const maxDate = new Date();
 maxDate.setMonth(maxDate.getMonth() + 1);
@@ -61,8 +62,11 @@ export default function Home({navigation}) {
     }
   };
 
-  console.log('checkin =>', checkIn);
-  console.log('date =>', minimumDate);
+  useEffect(() => {
+    if (room > guest) {
+      setRoom(guest);
+    }
+  }, [guest, room]);
 
   return (
     <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
@@ -129,11 +133,6 @@ export default function Home({navigation}) {
                     onChange={(event, selectedDate) => {
                       if (event.type == 'set') {
                         setOpenCheckout(false);
-                        console.log('selected date', selectedDate);
-                        console.log(
-                          'formatted selected date',
-                          formatDate(selectedDate),
-                        );
                         setInputCheckOut(formatDate(selectedDate));
                         setCheckOut(selectedDate.toLocaleDateString('pt-PT'));
                       } else {
@@ -144,14 +143,26 @@ export default function Home({navigation}) {
                 )}
               </View>
             </View>
-            <View style={{marginVertical: 10}}>
+            <View style={{marginBottom: 10}}>
               <Button
                 title={`${guest} Guest & ${room} Room`}
                 color={colors.yellow}
                 onPress={() => setOpenModal(true)}
               />
             </View>
-
+            <InputModal
+              guest={guest}
+              room={room}
+              buttonMinRoom={() => setRoom(room - 1)}
+              buttonPlusRoom={() => setRoom(room + 1)}
+              buttonMinGuest={() => setGuest(guest - 1)}
+              buttonPlusGuest={() => setGuest(guest + 1)}
+              onRequestClose={() => setOpenModal(!openModal)}
+              onPressOk={() => {
+                setOpenModal(false);
+              }}
+              visible={openModal}
+            />
             <Button title="Search" color={colors.darkBlue} />
           </View>
         </View>

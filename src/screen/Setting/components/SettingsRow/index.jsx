@@ -8,8 +8,8 @@ import {
 import EditModal from '../EditModal';
 import {useState} from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateUser } from '../../../../features/loginSlice';
+import {useDispatch, useSelector} from 'react-redux';
+import {updateUser} from '../../../../features/loginSlice';
 
 export default function SettingsRow({
   isPassword,
@@ -19,8 +19,7 @@ export default function SettingsRow({
   data,
   dataEditable,
 }) {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [modalVisible, setModalVisible] = useState(false);
   const [inputTextValue, setInputTextValue] = useState(data);
@@ -34,9 +33,10 @@ export default function SettingsRow({
         <>
           <TouchableOpacity
             style={styles.dataEditButton}
-            onPress={() => setModalVisible(true)}
-          >
-            <Text style={styles.dataText}>{isPassword ? data.replace(/./gi, '•') : data} </Text>
+            onPress={() => setModalVisible(true)}>
+            <Text style={styles.dataText}>
+              {isPassword ? data.replace(/./gi, '•') : data}{' '}
+            </Text>
             <Text style={styles.dataText}>
               <FontAwesome5 name="chevron-right" />
             </Text>
@@ -50,7 +50,7 @@ export default function SettingsRow({
               setModalVisible(false);
             }}
             onPressEdit={() => {
-              dispatch(updateUser({prop, value: inputTextValue}))
+              dispatch(updateUser({prop, value: inputTextValue}));
               setModalVisible(false);
             }}
             data={inputTextValue}
