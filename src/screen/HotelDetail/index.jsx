@@ -163,5 +163,6 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     textAlign: 'justify',
+    color: colors.darkGrey,
   },
 });

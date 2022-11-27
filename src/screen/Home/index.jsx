@@ -32,22 +32,22 @@ export default function Home({navigation}) {
   const [input, setInput] = useState('');
   const [inputCheckIn, setInputCheckIn] = useState();
   const [inputCheckOut, setInputCheckOut] = useState();
-  const [date, setDate] = useState(new Date());
-  const [minimumDate, setMinimumDate] = useState();
+  const date = new Date();
+  const [minimumDate, setMinimumDate] = useState(date);
   const [checkIn, setCheckIn] = useState('Check in');
   const [checkOut, setCheckOut] = useState('Check Out');
-  const [open, setOpen] = useState(false);
+  const [openCheckIn, setOpenCheckIn] = useState(false);
+  const [openCheckOut, setOpenCheckOut] = useState(false);
 
-  console.log(inputCheckIn);
-
-  const checkOutButton = () => {
-    if (checkIn === '') {
-      setOpen(true);
+  const CheckOutButton = () => {
+    if (!inputCheckIn == '') {
+      setOpenCheckOut(true);
     } else {
-      alert('Please input checkin');
+      alert('Please input Check-in');
     }
   };
 
+  console.log('minimum date ==>', minimumDate);
   return (
     <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
       <ScrollView>
@@ -71,25 +71,25 @@ export default function Home({navigation}) {
               <View>
                 <Button
                   title={checkIn}
-                  onPress={() => setOpen(true)}
+                  onPress={() => setOpenCheckIn(true)}
                   color={colors.yellow}
                   width={120}
                 />
                 <DatePicker
                   modal
-                  open={open}
+                  open={openCheckIn}
                   minimumDate={date}
                   maximumDate={maxDate}
                   mode="date"
                   date={date}
                   onConfirm={date => {
-                    setOpen(false);
+                    setOpenCheckIn(false);
                     setCheckIn(date.toLocaleDateString('pt-PT'));
                     setInputCheckIn(formatDate(date));
                     setMinimumDate(date);
                   }}
                   onCancel={() => {
-                    setOpen(false);
+                    setOpenCheckIn(false);
                   }}
                 />
               </View>
@@ -97,23 +97,23 @@ export default function Home({navigation}) {
               <View>
                 <Button
                   title={checkOut}
-                  onPress={checkOutButton}
+                  onPress={CheckOutButton}
                   color={colors.yellow}
                   width={120}
                 />
                 <DatePicker
                   modal
-                  open={open}
+                  open={openCheckOut}
                   minimumDate={minimumDate}
                   mode="date"
-                  date={date}
+                  date={minimumDate}
                   onConfirm={date => {
-                    setOpen(false);
+                    setOpenCheckOut(false);
                     setCheckOut(date.toLocaleDateString('pt-PT'));
                     setInputCheckOut(formatDate(date));
                   }}
                   onCancel={() => {
-                    setOpen(false);
+                    setOpenCheckOut(false);
                   }}
                 />
               </View>
