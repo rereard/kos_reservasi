@@ -2,7 +2,6 @@ import {View, TextInput, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import {colors} from '../../../utils';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import InputDate from '../Date';
 
 export default function Input({
   placeholder,
@@ -27,9 +26,6 @@ export default function Input({
     }
   };
 
-  if (type === 'date') {
-    return <InputDate title={title} width={width} />;
-  }
   return (
     <View>
       <TextInput
