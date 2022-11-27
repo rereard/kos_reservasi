@@ -119,7 +119,7 @@ export default function Home({navigation}) {
               <View>
                 <Button
                   title={checkOut}
-                  onPress={CheckOutButton}
+                  onPress={checkOutButton}
                   color={colors.yellow}
                   width={120}
                 />
