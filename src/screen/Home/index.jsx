@@ -18,13 +18,21 @@ const maxDate = new Date();
 maxDate.setMonth(maxDate.getMonth() + 1);
 
 const formatDate = date => {
-  const d = new Date(date),
-    month = '' + (d.getMonth() + 1),
-    day = '' + d.getDate(),
-    year = d.getFullYear();
+  console.log("date from formatDate", date);
+  const d = new Date(date)
 
-  if (month.length < 2) month = '0' + month;
-  if (day.length < 2) day = '0' + day;
+  month = '' + (d.getMonth() + 1)
+  day = '' + d.getDate()
+  year = d.getFullYear()
+
+  if(month.length < 2){ 
+    month = '0' + month
+  }
+  if(day.length < 2){ 
+    day = '0' + day
+  }
+
+  console.log("d from formatdate", d);
 
   return [year, month, day].join('-');
 };
@@ -39,6 +47,9 @@ export default function Home({navigation}) {
   const [checkOut, setCheckOut] = useState('Check Out');
   const [openCheckin, setOpenCheckin] = useState(false);
   const [openCheckout, setOpenCheckout] = useState(false);
+
+  console.log("checkout",inputCheckOut);
+  console.log("minimum date", minimumDate);
 
   const checkOutButton = () => {
     if (inputCheckIn) {
@@ -113,6 +124,8 @@ export default function Home({navigation}) {
                     onChange={(event, selectedDate) => {
                       if (event.type == 'set') {
                         setOpenCheckout(false);
+                        console.log("selected date", selectedDate);
+                        console.log("formatted selected date", formatDate(selectedDate));
                         setInputCheckOut(formatDate(selectedDate));
                         setCheckOut(selectedDate.toLocaleDateString('pt-PT'));
                       } else {
