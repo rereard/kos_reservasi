@@ -5,6 +5,7 @@ import {
   Text,
   View,
   Image,
+  Modal,
 } from 'react-native';
 
 import {colors} from '../../utils';
@@ -23,8 +24,12 @@ const formatDate = date => {
     day = '' + d.getDate(),
     year = d.getFullYear();
 
-  if (month.length < 2) month = '0' + month;
-  if (day.length < 2) day = '0' + day;
+  if (month.length < 2) {
+    month = '0' + month;
+  }
+  if (day.length < 2) {
+    day = '0' + day;
+  }
 
   return [year, month, day].join('-');
 };
@@ -39,6 +44,9 @@ export default function Home({navigation}) {
   const [checkOut, setCheckOut] = useState('Check Out');
   const [openCheckin, setOpenCheckin] = useState(false);
   const [openCheckout, setOpenCheckout] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [guest, setGuest] = useState(1);
+  const [room, setRoom] = useState(1);
 
   const checkOutButton = () => {
     if (inputCheckIn) {
@@ -47,6 +55,9 @@ export default function Home({navigation}) {
       alert('Please input Check-in');
     }
   };
+
+  console.log('checkin =>', checkIn);
+  console.log('date =>', minimumDate);
 
   return (
     <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
@@ -123,6 +134,14 @@ export default function Home({navigation}) {
                 )}
               </View>
             </View>
+            <View style={{marginVertical: 10}}>
+              <Button
+                title={`${guest} Guest & ${room} Room`}
+                color={colors.yellow}
+                onPress={() => setOpenModal(true)}
+              />
+            </View>
+
             <Button title="Search" color={colors.darkBlue} />
           </View>
         </View>
