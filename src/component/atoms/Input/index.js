@@ -33,7 +33,7 @@ export default function Input({
         secureTextEntry={showPassword}
       />
       {type === 'password' ? (
-        <Ionicons name={iconEye} style={styles.icon} onPress={ShowPw} />
+        <Ionicons name={iconEye} style={styles.icon(type)} onPress={ShowPw} />
       ) : (
         <></>
       )}
