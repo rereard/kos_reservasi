@@ -8,8 +8,6 @@ export default function Input({
   onChangeText,
   type,
   backgroundColor,
-  title,
-  width,
 }) {
   const [showPassword, setShowPassword] = useState(
     type === 'password' ? true : false,
@@ -39,6 +37,11 @@ export default function Input({
       ) : (
         <></>
       )}
+      {type === 'search' ? (
+        <Ionicons name={'search-outline'} style={styles.icon(type)} />
+      ) : (
+        <></>
+      )}
     </View>
   );
 }
@@ -47,17 +50,17 @@ const styles = StyleSheet.create({
   Input: (type, backgroundColor) => ({
     borderRadius: 10,
     backgroundColor:
-    backgroundColor === colors.grey ? colors.grey : colors.white,
-    paddingRight: type === 'password' ? 40 : 20,
+      backgroundColor === colors.grey ? colors.grey : colors.white,
+    paddingRight: type === 'password' || type === 'search' ? 40 : 20,
     paddingLeft: 20,
-    color: colors.black
+    color: colors.black,
   }),
-  icon: {
+  icon: type => ({
     position: 'absolute',
     right: 0,
     top: 0,
     fontSize: 20,
     padding: 14,
-    color: colors.black
-  },
+    color: type === 'search' ? colors.darkGrey : colors.black,
+  }),
 });

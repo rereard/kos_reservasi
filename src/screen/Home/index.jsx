@@ -17,8 +17,8 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 const maxDate = new Date();
 maxDate.setMonth(maxDate.getMonth() + 1);
 
-function formatDate(date) {
-  var d = new Date(date),
+const formatDate = date => {
+  const d = new Date(date),
     month = '' + (d.getMonth() + 1),
     day = '' + d.getDate(),
     year = d.getFullYear();
@@ -27,23 +27,18 @@ function formatDate(date) {
   if (day.length < 2) day = '0' + day;
 
   return [year, month, day].join('-');
-}
+};
 
 export default function Home({navigation}) {
   const [input, setInput] = useState('');
   const [inputCheckIn, setInputCheckIn] = useState(null);
   const [inputCheckOut, setInputCheckOut] = useState(null);
   const date = new Date();
-  const [minimumDate, setMinimumDate] = useState();
+  const [minimumDate, setMinimumDate] = useState(date);
   const [checkIn, setCheckIn] = useState('Check in');
   const [checkOut, setCheckOut] = useState('Check Out');
   const [openCheckin, setOpenCheckin] = useState(false);
   const [openCheckout, setOpenCheckout] = useState(false);
-
-    console.log("Checkin", inputCheckIn);
-    console.log("Checkout", inputCheckOut);
-    console.log("min date", minimumDate);
-    console.log("max date", maxDate);
 
   const checkOutButton = () => {
     if (inputCheckIn) {
@@ -53,7 +48,6 @@ export default function Home({navigation}) {
     }
   };
 
-  console.log('minimum date ==>', minimumDate);
   return (
     <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
       <ScrollView>
@@ -65,6 +59,7 @@ export default function Home({navigation}) {
           <View style={styles.boxSearch}>
             <Input
               placeholder="Search place or lacation.."
+              type="search"
               onChangeText={value => setInput(value)}
             />
             <View
@@ -82,38 +77,24 @@ export default function Home({navigation}) {
                   width={120}
                 />
                 {openCheckin && (
-                  <DateTimePicker 
+                  <DateTimePicker
                     value={date}
                     mode={'date'}
                     display={Platform.OS === 'ios' ? 'spinner' : 'default'}
                     minimumDate={date}
                     maximumDate={maxDate}
                     onChange={(event, selectedDate) => {
-                      console.log("selectedDate", selectedDate.nativeEvent);
-                      setOpenCheckin(false)
-                      setInputCheckIn(formatDate(selectedDate))
-                      setCheckIn(selectedDate.toLocaleDateString('pt-PT'))
-                      setMinimumDate(selectedDate)
+                      if (event.type == 'set') {
+                        setOpenCheckin(false);
+                        setInputCheckIn(formatDate(selectedDate));
+                        setCheckIn(selectedDate.toLocaleDateString('pt-PT'));
+                        setMinimumDate(selectedDate);
+                      } else {
+                        setOpenCheckin(false);
+                      }
                     }}
                   />
                 )}
-                {/* <DatePicker
-                  modal
-                  open={openCheckin}
-                  minimumDate={date}
-                  maximumDate={maxDate}
-                  mode="date"
-                  date={date}
-                  onConfirm={date => {
-                    setOpenCheckin(false);
-                    setCheckIn(date.toLocaleDateString('pt-PT'));
-                    setInputCheckIn(formatDate(date));
-                    setMinimumDate(date);
-                  }}
-                  onCancel={() => {
-                    setOpenCheckin(false);
-                  }}
-                /> */}
               </View>
               <Text style={{fontSize: 20, color: colors.black}}>-</Text>
               <View>
@@ -124,33 +105,22 @@ export default function Home({navigation}) {
                   width={120}
                 />
                 {openCheckout && (
-                  <DateTimePicker 
-                    value={date}
+                  <DateTimePicker
+                    value={minimumDate}
                     mode={'date'}
                     display={Platform.OS === 'ios' ? 'spinner' : 'default'}
                     minimumDate={minimumDate}
                     onChange={(event, selectedDate) => {
-                      setOpenCheckout(false)
-                      setInputCheckOut(formatDate(selectedDate))
-                      setCheckOut(selectedDate.toLocaleDateString('pt-PT'))
+                      if (event.type == 'set') {
+                        setOpenCheckout(false);
+                        setInputCheckOut(formatDate(selectedDate));
+                        setCheckOut(selectedDate.toLocaleDateString('pt-PT'));
+                      } else {
+                        setOpenCheckout(false);
+                      }
                     }}
                   />
                 )}
-                {/* <DatePicker
-                  modal
-                  open={openCheckout}
-                  minimumDate={minimumDate}
-                  mode="date"
-                  date={minimumDate}
-                  onConfirm={date => {
-                    setOpenCheckout(false);
-                    setCheckOut(date.toLocaleDateString('pt-PT'));
-                    setInputCheckOut(formatDate(date));
-                  }}
-                  onCancel={() => {
-                    setOpenCheckout(false);
-                  }}
-                /> */}
               </View>
             </View>
             <Button title="Search" color={colors.darkBlue} />
