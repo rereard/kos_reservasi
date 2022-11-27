@@ -15,6 +15,8 @@ import {useState, useEffect} from 'react';
 import DatePicker from 'react-native-date-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import InputModal from './parts/InputModal';
+import TopDestinations from './parts/TopDestinations';
+import PopularDestinations from './parts/PopularDestinations';
 
 const maxDate = new Date();
 maxDate.setMonth(maxDate.getMonth() + 1);
@@ -165,6 +167,10 @@ export default function Home({navigation}) {
             />
             <Button title="Search" color={colors.darkBlue} />
           </View>
+        </View>
+        <View style={{marginLeft: 20}}>
+          <TopDestinations />
+          <PopularDestinations />
         </View>
       </ScrollView>
     </SafeAreaView>
