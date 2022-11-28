@@ -79,7 +79,7 @@ const Router = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="Home"
+        name="main"
         component={MainApp}
         options={{headerShown: false}}
       />

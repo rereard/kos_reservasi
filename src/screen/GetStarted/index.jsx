@@ -19,7 +19,7 @@ export default function GetStarted({navigation}) {
         <Button
           title="Get Started"
           color={colors.yellow}
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('main')}
         />
         <View style={{height: 10}}></View>
         <Button

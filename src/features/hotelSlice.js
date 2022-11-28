@@ -8,10 +8,41 @@ const initialState = {
     hotels: [],
 }
 
-export const fetchHotels = createAsyncThunk('hotels/fetchHotels', async () => {
+export const fetchHotels = createAsyncThunk('hotels/fetchHotels', async (props) => {
+    const { location, checkIn, checkOut, guests, rooms } = props
     try {
-        const response = await axios.get('https://')
-        return response.data
+        const responseLocation = await axios.request({
+            method: 'GET',
+            url: `${process.env.REACT_APP_URL}/locations/auto-complete`,
+            params: {text: location, languagecode: 'id'},
+            headers: {
+                'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+                'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com'
+            }
+        })
+        const findDestType = responseLocation.data.find(result => result.dest_type === "city")
+        const responseHotels = await axios.request({
+            method: 'GET',
+            url: `${process.env.REACT_APP_URL}/properties/list`,
+            params: {
+                offset: '0',
+                arrival_date: checkIn,
+                departure_date: checkOut,
+                guest_qty: guests,
+                dest_ids: findDestType.dest_id,
+                room_qty: rooms,
+                search_type: 'city',
+                search_id: 'none',
+                price_filter_currencycode: 'IDR',
+                order_by: 'popularity',
+                languagecode: 'id'
+            },
+            headers: {
+                'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+                'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com'
+            }
+        })
+        return responseHotels.data.result
     } catch (e) {
         throw(e)
     }

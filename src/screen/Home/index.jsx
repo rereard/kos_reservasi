@@ -12,22 +12,21 @@ import {colors} from '../../utils';
 import {Button, Input} from '../../component/atoms';
 import Header from '../../component/molecules/Header';
 import {useState, useEffect} from 'react';
-import DatePicker from 'react-native-date-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import InputModal from './parts/InputModal';
 import TopDestinations from './parts/TopDestinations';
 import PopularDestinations from './parts/PopularDestinations';
 
 const maxDate = new Date();
+
 maxDate.setMonth(maxDate.getMonth() + 1);
 
 const formatDate = date => {
-  console.log('date from formatDate', date);
   const d = new Date(date);
 
-  month = '' + (d.getMonth() + 1);
-  day = '' + d.getDate();
-  year = d.getFullYear();
+  let month = '' + (d.getMonth() + 1);
+  let day = '' + d.getDate();
+  let year = d.getFullYear();
 
   if (month.length < 2) {
     month = '0' + month;
@@ -35,7 +34,6 @@ const formatDate = date => {
   if (day.length < 2) {
     day = '0' + day;
   }
-
   return [year, month, day].join('-');
 };
 
@@ -162,7 +160,17 @@ export default function Home({navigation}) {
               }}
               visible={openModal}
             />
-            <Button title="Search" color={colors.darkBlue} />
+            <Button title="Search" color={colors.darkBlue} onPress={
+              () => input !== '' && inputCheckIn && inputCheckOut && 
+                navigation.navigate("SearchResult", {
+                  location: input,
+                  checkIn: inputCheckIn,
+                  checkOut: inputCheckOut,
+                  guests: guest,
+                  rooms: room
+                })
+              }
+            />
           </View>
         </View>
         <View style={{marginLeft: 20}}>
