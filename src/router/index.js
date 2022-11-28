@@ -6,16 +6,16 @@ import {
   Favorite,
   GetStarted,
   Home,
-  Profile,
   SearchResult,
-  Setting,
   Sign,
   Splash,
-  Invoice
+  Invoice,
+  Receipt,
+  Profile,
 } from '../screen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { colors } from '../utils';
+import {colors} from '../utils';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -47,22 +47,22 @@ const MainApp = () => {
         }}
       />
       <Tab.Screen
+        name="Receipt"
+        component={Receipt}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({color, size}) => (
+            <Ionicons name="receipt" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
         name="Profile"
         component={Profile}
         options={{
           headerShown: false,
           tabBarIcon: ({color, size}) => (
             <Ionicons name="person-circle-sharp" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Setting"
-        component={Setting}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({color, size}) => (
-            <Ionicons name="settings" color={color} size={size} />
           ),
         }}
       />
@@ -112,11 +112,11 @@ const Router = () => {
         name="Invoice"
         component={Invoice}
         options={{
-          title: 'Booking\'s Detail',
+          title: "Booking's Detail",
           headerStyle: {
-            backgroundColor: colors.darkBlue
+            backgroundColor: colors.darkBlue,
           },
-          headerTintColor: colors.white
+          headerTintColor: colors.white,
         }}
       />
     </Stack.Navigator>

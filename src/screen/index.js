@@ -5,7 +5,7 @@ import DetailHotel from './HotelDetail';
 import Sign from './Sign';
 import Profile from './Profile';
 import SearchResult from './SearchResult';
-import Setting from './Setting';
+import Receipt from './Receipt';
 import Splash from './Splash';
 import GetStarted from './GetStarted';
 import Invoice from './Invoice';
@@ -16,10 +16,10 @@ export {
   DetailHotel,
   SearchResult,
   Home,
-  Setting,
   Favorite,
-  Profile,
   Splash,
   GetStarted,
-  Invoice
+  Invoice,
+  Profile,
+  Receipt,
 };

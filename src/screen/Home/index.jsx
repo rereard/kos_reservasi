@@ -180,8 +180,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
+    fontWeight: 'bold',
     color: colors.darkBlue,
-    width: 300,
+    width: 280,
     marginTop: 30,
   },
   boxSearch: {

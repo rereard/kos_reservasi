@@ -10,6 +10,7 @@ import {useState} from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {useDispatch, useSelector} from 'react-redux';
 import {updateUser} from '../../../../features/loginSlice';
+import {colors} from '../../../../utils';
 
 export default function SettingsRow({
   isPassword,
@@ -68,9 +69,10 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     flexDirection: 'row',
     borderBottomWidth: 1,
+    borderColor: colors.grey,
   },
   titleText: {
-    color: '#000',
+    color: colors.black,
   },
   dataEditButton: {
     flex: 1,
@@ -79,6 +81,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   dataText: {
-    color: '#a3a3a3',
+    color: colors.darkGrey,
   },
 });
