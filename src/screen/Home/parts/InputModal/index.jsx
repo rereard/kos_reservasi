@@ -60,7 +60,7 @@ export default function InputModal({
                 disabled={room === 1 ? true : false}>
                 <Text style={styles.textButton}>-</Text>
               </TouchableOpacity>
-              <Text style={{paddingHorizontal: 20}}>{room}</Text>
+              <Text style={{paddingHorizontal: 20, color: colors.black}}>{room}</Text>
               <TouchableOpacity
                 style={styles.Button}
                 onPress={buttonPlusRoom}
