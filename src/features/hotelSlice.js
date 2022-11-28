@@ -6,6 +6,7 @@ const initialState = {
     isSuccess: false,
     errorMessage: '',
     hotels: [],
+    searchId: ''
 }
 
 export const fetchHotels = createAsyncThunk('hotels/fetchHotels', async (props) => {
@@ -42,7 +43,7 @@ export const fetchHotels = createAsyncThunk('hotels/fetchHotels', async (props) 
                 'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com'
             }
         })
-        return responseHotels.data.result
+        return [responseHotels.data.result, responseHotels.data.search_id]
     } catch (e) {
         throw(e)
     }
@@ -65,7 +66,8 @@ const hotelSlice = createSlice({
             state.errorMessage = action.error.message
         })
         .addCase(fetchHotels.fulfilled, (state, action) => {
-            state.hotels = action.payload
+            state.hotels = action.payload[0]
+            state.searchId = action.payload[1]
             state.isSuccess = true
             state.isPending = false
             state.loading = false

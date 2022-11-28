@@ -14,7 +14,10 @@ import {useState} from 'react';
 import Button from '../../atoms/Button';
 import {colors} from '../../../utils';
 
-export default function HotelCard({onPress}) {
+export default function HotelCard({onPress, image, hotelName, price, reviewScore, reviewTotal}) {
+
+  const imageResize = image?.replace("square60", "max500")
+
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
@@ -26,7 +29,7 @@ export default function HotelCard({onPress}) {
         onPress={onPress}>
         <Image
           source={{
-            uri: 'https://img.inews.co.id/media/822/files/inews_new/2022/03/25/Hotel_Dekat_Malioboro.jpg',
+            uri: imageResize,
           }}
           style={styles.image}
         />
@@ -44,10 +47,10 @@ export default function HotelCard({onPress}) {
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text numberOfLines={2} style={styles.title}>
-                Golden Time Hotel
+                {hotelName}
               </Text>
               <View>
-                <Text style={styles.text}>Rp 200.000</Text>
+                <Text style={styles.text}>Rp {price}</Text>
                 <Text style={styles.text}>/Night</Text>
               </View>
             </View>
@@ -57,7 +60,7 @@ export default function HotelCard({onPress}) {
                 icon={'star'}
                 color={colors.yellow}
                 size={15}></Button>
-              <Text style={{ color: colors.darkGrey }}>9.99 | 99 Review</Text>
+              <Text style={{ color: colors.darkGrey }}>{reviewScore} | {reviewTotal} Review</Text>
             </View>
           </View>
         </View>
