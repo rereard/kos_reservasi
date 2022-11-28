@@ -23,17 +23,6 @@ export default function Receipt({navigation}) {
       <SafeAreaView>
         <ScrollView>
           <View style={{margin: 20}}>
-            <Text
-              style={[
-                styles.textHeader(colors.black),
-                {marginTop: 20, marginBottom: 10},
-              ]}>
-              <Ionicons
-                name="md-timer-outline"
-                style={{fontSize: 18, color: colors.darkBlue}}
-              />{' '}
-              Booking History
-            </Text>
             <BookHistoryCard onPress={() => navigation.navigate('Invoice')} />
             <BookHistoryCard onPress={() => navigation.navigate('Invoice')} />
             <BookHistoryCard onPress={() => navigation.navigate('Invoice')} />

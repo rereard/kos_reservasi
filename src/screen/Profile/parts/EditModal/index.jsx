@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    width: '75%',
+    width: '85%',
   },
   modalHeader: {
     marginBottom: 10,

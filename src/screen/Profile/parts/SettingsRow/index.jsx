@@ -38,9 +38,9 @@ export default function SettingsRow({
             <Text style={styles.dataText}>
               {isPassword ? data.replace(/./gi, '•') : data}{' '}
             </Text>
-            <Text style={styles.dataText}>
+            <View style={styles.dataText}>
               <FontAwesome5 name="chevron-right" />
-            </Text>
+            </View>
           </TouchableOpacity>
           <EditModal
             title={title}

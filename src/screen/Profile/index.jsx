@@ -7,7 +7,7 @@ import {
   Image,
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import SettingsRow from './components/SettingsRow';
+import {SettingsRow} from './parts';
 import Button from '../../component/atoms/Button';
 import {colors} from '../../utils';
 import {removeLogin} from '../../features/loginSlice';
@@ -21,39 +21,39 @@ export default function Profile({navigation}) {
     <SafeAreaView style={styles.page}>
       <ScrollView>
         <View style={styles.container}>
-          <Text style={styles.header}>Profile</Text>
-          <View style={styles.profileUser}>
-            <Image source={{uri: user?.image}} style={styles.image} />
-            <View style={{marginTop: 10}}>
-              <Text style={styles.userName}>
-                {user?.firstName} {user?.lastName}
-              </Text>
-              <Text style={styles.email}>{user?.email}</Text>
-            </View>
-          </View>
-          <View style={styles.boxActivity}>
-            <View style={styles.activity}>
-              <View style={{marginHorizontal: 10}}>
-                <Text
-                  style={styles.totalActivity}
-                  onPress={() => navigation.navigate('Receipt')}>
-                  99
-                </Text>
-                <Text style={styles.titleActivity}>Booking</Text>
+          {user ? (
+            <>
+              <Text style={styles.header}>Profile</Text>
+              <View style={styles.profileUser}>
+                <Image source={{uri: user?.image}} style={styles.image} />
+                <View style={{marginTop: 10}}>
+                  <Text style={styles.userName}>
+                    {user?.firstName} {user?.lastName}
+                  </Text>
+                  <Text style={styles.email}>{user?.email}</Text>
+                </View>
               </View>
-              <View style={{marginHorizontal: 10}}>
-                <Text
-                  style={styles.totalActivity}
-                  onPress={() => navigation.navigate('Favorite')}>
-                  99
-                </Text>
-                <Text style={styles.titleActivity}>Favorites</Text>
+              <View style={styles.boxActivity}>
+                <View style={styles.activity}>
+                  <View style={{marginHorizontal: 10}}>
+                    <Text
+                      style={styles.totalActivity}
+                      onPress={() => navigation.navigate('Receipt')}>
+                      99
+                    </Text>
+                    <Text style={styles.titleActivity}>Booking</Text>
+                  </View>
+                  <View style={{marginHorizontal: 10}}>
+                    <Text
+                      style={styles.totalActivity}
+                      onPress={() => navigation.navigate('Favorite')}>
+                      99
+                    </Text>
+                    <Text style={styles.titleActivity}>Favorites</Text>
+                  </View>
+                </View>
               </View>
-            </View>
-          </View>
-          <View style={styles.box}>
-            {user ? (
-              <>
+              <View style={styles.box}>
                 <SettingsRow
                   title="Username"
                   dataEditable={true}
@@ -85,13 +85,14 @@ export default function Profile({navigation}) {
                   data={user?.lastName}
                   prop="lastName"
                 />
-              </>
-            ) : (
-              <Text style={{color: colors.black, fontSize: 15}}>
-                Sign in to see your account settings
-              </Text>
-            )}
-          </View>
+              </View>
+            </>
+          ) : (
+            <Text style={{color: colors.black, fontSize: 15}}>
+              Sign in to see your account settings
+            </Text>
+          )}
+
           <Button
             onPress={
               user
