@@ -10,9 +10,12 @@ import {
   Image,
   Pressable,
 } from 'react-native';
-import {useState} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {useState, useEffect} from 'react';
+import {useNavigation} from '@react-navigation/native';
 import Button from '../../atoms/Button';
 import {colors} from '../../../utils';
+import {addFavorite, deleteFavorite} from '../../../features/favoriteSlice';
 
 export default function HotelCard({
   onPress,
@@ -21,12 +24,50 @@ export default function HotelCard({
   price,
   reviewScore,
   reviewTotal,
-  address,
-  city,
+  hotelId,
+  guests,
+  rooms,
 }) {
+  const navigation = useNavigation();
+
+  const dispatch = useDispatch();
+
+  const user = useSelector(state => state.login.user);
+  const favorites = useSelector(
+    state => state.favorite.favorites[user?.username],
+  );
+
   const imageResize = image?.replace('square60', 'max500');
 
   const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    favorites?.find(item => item?.hotelId === hotelId) && setIsFavorite(true);
+  }, [isFavorite]);
+
+  const Favorited = () => {
+    if (isFavorite === false) {
+      dispatch(
+        addFavorite({
+          username: user.username,
+          data: {
+            hotelId,
+            image,
+            price,
+            reviewScore,
+            reviewTotal,
+            hotelName,
+            guests,
+            rooms,
+          },
+        }),
+      );
+      setIsFavorite(!isFavorite);
+    } else if (isFavorite === true) {
+      dispatch(deleteFavorite({username: user.username, id: hotelId}));
+      setIsFavorite(false);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -45,7 +86,7 @@ export default function HotelCard({
           <Button
             type="icon"
             icon={isFavorite ? 'heart' : 'heart-outline'}
-            onPress={() => setIsFavorite(!isFavorite)}
+            onPress={user ? Favorited : () => navigation.navigate('Sign')}
             color={isFavorite ? colors.pink : colors.white}
             size={30}
           />
@@ -79,9 +120,26 @@ export default function HotelCard({
                 </View>
               </View>
               <View>
-                <Text style={styles.text}>Rp {price}</Text>
+                <Text style={styles.text}>~Rp {price}</Text>
                 <Text style={styles.text}>/Night</Text>
               </View>
+            </View>
+            <View style={{flexDirection: 'column'}}>
+              <View style={{flexDirection: 'row'}}>
+                <Button
+                  type="icon"
+                  icon={'star'}
+                  color={colors.yellow}
+                  size={15}></Button>
+                <Text style={{color: colors.darkGrey}}>
+                  {reviewScore} | {reviewTotal} Review
+                </Text>
+              </View>
+              {guests && rooms ? (
+                <Text style={{color: colors.darkGrey}}>
+                  {guests} person | {rooms} rooms
+                </Text>
+              ) : null}
             </View>
           </View>
         </View>

@@ -75,15 +75,9 @@ export default function SearchResult({route, navigation}) {
             /> */}
             {hotels.map(item => (
               <HotelCard
-                onPress={() =>
-                  navigation.navigate('DetailHotel', {
-                    hotel_id: item?.hotel_id,
-                    checkIn: checkIn,
-                    checkOut: checkOut,
-                    guests: guests,
-                    rooms: rooms,
-                  })
-                }
+                key={item?.hotel_id}
+                onPress={() => navigation.navigate('DetailHotel')}
+                hotelId={item?.hotel_id}
                 image={item?.main_photo_url}
                 hotelName={item?.hotel_name}
                 price={item?.price_breakdown?.all_inclusive_price}
@@ -91,6 +85,8 @@ export default function SearchResult({route, navigation}) {
                 city={item?.city}
                 reviewScore={item?.review_score}
                 reviewTotal={item?.review_nr}
+                guests={guests}
+                rooms={rooms}
               />
             ))}
           </View>

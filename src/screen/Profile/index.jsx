@@ -15,7 +15,8 @@ import {removeLogin} from '../../features/loginSlice';
 export default function Profile({navigation}) {
   const dispatch = useDispatch();
 
-  const user = useSelector(state => state.login.user);
+  const user = useSelector(state => state?.login?.user);
+  const favorites = useSelector(state => state?.favorite?.favorites)
 
   return (
     <SafeAreaView style={styles.page}>
@@ -47,7 +48,7 @@ export default function Profile({navigation}) {
                     <Text
                       style={styles.totalActivity}
                       onPress={() => navigation.navigate('Favorite')}>
-                      99
+                      {favorites[user?.username]?.length}
                     </Text>
                     <Text style={styles.titleActivity}>Favorites</Text>
                   </View>

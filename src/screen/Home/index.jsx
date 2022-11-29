@@ -65,6 +65,9 @@ export default function Home({navigation}) {
     }
   }, [guest, room]);
 
+  // console.log("inputcheckin", inputCheckIn);
+  // console.log("minimumdate", minimumDate);
+
   return (
     <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
       <ScrollView>

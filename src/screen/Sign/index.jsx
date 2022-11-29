@@ -26,7 +26,7 @@ export default function Sign({navigation}) {
       .then(response => {
         console.log(response);
         dispatch(setUser({auth: response.data, pass: password}))
-        navigation.navigate('Home');
+        navigation.navigate('main');
       })
       .catch(err => {
         console.log(err);
