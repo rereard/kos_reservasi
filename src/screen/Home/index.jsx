@@ -65,6 +65,9 @@ export default function Home({navigation}) {
     }
   }, [guest, room]);
 
+  // console.log("inputcheckin", inputCheckIn);
+  // console.log("minimumdate", minimumDate);
+
   return (
     <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
       <ScrollView>
@@ -105,7 +108,8 @@ export default function Home({navigation}) {
                         setOpenCheckin(false);
                         setInputCheckIn(formatDate(selectedDate));
                         setCheckIn(selectedDate.toLocaleDateString('pt-PT'));
-                        setMinimumDate(selectedDate);
+                        let d = new Date(selectedDate.setDate(selectedDate.getDate() + 1))
+                        setMinimumDate(d);
                       } else {
                         setOpenCheckin(false);
                       }

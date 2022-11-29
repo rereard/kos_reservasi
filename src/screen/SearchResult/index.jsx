@@ -65,12 +65,16 @@ export default function SearchResult({ route, navigation}) {
             /> */}
             {hotels.map(item => (
               <HotelCard 
+                key={item?.hotel_id}
                 onPress={() => navigation.navigate("DetailHotel")}
+                hotelId={item?.hotel_id}
                 image={item?.main_photo_url}
                 hotelName={item?.hotel_name}
                 price={item?.price_breakdown?.gross_price}
                 reviewScore={item?.review_score}
                 reviewTotal={item?.review_nr}
+                guests={guests}
+                rooms={rooms}
               />
             ))}
           </View>
