@@ -3,13 +3,15 @@ import favoriteReducer from './features/favoriteSlice';
 import hotelReducer from './features/hotelSlice';
 import bookHistoryReducer from './features/bookHistorySlice';
 import loginReducer from './features/loginSlice';
-import logger from "redux-logger"
+import logger from 'redux-logger';
+import ReviewSlice from './features/ReviewSlice';
 export default configureStore({
   reducer: {
     favorite: favoriteReducer,
     hotel: hotelReducer,
     bookHistory: bookHistoryReducer,
-    login: loginReducer
+    login: loginReducer,
+    review: ReviewSlice,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
 });

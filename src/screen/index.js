@@ -9,6 +9,7 @@ import Receipt from './Receipt';
 import Splash from './Splash';
 import GetStarted from './GetStarted';
 import Invoice from './Invoice';
+import Review from './Review';
 
 export {
   Sign,
@@ -22,4 +23,5 @@ export {
   Invoice,
   Profile,
   Receipt,
+  Review,
 };

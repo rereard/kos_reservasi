@@ -6,16 +6,21 @@ import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from '../../component/molecules/Header';
 import {colors} from '../../utils';
 import RatingStar from '../../component/atoms/RatingStar';
 import Button from '../../component/atoms/Button';
-import Review from '../../component/molecules/Review';
+import axios from 'axios';
+import ReviewParts from './parts/Review';
 
-export default function DetailHotel({navigation}) {
+export default function DetailHotel({route, navigation}) {
+  const {hotel_id, checkIn, checkOut, guests, rooms} = route.params;
+
   const [lineText, setLineText] = useState(3);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [detail, setDetailHotel] = useState([]);
+  const [description, setDescription] = useState([]);
 
   const readMore = () => {
     if (lineText === 0) {
@@ -24,8 +29,61 @@ export default function DetailHotel({navigation}) {
       setLineText(0);
     }
   };
+
+  console.log('==>', description);
+
+  useEffect(() => {
+    axios
+      .get(
+        'https://apidojo-booking-v1.p.rapidapi.com/properties/get-description',
+        {
+          params: {
+            hotel_ids: hotel_id,
+            languagecode: 'id',
+          },
+          headers: {
+            'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+            'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com',
+          },
+        },
+      )
+      .then(response => {
+        setDescription(response.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(description);
+  useEffect(() => {
+    axios
+      .get('https://apidojo-booking-v1.p.rapidapi.com/properties/detail', {
+        params: {
+          hotel_id: hotel_id,
+          search_id: 'none',
+          departure_date: checkOut,
+          arrival_date: checkIn,
+          rec_guest_qty: guests,
+          rec_room_qty: rooms,
+          currency_code: 'IDR',
+          languagecode: 'id',
+        },
+        headers: {
+          'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+          'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com',
+        },
+      })
+      .then(response => {
+        setDetailHotel(response.data[0]);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
       <ScrollView>
         <View>
           <Image
@@ -50,7 +108,7 @@ export default function DetailHotel({navigation}) {
               alignItems: 'center',
             }}>
             <View>
-              <Text style={styles.title}>Hotel Name</Text>
+              <Text style={styles.title}>{detail.hotel_name}</Text>
               <View style={{flexDirection: 'row'}}>
                 <RatingStar />
                 <View
@@ -65,7 +123,7 @@ export default function DetailHotel({navigation}) {
                     color={colors.darkBlue}
                     size={15}
                   />
-                  <Text style={{marginLeft: 5}}>Jakarta</Text>
+                  <Text style={{marginLeft: 5}}>{detail?.city}</Text>
                 </View>
               </View>
             </View>
@@ -90,31 +148,33 @@ export default function DetailHotel({navigation}) {
             <Text style={styles.facilities}>Airport transfers</Text>
             <Text style={styles.facilities}>24-hour front desk</Text>
           </ScrollView>
-          <View>
-            <Text numberOfLines={lineText} style={styles.description}>
-              Located in Jakarta, within 5.7 km of Pondok Indah Mall and 6 km of
-              Pacific Place, RedDoorz Plus near Lippo Mall Kemang 2 offers
-              accommodation with a garden. The property is around 6.5 km from
-              Plaza Senayan, 8.4 km from Ragunan Zoo and 10 km from Selamat
-              Datang Monument. The accommodation provides a 24-hour front desk
-              and free WiFi throughout the property. At the guest house each
-              room includes a private bathroom. Grand Indonesia is 10 km from
-              RedDoorz Plus near Lippo Mall Kemang 2, while Sarinah is 11 km
-              away. The nearest airport is Halim Perdanakusuma International
-              Airport, 11 km from the accommodation.
-            </Text>
-            {lineText === 0 ? (
-              <></>
-            ) : (
-              <Text onPress={readMore} style={{color: colors.darkBlue}}>
-                Read More..
+          {description ? (
+            <View>
+              <Text numberOfLines={lineText} style={styles.description}>
+                {description[1]
+                  ? description[1]?.description
+                  : description[0]?.description}
               </Text>
-            )}
-          </View>
+              {lineText === 0 ? (
+                <></>
+              ) : (
+                <Text onPress={readMore} style={{color: colors.darkBlue}}>
+                  Read More..
+                </Text>
+              )}
+            </View>
+          ) : (
+            <></>
+          )}
           <View>
-            <Text>All Reviews</Text>
-            <Review />
+            <Text>{detail.address}</Text>
           </View>
+        </View>
+        <View style={styles.review}>
+          <ReviewParts
+            hotel_id={hotel_id}
+            onPress={() => navigation.navigate('Review')}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -122,6 +182,12 @@ export default function DetailHotel({navigation}) {
 }
 
 const styles = StyleSheet.create({
+  review: {
+    borderTopWidth: 2,
+    borderBottomWidth: 2,
+    borderTopColor: colors.grey,
+    borderBottomColor: colors.grey,
+  },
   image: {
     height: 230,
     width: '100%',

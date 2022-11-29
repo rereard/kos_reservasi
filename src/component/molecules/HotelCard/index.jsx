@@ -14,9 +14,17 @@ import {useState} from 'react';
 import Button from '../../atoms/Button';
 import {colors} from '../../../utils';
 
-export default function HotelCard({onPress, image, hotelName, price, reviewScore, reviewTotal}) {
-
-  const imageResize = image?.replace("square60", "max500")
+export default function HotelCard({
+  onPress,
+  image,
+  hotelName,
+  price,
+  reviewScore,
+  reviewTotal,
+  address,
+  city,
+}) {
+  const imageResize = image?.replace('square60', 'max500');
 
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -42,25 +50,38 @@ export default function HotelCard({onPress, image, hotelName, price, reviewScore
             size={30}
           />
         </View>
+        <View style={styles.rating}>
+          <Button
+            type="icon"
+            icon={'star'}
+            color={colors.yellow}
+            size={15}></Button>
+          <Text style={{color: colors.white, marginLeft: 5}}>
+            {reviewScore} | {reviewTotal} Review
+          </Text>
+        </View>
         <View style={styles.content}>
           <View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text numberOfLines={2} style={styles.title}>
-                {hotelName}
-              </Text>
+              <View>
+                <Text numberOfLines={2} style={styles.title}>
+                  {hotelName}
+                </Text>
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                  <Button
+                    type="icon"
+                    color={colors.darkGrey}
+                    icon={'location-outline'}
+                    size={15}
+                  />
+                  <Text>{address ? address : city}</Text>
+                </View>
+              </View>
               <View>
                 <Text style={styles.text}>Rp {price}</Text>
                 <Text style={styles.text}>/Night</Text>
               </View>
-            </View>
-            <View style={{flexDirection: 'row'}}>
-              <Button
-                type="icon"
-                icon={'star'}
-                color={colors.yellow}
-                size={15}></Button>
-              <Text style={{ color: colors.darkGrey }}>{reviewScore} | {reviewTotal} Review</Text>
             </View>
           </View>
         </View>
@@ -104,12 +125,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     marginBottom: 5,
-    maxWidth: 230,
+    maxWidth: 210,
   },
   text: {
     color: '#0364ce',
     fontSize: 15,
     fontWeight: '400',
     textAlign: 'right',
+  },
+  rating: {
+    flexDirection: 'row',
+    position: 'absolute',
+    top: 0,
+    padding: 5,
+    backgroundColor: colors.darkBlue,
+    borderTopStartRadius: 10,
+    borderBottomEndRadius: 10,
   },
 });

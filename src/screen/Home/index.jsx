@@ -105,7 +105,11 @@ export default function Home({navigation}) {
                         setOpenCheckin(false);
                         setInputCheckIn(formatDate(selectedDate));
                         setCheckIn(selectedDate.toLocaleDateString('pt-PT'));
-                        setMinimumDate(selectedDate);
+                        setMinimumDate(
+                          new Date(
+                            selectedDate.setDate(selectedDate.getDate() + 1),
+                          ),
+                        );
                       } else {
                         setOpenCheckin(false);
                       }
@@ -160,14 +164,19 @@ export default function Home({navigation}) {
               }}
               visible={openModal}
             />
-            <Button title="Search" color={colors.darkBlue} onPress={
-              () => input !== '' && inputCheckIn && inputCheckOut && 
-                navigation.navigate("SearchResult", {
+            <Button
+              title="Search"
+              color={colors.darkBlue}
+              onPress={() =>
+                input !== '' &&
+                inputCheckIn &&
+                inputCheckOut &&
+                navigation.navigate('SearchResult', {
                   location: input,
                   checkIn: inputCheckIn,
                   checkOut: inputCheckOut,
                   guests: guest,
-                  rooms: room
+                  rooms: room,
                 })
               }
             />

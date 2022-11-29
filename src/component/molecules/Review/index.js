@@ -1,22 +1,19 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import {colors} from '../../../utils';
-import RatingStar from '../../atoms/RatingStar';
 
-export default function Review() {
+export default function Review({date, description, title, name}) {
   return (
     <View style={styles.container}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <Text style={styles.reviewer}>Reviewer Name</Text>
-        <Text style={styles.date}>Jun 4, 2020</Text>
+        <Text style={styles.reviewer}>{name}</Text>
+        <Text style={styles.date}>{date}</Text>
       </View>
-      <View style={{flexDirection: 'row'}}>
-        <RatingStar />
-        <Text style={styles.badge}>Verry Good</Text>
-      </View>
-      <Text style={styles.description}>
-        "Super clean, friendly staff, great location and good price. What more
-        can you ask for?""
+      <Text style={styles.badge} numberOfLines={2}>
+        {title}
+      </Text>
+      <Text style={styles.description} numberOfLines={3}>
+        {description}
       </Text>
     </View>
   );
@@ -24,10 +21,12 @@ export default function Review() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.grey,
     padding: 10,
     borderRadius: 10,
-    marginVertical: 5,
+    marginRight: 5,
+    width: 300,
+    height: 180,
   },
   date: {
     color: colors.darkBlue,
@@ -37,7 +36,9 @@ const styles = StyleSheet.create({
     color: colors.darkGrey,
   },
   badge: {
-    marginLeft: 10,
+    marginTop: 10,
+    fontWeight: 'bold',
+    color: colors.darkGrey,
   },
   reviewer: {
     fontWeight: 'bold',

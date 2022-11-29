@@ -12,6 +12,7 @@ import {
   Invoice,
   Receipt,
   Profile,
+  Review,
 } from '../screen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -106,6 +107,11 @@ const Router = () => {
       <Stack.Screen
         name="Sign"
         component={Sign}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Review"
+        component={Review}
         options={{headerShown: false}}
       />
       <Stack.Screen
