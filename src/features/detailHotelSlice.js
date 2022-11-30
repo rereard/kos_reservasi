@@ -5,19 +5,25 @@ const initialState = {
   isPending: false,
   isSuccess: false,
   errorMessage: '',
-  review: [],
+  detail: [],
 };
 
-export const fetchReview = createAsyncThunk(
-  'review/fetchReview',
+export const fetchDetail = createAsyncThunk(
+  'detail/fetchDetail',
   async props => {
-    const {hotel_id} = props;
+    const {hotel_id, checkOut, checkIn, guests, rooms} = props;
     try {
       const response = await axios.get(
-        'https://apidojo-booking-v1.p.rapidapi.com/reviews/list',
+        'https://apidojo-booking-v1.p.rapidapi.com/properties/detail',
         {
           params: {
-            hotel_ids: hotel_id,
+            hotel_id: hotel_id,
+            search_id: 'none',
+            departure_date: checkOut,
+            arrival_date: checkIn,
+            rec_guest_qty: guests,
+            rec_room_qty: rooms,
+            currency_code: 'IDR',
             languagecode: 'id',
           },
           headers: {
@@ -26,31 +32,31 @@ export const fetchReview = createAsyncThunk(
           },
         },
       );
-      return response.data.result;
+      return response.data[0];
     } catch (err) {
       throw err;
     }
   },
 );
 
-const reviewSlice = createSlice({
-  name: 'review',
+const detailSlice = createSlice({
+  name: 'detail',
   initialState,
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchReview.pending, state => {
+      .addCase(fetchDetail.pending, state => {
         state.isPending = true;
         state.isSuccess = false;
         state.errorMessage = '';
       })
-      .addCase(fetchReview.rejected, (state, action) => {
+      .addCase(fetchDetail.rejected, (state, action) => {
         state.isPending = false;
         state.isSuccess = false;
         state.errorMessage = action.error.message;
       })
-      .addCase(fetchReview.fulfilled, (state, action) => {
-        state.review = action.payload;
+      .addCase(fetchDetail.fulfilled, (state, action) => {
+        state.detail = action.payload;
         state.isSuccess = true;
         state.isPending = false;
         state.loading = false;
@@ -58,5 +64,5 @@ const reviewSlice = createSlice({
       });
   },
 });
-export const {} = reviewSlice.actions;
-export default reviewSlice.reducer;
+export const {} = detailSlice.actions;
+export default detailSlice.reducer;

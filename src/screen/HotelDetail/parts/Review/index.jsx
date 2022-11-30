@@ -1,21 +1,11 @@
 import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import Review from '../../../../component/molecules/Review';
+import {ReviewCard} from '../../../../component/molecules';
 import {fetchReview} from '../../../../features/ReviewSlice';
 import {colors} from '../../../../utils';
 
-export default function ReviewParts(props) {
-  const {hotel_id, onPress} = props;
-  const review = useSelector(state => state.review.review);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchReview(props));
-  }, []);
-
-  console.log(review);
-
+export default function ReviewParts({data, onPress}) {
   return (
     <View style={{marginVertical: 10}}>
       <View
@@ -31,13 +21,15 @@ export default function ReviewParts(props) {
         </Text>
       </View>
       <ScrollView horizontal={true} style={{flexDirection: 'row'}}>
-        {review?.slice(0, 5).map(item => (
+        {data?.slice(0, 5).map(item => (
           <View style={{marginLeft: 10}}>
-            <Review
+            <ReviewCard
               date={item?.date}
               description={item?.pros}
               title={item?.title}
               name={item?.author.name}
+              width={300}
+              height={180}
             />
           </View>
         ))}
@@ -49,6 +41,7 @@ export default function ReviewParts(props) {
 const styles = StyleSheet.create({
   bestReview: {
     color: colors.darkBlue,
+    fontWeight: 'bold',
   },
   allReview: {
     color: colors.darkBlue,

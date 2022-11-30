@@ -54,6 +54,8 @@ export const fetchHotels = createAsyncThunk(
   },
 );
 
+console.log(process.env.REACT_APP_API_KEY);
+
 const hotelSlice = createSlice({
   name: 'hotel',
   initialState,

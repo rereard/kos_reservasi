@@ -5,6 +5,7 @@ import bookHistoryReducer from './features/bookHistorySlice';
 import loginReducer from './features/loginSlice';
 import logger from 'redux-logger';
 import ReviewSlice from './features/ReviewSlice';
+import detailHotelSlice from './features/detailHotelSlice';
 export default configureStore({
   reducer: {
     favorite: favoriteReducer,
@@ -12,6 +13,7 @@ export default configureStore({
     bookHistory: bookHistoryReducer,
     login: loginReducer,
     review: ReviewSlice,
+    detail: detailHotelSlice,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
 });

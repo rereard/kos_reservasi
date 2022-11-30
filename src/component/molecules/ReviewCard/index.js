@@ -2,10 +2,17 @@ import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import {colors} from '../../../utils';
 
-export default function Review({date, description, title, name}) {
+export default function ReviewCard({
+  date,
+  description,
+  title,
+  name,
+  width,
+  height,
+}) {
   return (
-    <View style={styles.container}>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+    <View style={styles.container(width, height)}>
+      <View style={styles.header}>
         <Text style={styles.reviewer}>{name}</Text>
         <Text style={styles.date}>{date}</Text>
       </View>
@@ -20,13 +27,19 @@ export default function Review({date, description, title, name}) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container: (width, height) => ({
     backgroundColor: colors.grey,
     padding: 10,
     borderRadius: 10,
-    marginRight: 5,
-    width: 300,
-    height: 180,
+    width: width,
+    height: height,
+  }),
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    paddingBottom: 8,
+    borderColor: colors.darkGrey,
   },
   date: {
     color: colors.darkBlue,

@@ -10,6 +10,7 @@ import {
 
 import {colors} from '../../utils';
 import {Button, Input} from '../../component/atoms';
+import {dataTopDestinations} from '../../assets/dummy/dataTopDestinations';
 import Header from '../../component/molecules/Header';
 import {useState, useEffect} from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';

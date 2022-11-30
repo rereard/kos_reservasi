@@ -27,6 +27,8 @@ export default function HotelCard({
   hotelId,
   guests,
   rooms,
+  address,
+  city,
 }) {
   const navigation = useNavigation();
 
@@ -125,16 +127,6 @@ export default function HotelCard({
               </View>
             </View>
             <View style={{flexDirection: 'column'}}>
-              <View style={{flexDirection: 'row'}}>
-                <Button
-                  type="icon"
-                  icon={'star'}
-                  color={colors.yellow}
-                  size={15}></Button>
-                <Text style={{color: colors.darkGrey}}>
-                  {reviewScore} | {reviewTotal} Review
-                </Text>
-              </View>
               {guests && rooms ? (
                 <Text style={{color: colors.darkGrey}}>
                   {guests} person | {rooms} rooms

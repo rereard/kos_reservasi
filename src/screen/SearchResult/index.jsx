@@ -68,15 +68,18 @@ export default function SearchResult({route, navigation}) {
           </View>
         ) : (
           <View style={{padding: 10, paddingTop: 0}}>
-            {/* <FlatList
-              data={hotels}
-              renderItem={renderItem}
-              keyExtractor={item => item?.hotel_id}
-            /> */}
             {hotels.map(item => (
               <HotelCard
                 key={item?.hotel_id}
-                onPress={() => navigation.navigate('DetailHotel')}
+                onPress={() =>
+                  navigation.navigate('DetailHotel', {
+                    hotel_id: item?.hotel_id,
+                    checkIn: checkIn,
+                    checkOut: checkOut,
+                    guests: guests,
+                    rooms: rooms,
+                  })
+                }
                 hotelId={item?.hotel_id}
                 image={item?.main_photo_url}
                 hotelName={item?.hotel_name}
