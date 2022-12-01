@@ -13,11 +13,12 @@ import {
   Receipt,
   Profile,
   Review,
+  Rooms,
 } from '../screen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors} from '../utils';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -73,8 +74,7 @@ const MainApp = () => {
 };
 
 const Router = () => {
-
-  const user = useSelector(state => state.login.user)
+  const user = useSelector(state => state.login.user);
 
   return (
     <Stack.Navigator initialRouteName="Splash">
@@ -120,6 +120,11 @@ const Router = () => {
       <Stack.Screen
         name="Review"
         component={Review}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Rooms"
+        component={Rooms}
         options={{headerShown: false}}
       />
       <Stack.Screen

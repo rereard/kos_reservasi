@@ -108,7 +108,9 @@ export default function DetailHotel({route, navigation}) {
                   color={colors.darkBlue}
                   size={15}
                 />
-                <Text style={{marginLeft: 5, color: colors.darkGrey}}>{detail?.city}</Text>
+                <Text style={{marginLeft: 5, color: colors.darkGrey}}>
+                  {detail?.city}
+                </Text>
               </View>
             </View>
           </View>
@@ -116,7 +118,9 @@ export default function DetailHotel({route, navigation}) {
             style={{flexDirection: 'row', marginVertical: 10}}
             horizontal={true}>
             {detail?.facilities_block?.facilities?.map((item, index) => (
-              <Text key={index} style={styles.facilities}>{item.name}</Text>
+              <Text key={index} style={styles.facilities}>
+                {item.name}
+              </Text>
             ))}
           </ScrollView>
           {/* {description ? (
@@ -171,6 +175,15 @@ export default function DetailHotel({route, navigation}) {
           </Text>
         </View>
         <Button
+          onPress={() =>
+            navigation.navigate('Rooms', {
+              hotel_id: hotel_id,
+              checkOut: checkOut,
+              checkIn: checkIn,
+              guests: guests,
+              rooms: rooms,
+            })
+          }
           title="Pilih Kamar"
           color={colors.yellow}
           size={10}

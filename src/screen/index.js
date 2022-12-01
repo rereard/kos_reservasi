@@ -10,6 +10,7 @@ import Splash from './Splash';
 import GetStarted from './GetStarted';
 import Invoice from './Invoice';
 import Review from './Review';
+import Rooms from './Rooms';
 
 export {
   Sign,
@@ -24,4 +25,5 @@ export {
   Profile,
   Receipt,
   Review,
+  Rooms,
 };
