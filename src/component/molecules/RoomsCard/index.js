@@ -22,7 +22,9 @@ export default function RoomsCard({
         />
         <View style={styles.content}>
           <View>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title} numberOfLines={2}>
+              {title}
+            </Text>
             <View style={{flexDirection: 'row', marginTop: 5}}>
               <View style={{flexDirection: 'row'}}>
                 <Button

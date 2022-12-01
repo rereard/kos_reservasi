@@ -5,7 +5,7 @@ import {colors} from '../../../utils';
 import {LogoSecondary} from '../../../assets/img';
 import {useSelector} from 'react-redux';
 
-export default function Header({title, onPress, type, color}) {
+export default function Header({title, onPress, type, color, numberOfLines}) {
   const user = useSelector(state => state?.login?.user);
 
   if (type === 'user') {
@@ -53,7 +53,9 @@ export default function Header({title, onPress, type, color}) {
         color={color ? color : colors.white}
         onPress={onPress}
       />
-      <Text style={styles.text(color)}>{title}</Text>
+      <Text style={styles.text(color)} numberOfLines={numberOfLines}>
+        {title}
+      </Text>
       <View style={{width: 25}} />
     </View>
   );

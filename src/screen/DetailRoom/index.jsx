@@ -14,12 +14,13 @@ import {Button} from '../../component/atoms';
 export default function DetailRoom({route, navigation}) {
   const {name_room, price, bed_type, image} = route.params;
 
-  console.log('price', price);
+  console.log('price', bed_type);
   console.log('image', image);
   return (
     <SafeAreaView style={styles.page}>
       <View style={{padding: 20}}>
         <Header
+          numberOfLines={1}
           title={name_room}
           color={colors.darkBlue}
           onPress={() => navigation.goBack()}
@@ -28,7 +29,7 @@ export default function DetailRoom({route, navigation}) {
       <ScrollView>
         <Image
           source={{
-            uri: 'https://bogordaily.net/wp-content/uploads/2022/09/hotel-ideal-trip.jpg',
+            uri: image[1] ? image[1]?.url_original : image[0]?.url_original,
           }}
           style={styles.image}
         />
@@ -38,42 +39,14 @@ export default function DetailRoom({route, navigation}) {
         <View>
           <Text>Photos</Text>
           <ScrollView horizontal={true}>
-            <Image
-              source={{
-                uri: 'https://bogordaily.net/wp-content/uploads/2022/09/hotel-ideal-trip.jpg',
-              }}
-              style={{width: 100, height: 100}}
-            />
-            <Image
-              source={{
-                uri: 'https://bogordaily.net/wp-content/uploads/2022/09/hotel-ideal-trip.jpg',
-              }}
-              style={{width: 100, height: 100}}
-            />
-            <Image
-              source={{
-                uri: 'https://bogordaily.net/wp-content/uploads/2022/09/hotel-ideal-trip.jpg',
-              }}
-              style={{width: 100, height: 100}}
-            />
-            <Image
-              source={{
-                uri: 'https://bogordaily.net/wp-content/uploads/2022/09/hotel-ideal-trip.jpg',
-              }}
-              style={{width: 100, height: 100}}
-            />
-            <Image
-              source={{
-                uri: 'https://bogordaily.net/wp-content/uploads/2022/09/hotel-ideal-trip.jpg',
-              }}
-              style={{width: 100, height: 100}}
-            />
-            <Image
-              source={{
-                uri: 'https://bogordaily.net/wp-content/uploads/2022/09/hotel-ideal-trip.jpg',
-              }}
-              style={{width: 100, height: 100}}
-            />
+            {image?.map(item => (
+              <Image
+                source={{
+                  uri: item.url_original,
+                }}
+                style={{width: 100, height: 100}}
+              />
+            ))}
           </ScrollView>
         </View>
       </ScrollView>
@@ -85,7 +58,7 @@ export default function DetailRoom({route, navigation}) {
               fontWeight: 'bold',
               fontSize: 15,
             }}>
-            {price} 200.000
+            {price}
             <Text
               style={{
                 color: colors.white,
@@ -95,7 +68,15 @@ export default function DetailRoom({route, navigation}) {
               /malam
             </Text>
           </Text>
-          <Text>1 Bed</Text>
+          <View style={{flexDirection: 'row'}}>
+            <Button
+              type="icon"
+              color={colors.white}
+              icon={'bed-outline'}
+              size={18}
+            />
+            <Text style={{color: colors.white, marginLeft: 5}}>{bed_type}</Text>
+          </View>
         </View>
         <Button title="Book Now" color={colors.yellow} size={10} width={100} />
       </View>
