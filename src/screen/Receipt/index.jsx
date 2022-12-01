@@ -16,7 +16,7 @@ import BookHistoryCard from '../../component/molecules/BookHistoryCard';
 import {Button} from '../../component/atoms';
 
 export default function Receipt({navigation}) {
-  const user = useSelector(state => state.login.user);
+  const user = useSelector(state => state?.login?.user);
 
   if (user) {
     return (

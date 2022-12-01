@@ -15,7 +15,7 @@ export default function Kebijakan({data}) {
       </Text>
       <View>
         {data?.policies?.map((item, index) => (
-          <View style={{flexDirection: 'row'}}>
+          <View key={index} style={{flexDirection: 'row'}}>
             <Text style={{color: colors.darkGrey}}>{index + 1}.</Text>
             <Text
               style={{

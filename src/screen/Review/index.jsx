@@ -11,19 +11,21 @@ export default function Reviews({navigation}) {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View style={{backgroundColor: colors.darkBlue, padding: 10}}>
-          <Header title="Review" onPress={() => navigation.goBack()} />
-        </View>
-        {review?.map(item => (
-          <View style={styles.container}>
-            <ReviewCard
-              date={item?.date}
-              description={item?.pros}
-              title={item?.title}
-              name={item?.author.name}
-            />
+        <View style={{ marginBottom: 30 }}>
+          <View style={{backgroundColor: colors.darkBlue, padding: 10, marginBottom: 10}}>
+            <Header title="Review" onPress={() => navigation.goBack()} />
           </View>
-        ))}
+          {review?.map(item => (
+            <View style={styles.container}>
+              <ReviewCard
+                date={item?.date}
+                description={item?.pros}
+                title={item?.title}
+                name={item?.author.name}
+              />
+            </View>
+          ))}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

@@ -48,7 +48,7 @@ export default function Profile({navigation}) {
                     <Text
                       style={styles.totalActivity}
                       onPress={() => navigation.navigate('Favorite')}>
-                      {favorites[user?.username]?.length}
+                      {favorites[user?.username]?.length || 0}
                     </Text>
                     <Text style={styles.titleActivity}>Favorites</Text>
                   </View>

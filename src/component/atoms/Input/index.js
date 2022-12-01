@@ -31,6 +31,7 @@ export default function Input({
         placeholder={placeholder}
         onChangeText={onChangeText}
         secureTextEntry={showPassword}
+        placeholderTextColor={colors.darkGrey}
       />
       {type === 'password' ? (
         <Ionicons name={iconEye} style={styles.icon(type)} onPress={ShowPw} />

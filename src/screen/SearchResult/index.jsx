@@ -84,8 +84,8 @@ export default function SearchResult({route, navigation}) {
                 image={item?.main_photo_url}
                 hotelName={item?.hotel_name}
                 price={item?.price_breakdown?.all_inclusive_price}
-                address={item?.district}
-                city={item?.city}
+                address={item?.address}
+                // city={item?.city}
                 reviewScore={item?.review_score}
                 reviewTotal={item?.review_nr}
                 guests={guests}

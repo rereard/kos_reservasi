@@ -2,11 +2,15 @@ import {View, StyleSheet, Text, Image} from 'react-native';
 import React, {useEffect} from 'react';
 import {Logo} from '../../assets/img';
 import {colors} from '../../utils';
+import { useSelector } from 'react-redux';
 
 export default function Splash({navigation}) {
+
+  const user = useSelector(state => state.login.user)
+
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('GetStarted');
+      navigation.replace(user ? 'main' : 'GetStarted');
     }, 3000);
   }, []);
 

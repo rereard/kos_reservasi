@@ -17,6 +17,7 @@ import {
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors} from '../utils';
+import { useSelector } from 'react-redux';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -72,8 +73,25 @@ const MainApp = () => {
 };
 
 const Router = () => {
+
+  const user = useSelector(state => state.login.user)
+
   return (
     <Stack.Navigator initialRouteName="Splash">
+      {!user && (
+        <>
+          <Stack.Screen
+            name="GetStarted"
+            component={GetStarted}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Sign"
+            component={Sign}
+            options={{headerShown: false}}
+          />
+        </>
+      )}
       <Stack.Screen
         name="Splash"
         component={Splash}
@@ -82,11 +100,6 @@ const Router = () => {
       <Stack.Screen
         name="main"
         component={MainApp}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="GetStarted"
-        component={GetStarted}
         options={{headerShown: false}}
       />
       <Stack.Screen
@@ -102,11 +115,6 @@ const Router = () => {
       <Stack.Screen
         name="SearchResult"
         component={SearchResult}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Sign"
-        component={Sign}
         options={{headerShown: false}}
       />
       <Stack.Screen

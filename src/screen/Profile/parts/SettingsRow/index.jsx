@@ -38,8 +38,8 @@ export default function SettingsRow({
             <Text style={styles.dataText}>
               {isPassword ? data.replace(/./gi, '•') : data}{' '}
             </Text>
-            <View style={styles.dataText}>
-              <FontAwesome5 name="chevron-right" />
+            <View>
+              <FontAwesome5 name="chevron-right" color={colors.darkGrey} />
             </View>
           </TouchableOpacity>
           <EditModal

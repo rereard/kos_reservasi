@@ -107,7 +107,7 @@ export default function HotelCard({
           <View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <View>
+              <View style={{ flex: 1 }}>
                 <Text numberOfLines={2} style={styles.title}>
                   {hotelName}
                 </Text>
@@ -118,20 +118,20 @@ export default function HotelCard({
                     icon={'location-outline'}
                     size={15}
                   />
-                  <Text>{address ? address : city}</Text>
+                  <Text numberOfLines={2} style={{ color: colors.darkGrey }}>{address}</Text>
+                </View>
+                <View style={{flexDirection: 'column'}}>
+                  {guests && rooms ? (
+                    <Text style={{color: colors.darkGrey}}>
+                      {guests} person | {rooms} rooms
+                    </Text>
+                  ) : null}
                 </View>
               </View>
               <View>
                 <Text style={styles.text}>~Rp {price}</Text>
                 <Text style={styles.text}>/Night</Text>
               </View>
-            </View>
-            <View style={{flexDirection: 'column'}}>
-              {guests && rooms ? (
-                <Text style={{color: colors.darkGrey}}>
-                  {guests} person | {rooms} rooms
-                </Text>
-              ) : null}
             </View>
           </View>
         </View>

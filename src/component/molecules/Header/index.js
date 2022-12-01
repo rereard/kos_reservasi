@@ -6,7 +6,7 @@ import {LogoSecondary} from '../../../assets/img';
 import {useSelector} from 'react-redux';
 
 export default function Header({title, onPress, type}) {
-  const user = useSelector(state => state.login.user);
+  const user = useSelector(state => state?.login?.user);
 
   if (type === 'user') {
     return (
@@ -28,10 +28,10 @@ export default function Header({title, onPress, type}) {
               }}>
               Hi,
             </Text>
-            <Text style={styles.Sayhello}>{user.firstName}</Text>
+            <Text style={styles.Sayhello}>{user?.firstName}</Text>
             <Image
               source={{
-                uri: user.image,
+                uri: user?.image,
               }}
               style={styles.Image}
             />

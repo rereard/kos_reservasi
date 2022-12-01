@@ -108,15 +108,15 @@ export default function DetailHotel({route, navigation}) {
                   color={colors.darkBlue}
                   size={15}
                 />
-                <Text style={{marginLeft: 5}}>{detail?.city}</Text>
+                <Text style={{marginLeft: 5, color: colors.darkGrey}}>{detail?.city}</Text>
               </View>
             </View>
           </View>
           <ScrollView
             style={{flexDirection: 'row', marginVertical: 10}}
             horizontal={true}>
-            {detail?.facilities_block?.facilities?.map(item => (
-              <Text style={styles.facilities}>{item.name}</Text>
+            {detail?.facilities_block?.facilities?.map((item, index) => (
+              <Text key={index} style={styles.facilities}>{item.name}</Text>
             ))}
           </ScrollView>
           {/* {description ? (

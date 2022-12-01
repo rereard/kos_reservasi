@@ -6,7 +6,7 @@ export default function Location({address}) {
   return (
     <View style={styles.location}>
       <Text style={{color: colors.darkBlue, fontWeight: 'bold'}}>Location</Text>
-      <Text>{address}</Text>
+      <Text style={{ color: colors.darkGrey }}>{address}</Text>
     </View>
   );
 }
