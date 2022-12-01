@@ -9,7 +9,7 @@ export default function RoomsCard({
   price,
   image,
   person,
-  rooms,
+  bed_type,
 }) {
   return (
     <Pressable onPress={onPress}>
@@ -24,13 +24,31 @@ export default function RoomsCard({
           <View>
             <Text style={styles.title}>{title}</Text>
             <View style={{flexDirection: 'row', marginTop: 5}}>
-              <Button
-                type="icon"
-                color={colors.darkBlue}
-                icon={'person-outline'}
-                size={15}
-              />
-              <Text style={styles.Person}>{person} Person</Text>
+              <View style={{flexDirection: 'row'}}>
+                <Button
+                  type="icon"
+                  color={colors.darkBlue}
+                  icon={'person-outline'}
+                  size={15}
+                />
+                <Text style={styles.Person}>{person} Person</Text>
+              </View>
+              {bed_type ? (
+                <>
+                  <Text style={{marginHorizontal: 10}}>|</Text>
+                  <View style={{flexDirection: 'row'}}>
+                    <Button
+                      type="icon"
+                      color={colors.darkBlue}
+                      icon={'bed-outline'}
+                      size={18}
+                    />
+                    <Text style={styles.Person}>{bed_type}</Text>
+                  </View>
+                </>
+              ) : (
+                <></>
+              )}
             </View>
           </View>
           <View>

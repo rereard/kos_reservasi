@@ -6,7 +6,7 @@ import {
   SafeAreaView,
   ScrollView,
   Dimensions,
-  FlatList
+  FlatList,
 } from 'react-native';
 import React, {useState, useEffect, useRef, useCallback} from 'react';
 import Header from '../../component/molecules/Header';
@@ -20,11 +20,9 @@ import {fetchDetail} from '../../features/detailHotelSlice';
 import {fetchReview} from '../../features/ReviewSlice';
 import Kebijakan from './parts/Kebijakan';
 
-
-
 export default function DetailHotel({route, navigation}) {
   const {hotel_id, checkIn, checkOut, guests, rooms} = route.params;
-  const [hotelPhotos, setHotelPhotos] = useState([])
+  const [hotelPhotos, setHotelPhotos] = useState([]);
   const [lineText, setLineText] = useState(3);
   const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useDispatch();
@@ -33,35 +31,36 @@ export default function DetailHotel({route, navigation}) {
   const review = useSelector(state => state.review.review);
 
   useEffect(() => {
-    const fetchData = async() => {
+    const fetchData = async () => {
       try {
         const response = await axios.request({
           method: 'GET',
           url: 'https://apidojo-booking-v1.p.rapidapi.com/properties/get-hotel-photos',
           params: {hotel_ids: hotel_id, languagecode: 'id'},
           headers: {
-            'X-RapidAPI-Key': '8acc31ed09mshcd579e2a1d4d065p1adbebjsn5a767b7f288e',
-            'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com'
-          }
-        })
-        setHotelPhotos(response.data.data[hotel_id])
+            'X-RapidAPI-Key':
+              '8acc31ed09mshcd579e2a1d4d065p1adbebjsn5a767b7f288e',
+            'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com',
+          },
+        });
+        setHotelPhotos(response.data.data[hotel_id]);
       } catch (e) {
-        throw(e)
+        throw e;
       }
-    }
-    if(detail?.hotel_id !== hotel_id){
-      fetchData()
+    };
+    if (detail?.hotel_id !== hotel_id) {
+      fetchData();
     }
   }, []);
 
   useEffect(() => {
-    console.log("hotel PHOTOS", hotelPhotos);
+    console.log('hotel PHOTOS', hotelPhotos);
   }, [hotelPhotos]);
 
   const [index, setIndex] = useState(0);
   const indexRef = useRef(index);
   indexRef.current = index;
-  const onScroll = useCallback((event) => {
+  const onScroll = useCallback(event => {
     const slideSize = event.nativeEvent.layoutMeasurement.width;
     const index = event.nativeEvent.contentOffset.x / slideSize;
     const roundIndex = Math.round(index);
@@ -79,7 +78,7 @@ export default function DetailHotel({route, navigation}) {
   }, []);
 
   const width = Dimensions.get('window').width;
-  console.log("width", width);
+  console.log('width', width);
 
   const flatListOptimizationProps = {
     initialNumToRender: 0,
@@ -94,10 +93,9 @@ export default function DetailHotel({route, navigation}) {
         length: width,
         offset: index * width,
       }),
-      []
+      [],
     ),
   };
-  
 
   // const [description, setDescription] = useState([]);
 
@@ -110,13 +108,13 @@ export default function DetailHotel({route, navigation}) {
   };
 
   useEffect(() => {
-    if(detail?.hotel_id !== hotel_id){
+    if (detail?.hotel_id !== hotel_id) {
       dispatch(fetchReview(route.params));
     }
   }, []);
 
   useEffect(() => {
-    if(detail?.hotel_id !== hotel_id){
+    if (detail?.hotel_id !== hotel_id) {
       dispatch(fetchDetail(route.params));
     }
   }, []);
@@ -149,7 +147,7 @@ export default function DetailHotel({route, navigation}) {
   return (
     <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
       {isPending ? (
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <Text style={styles.title}>Loading...</Text>
         </View>
       ) : (
@@ -173,7 +171,7 @@ export default function DetailHotel({route, navigation}) {
               <FlatList
                 data={hotelPhotos}
                 style={styles.image}
-                renderItem={({ item }) => (
+                renderItem={({item}) => (
                   <Image
                     source={{
                       uri: `https://cf.bstatic.com${item[6]}`,
@@ -272,12 +270,22 @@ export default function DetailHotel({route, navigation}) {
           </ScrollView>
           <View style={styles.SelectRoom}>
             <View>
-              <Text style={{fontSize: 10, color: colors.white}}>Harga Mulai</Text>
+              <Text style={{fontSize: 10, color: colors.white}}>
+                Harga Mulai
+              </Text>
               <Text
-                style={{color: colors.yellow, fontWeight: 'bold', fontSize: 15}}>
+                style={{
+                  color: colors.yellow,
+                  fontWeight: 'bold',
+                  fontSize: 15,
+                }}>
                 200.000
                 <Text
-                  style={{color: colors.white, fontWeight: 'normal', fontSize: 10}}>
+                  style={{
+                    color: colors.white,
+                    fontWeight: 'normal',
+                    fontSize: 10,
+                  }}>
                   /malam
                 </Text>
               </Text>
@@ -300,7 +308,6 @@ export default function DetailHotel({route, navigation}) {
           </View>
         </>
       )}
-      
     </SafeAreaView>
   );
 }

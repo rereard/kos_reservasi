@@ -5,7 +5,7 @@ import {colors} from '../../../utils';
 import {LogoSecondary} from '../../../assets/img';
 import {useSelector} from 'react-redux';
 
-export default function Header({title, onPress, type}) {
+export default function Header({title, onPress, type, color}) {
   const user = useSelector(state => state?.login?.user);
 
   if (type === 'user') {
@@ -50,10 +50,10 @@ export default function Header({title, onPress, type}) {
         type="icon"
         icon={'chevron-back-outline'}
         size={25}
-        color={colors.white}
+        color={color ? color : colors.white}
         onPress={onPress}
       />
-      <Text style={styles.text}>{title}</Text>
+      <Text style={styles.text(color)}>{title}</Text>
       <View style={{width: 25}} />
     </View>
   );
@@ -64,13 +64,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  text: {
-    color: colors.white,
+  text: color => ({
+    color: color ? color : colors.white,
     flex: 1,
     textAlign: 'center',
     fontSize: 18,
     fontWeight: 'bold',
-  },
+  }),
   Sayhello: {
     color: colors.darkBlue,
     fontSize: 12,

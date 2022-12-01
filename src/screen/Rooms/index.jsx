@@ -27,12 +27,29 @@ export default function Rooms({route, navigation}) {
         <Header title="Pilih Kamar" onPress={() => navigation.goBack()} />
       </View>
       <ScrollView>
-        {room?.block?.map(item => (
+        {room?.block?.map((item, index) => (
           <RoomsCard
             title={item?.name_without_policy}
             price={item?.product_price_breakdown.all_inclusive_amount?.value}
             image={room.rooms[item?.room_id].photos}
+            bed_type={
+              room.rooms[item?.room_id].bed_configurations[0].bed_types[0]
+                .name_with_count
+            }
             person={guests}
+            onPress={() =>
+              navigation.navigate('DetailRoom', {
+                name_room: item?.name_without_policy,
+                image: room.rooms[item?.room_id].photos,
+                price:
+                  item?.product_price_breakdown?.all_inclusive_amount?.value,
+                bed_type:
+                  room.rooms[item?.room_id].bed_configurations[0].bed_types[0]
+                    .name_with_count,
+                room: rooms,
+                image: room.rooms[item?.room_id].photos,
+              })
+            }
           />
         ))}
       </ScrollView>

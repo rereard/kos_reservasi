@@ -11,6 +11,7 @@ import GetStarted from './GetStarted';
 import Invoice from './Invoice';
 import Review from './Review';
 import Rooms from './Rooms';
+import DetailRoom from './DetailRoom';
 
 export {
   Sign,
@@ -26,4 +27,5 @@ export {
   Receipt,
   Review,
   Rooms,
+  DetailRoom,
 };
