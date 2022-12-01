@@ -16,6 +16,7 @@ import {useNavigation} from '@react-navigation/native';
 import Button from '../../atoms/Button';
 import {colors} from '../../../utils';
 import {addFavorite, deleteFavorite} from '../../../features/favoriteSlice';
+import Icon from '../../atoms/Button/icon';
 
 export default function HotelCard({
   onPress,
@@ -107,7 +108,7 @@ export default function HotelCard({
           <View>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-              <View style={{ flex: 1 }}>
+              <View style={{flex: 1}}>
                 <Text numberOfLines={2} style={styles.title}>
                   {hotelName}
                 </Text>
@@ -118,18 +119,40 @@ export default function HotelCard({
                     icon={'location-outline'}
                     size={15}
                   />
-                  <Text numberOfLines={2} style={{ color: colors.darkGrey }}>{address}</Text>
+                  <Text
+                    numberOfLines={1}
+                    style={{color: colors.darkGrey, maxWidth: 170}}>
+                    {address}
+                  </Text>
                 </View>
-                <View style={{flexDirection: 'column'}}>
-                  {guests && rooms ? (
-                    <Text style={{color: colors.darkGrey}}>
-                      {guests} person | {rooms} rooms
+                <View style={{flexDirection: 'row', marginTop: 8}}>
+                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Icon
+                      icon={'person-outline'}
+                      color={colors.darkBlue}
+                      size={15}
+                    />
+                    <Text style={{marginLeft: 5, color: colors.darkBlue}}>
+                      {guests} Person
                     </Text>
-                  ) : null}
+                  </View>
+                  <Text style={{marginHorizontal: 5, color: colors.darkBlue}}>
+                    |
+                  </Text>
+                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Icon
+                      icon={'person-outline'}
+                      color={colors.darkBlue}
+                      size={15}
+                    />
+                    <Text style={{marginLeft: 5, color: colors.darkBlue}}>
+                      {rooms} Rooms
+                    </Text>
+                  </View>
                 </View>
               </View>
               <View>
-                <Text style={styles.text}>~Rp {price}</Text>
+                <Text style={styles.text}>IDR {price}</Text>
                 <Text style={styles.text}>/Night</Text>
               </View>
             </View>
