@@ -48,7 +48,7 @@ export default function Booking({route, navigation}) {
     <SafeAreaView style={styles.page}>
       <View style={styles.header}>
         <Header
-          title="booking"
+          title="Booking Page"
           color={colors.white}
           onPress={() => navigation.goBack()}
         />
@@ -63,7 +63,7 @@ export default function Booking({route, navigation}) {
                   source={{uri: image}}
                   style={{width: 90, height: 90, borderRadius: 10}}
                 />
-                <View style={{marginLeft: 10}}>
+                <View style={{marginLeft: 10, flex: 1}}>
                   <Text style={styles.nameRoom} numberOfLines={2}>
                     {name_room}
                   </Text>
@@ -75,12 +75,12 @@ export default function Booking({route, navigation}) {
               </View>
               <View style={styles.arrivalDate}>
                 <View style={styles.arrivaTitle}>
-                  <Text>Check-in</Text>
-                  <Text>{checkIn}</Text>
+                  <Text style={styles.person}>Check-in</Text>
+                  <Text style={styles.person}>{checkIn}</Text>
                 </View>
                 <View style={styles.arrivaTitle}>
-                  <Text>Check-out</Text>
-                  <Text>{checkOut}</Text>
+                  <Text style={styles.person}>Check-out</Text>
+                  <Text style={styles.person}>{checkOut}</Text>
                 </View>
               </View>
             </View>

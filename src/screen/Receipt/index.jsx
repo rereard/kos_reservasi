@@ -17,34 +17,34 @@ import {Button} from '../../component/atoms';
 
 export default function Receipt({navigation}) {
   const user = useSelector(state => state?.login?.user);
-  const bookHistories = useSelector(state => state?.bookHistory.bookHistories[user.username])
+  const bookHistories = useSelector(state => state?.bookHistory.bookHistories[user?.username])
 
   if (user) {
     return (
       <SafeAreaView>
         <ScrollView>
           <View style={{margin: 20}}>
-          <Text style={{ color: colors.black, fontSize: 18, fontWeight: "700" }}>Booking History</Text>
-          {bookHistories ? (
-            <View style={{ marginTop: 15 }}>
-              {bookHistories?.map(item => (
-                <BookHistoryCard
-                  key={item?.book_id} 
-                  onPress={() => navigation.navigate('Invoice', { book_id: item?.book_id, afterCheckout: false })} 
-                  hotel_name={item?.hotel_name}
-                  stay_length={item?.stay_length}
-                  checkIn={item?.checkIn}
-                  checkOut={item?.checkOut}
-                  price={item?.price}
-                  mainImage={item?.mainImage}
-                />
-              ))}
-            </View>
-          ) : (
-            <View style={{ marginTop: 50 }}>
-              <Text style={{ color: colors.black, fontSize: 18, fontStyle: "italic", textAlign: "center" }}>Empty~</Text>
-            </View>
-          )}
+            <Text style={{ color: colors.black, fontSize: 18, fontWeight: "700" }}>Booking History</Text>
+            {bookHistories ? (
+              <View style={{ marginTop: 15 }}>
+                {bookHistories?.map(item => (
+                  <BookHistoryCard
+                    key={item?.book_id} 
+                    onPress={() => navigation.navigate('Invoice', { book_id: item?.book_id, afterCheckout: false })} 
+                    hotel_name={item?.hotel_name}
+                    stay_length={item?.stay_length}
+                    checkIn={item?.checkIn}
+                    checkOut={item?.checkOut}
+                    price={item?.price}
+                    mainImage={item?.mainImage}
+                  />
+                ))}
+              </View>
+            ) : (
+              <View style={{ marginTop: 50 }}>
+                <Text style={{ color: colors.black, fontSize: 18, fontStyle: "italic", textAlign: "center" }}>Empty~</Text>
+              </View>
+            )}
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -54,10 +54,10 @@ export default function Receipt({navigation}) {
       <SafeAreaView style={{flex: 1, margin: 20}}>
         <View style={[styles.profileBox, {marginBottom: 10}]}>
           <Text style={[styles.textHeader(colors.black), {marginBottom: 5}]}>
-            My Profile
+            Booking History
           </Text>
           <Text style={styles.text(colors.black)}>
-            Sign in to see your account's profile
+            Sign in to see your booking history
           </Text>
         </View>
         <Button

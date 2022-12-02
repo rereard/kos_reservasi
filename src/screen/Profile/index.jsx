@@ -17,6 +17,7 @@ export default function Profile({navigation}) {
 
   const user = useSelector(state => state?.login?.user);
   const favorites = useSelector(state => state?.favorite?.favorites)
+  const bookHistories = useSelector(state => state?.bookHistory?.bookHistories)
 
   return (
     <SafeAreaView style={styles.page}>
@@ -40,7 +41,7 @@ export default function Profile({navigation}) {
                     <Text
                       style={styles.totalActivity}
                       onPress={() => navigation.navigate('Receipt')}>
-                      99
+                      {bookHistories[user?.username]?.length || 0}
                     </Text>
                     <Text style={styles.titleActivity}>Booking</Text>
                   </View>
@@ -86,12 +87,23 @@ export default function Profile({navigation}) {
                   data={user?.lastName}
                   prop="lastName"
                 />
+                <SettingsRow
+                  title="Phone"
+                  dataEditable={true}
+                  data={user?.phone}
+                  prop="phone"
+                />
               </View>
             </>
           ) : (
-            <Text style={{color: colors.black, fontSize: 15}}>
-              Sign in to see your account settings
-            </Text>
+            <View style={[styles.profileBox, {marginBottom: 10}]}>
+              <Text style={[styles.textHeader(colors.black), {marginBottom: 5}]}>
+                My Profile
+              </Text>
+              <Text style={styles.text(colors.black)}>
+                Sign in to see your account settings
+              </Text>
+            </View>
           )}
 
           <Button
@@ -115,6 +127,28 @@ export default function Profile({navigation}) {
 }
 
 const styles = StyleSheet.create({
+  profileBox: {
+    backgroundColor: colors.white,
+    borderRadius: 10,
+    padding: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  textHeader: color => ({
+    fontSize: 16,
+    fontWeight: '700',
+    color: color,
+  }),
+  text: color => ({
+    fontSize: 15,
+    color: color,
+  }),
   header: {
     color: colors.black,
     fontSize: 18,
@@ -137,7 +171,6 @@ const styles = StyleSheet.create({
     color: colors.darkGrey,
   },
   page: {
-    backgroundColor: colors.white,
     flex: 1,
   },
   totalActivity: {

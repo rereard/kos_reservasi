@@ -38,8 +38,9 @@ export default function DetailRoom({route, navigation}) {
         <View>
           <Text>Photos</Text>
           <ScrollView horizontal={true}>
-            {image?.map(item => (
+            {image?.map((item, index) => (
               <Image
+                key={index}
                 source={{
                   uri: item.url_original,
                 }}

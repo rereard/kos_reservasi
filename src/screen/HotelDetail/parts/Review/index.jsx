@@ -21,8 +21,8 @@ export default function ReviewParts({data, onPress}) {
         </Text>
       </View>
       <ScrollView horizontal={true} style={{flexDirection: 'row'}}>
-        {data?.slice(0, 5).map(item => (
-          <View style={{marginLeft: 10}}>
+        {data?.slice(0, 5).map((item,index) => (
+          <View key={index} style={{marginLeft: 10}}>
             <ReviewCard
               date={item?.date}
               description={item?.pros}

@@ -15,8 +15,8 @@ export default function Reviews({navigation}) {
           <View style={{backgroundColor: colors.darkBlue, padding: 10, marginBottom: 10}}>
             <Header title="Review" onPress={() => navigation.goBack()} />
           </View>
-          {review?.map(item => (
-            <View style={styles.container}>
+          {review?.map((item, index) => (
+            <View key={index} style={styles.container}>
               <ReviewCard
                 date={item?.date}
                 description={item?.pros}

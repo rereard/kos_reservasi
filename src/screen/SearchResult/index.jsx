@@ -28,46 +28,46 @@ export default function SearchResult({route, navigation}) {
 
   return (
     <SafeAreaView>
-      <ScrollView>
-        <View
-          style={{
-            backgroundColor: colors.white,
-            flexDirection: 'row',
-            margin: 10,
-            borderRadius: 10,
-            padding: 10,
-            alignItems: 'center',
-          }}>
-          <Button
-            type="icon"
-            icon="chevron-back"
-            color={colors.darkBlue}
-            size={30}
-            onPress={() => navigation.goBack()}
-          />
-          <View style={{flex: 0.3}} />
-          <View style={{}}>
-            <Text
-              style={{color: colors.darkBlue, fontSize: 16, fontWeight: '600'}}>
-              Search result for "{location}"
-            </Text>
-            <Text style={{color: colors.darkBlue, fontSize: 15}}>
-              {checkIn} - {checkOut}
-            </Text>
-            <Text style={{color: colors.darkBlue, fontSize: 15}}>
-              {guests} person | {rooms} rooms
-            </Text>
-          </View>
+      <View
+        style={{
+          backgroundColor: colors.white,
+          flexDirection: 'row',
+          margin: 10,
+          borderRadius: 10,
+          padding: 10,
+          alignItems: 'center',
+        }}>
+        <Button
+          type="icon"
+          icon="chevron-back"
+          color={colors.darkBlue}
+          size={30}
+          onPress={() => navigation.goBack()}
+        />
+        <View style={{flex: 0.3}} />
+        <View style={{}}>
+          <Text
+            style={{color: colors.darkBlue, fontSize: 16, fontWeight: '600'}}>
+            Search result for "{location}"
+          </Text>
+          <Text style={{color: colors.darkBlue, fontSize: 15}}>
+            {checkIn} - {checkOut}
+          </Text>
+          <Text style={{color: colors.darkBlue, fontSize: 15}}>
+            {guests} person | {rooms} rooms
+          </Text>
         </View>
-        {isPending ? (
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <Text
-              style={{color: colors.darkBlue, fontSize: 18, fontWeight: '600'}}>
-              Loading...
-            </Text>
-          </View>
-        ) : (
-          <View style={{padding: 10, paddingTop: 0}}>
+      </View>
+      {isPending ? (
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <Text
+            style={{color: colors.darkBlue, fontSize: 18, fontWeight: '600'}}>
+            Loading...
+          </Text>
+        </View>
+      ) : (
+        <ScrollView>
+          <View style={{padding: 10, paddingTop: 0, marginBottom: 100}}>
             {hotels.map(item => (
               <HotelCard
                 key={item?.hotel_id}
@@ -94,8 +94,8 @@ export default function SearchResult({route, navigation}) {
               />
             ))}
           </View>
-        )}
-      </ScrollView>
+        </ScrollView>
+      )}
     </SafeAreaView>
   );
 }

@@ -43,7 +43,7 @@ export default function Sign({navigation}) {
 
   return (
     <View style={styles.page}>
-      <Header title="Sign" onPress={() => navigation.goBack()} />
+      <Header title="Sign in" onPress={() => navigation.goBack()} />
       <View style={styles.content}>
         <Text style={styles.title}>WELLCOME</Text>
         <Text style={styles.text}>Please sign to access application</Text>

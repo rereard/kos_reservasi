@@ -128,22 +128,6 @@ export default function DetailHotel({route, navigation}) {
                   )
                 })}
               </Swiper>
-              {/* <ScrollView 
-                horizontal={true}
-              >
-                {hotelPhotos.map((item, index) => {
-                  console.log(item[6]);
-                  return(
-                    <Image
-                      key={index}
-                      source={{
-                        uri: `https://cf.bstatic.com${item[5]}`,
-                      }}
-                      style={styles.image}
-                    />
-                  )
-                })}
-              </ScrollView> */}
               <View style={styles.header}>
                 <Header onPress={() => navigation.goBack()} />
               </View>
@@ -188,24 +172,6 @@ export default function DetailHotel({route, navigation}) {
                   </Text>
                 ))}
               </ScrollView>
-              {/* {description ? (
-                <View>
-                  <Text numberOfLines={lineText} style={styles.description}>
-                    {description[1]
-                      ? description[1]?.description
-                      : description[0]?.description}
-                  </Text>
-                  {lineText === 0 ? (
-                    <></>
-                  ) : (
-                    <Text onPress={readMore} style={{color: colors.darkBlue}}>
-                      Read More..
-                    </Text>
-                  )}
-                </View>
-              ) : (
-                <></>
-              )} */}
             </View>
             <View style={styles.cardItem}>
               <ReviewParts

@@ -78,7 +78,7 @@ export default function Home({navigation}) {
           </Text>
           <View style={styles.boxSearch}>
             <Input
-              placeholder="Search place or lacation.."
+              placeholder="Search place or location.."
               type="search"
               onChangeText={value => setInput(value)}
             />

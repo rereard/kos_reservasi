@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   Input: (type, backgroundColor) => ({
     borderRadius: 10,
     backgroundColor:
-      backgroundColor === backgroundColor ? backgroundColor : colors.white,
+      backgroundColor ? backgroundColor : colors.white,
     paddingRight: type === 'password' || type === 'search' ? 40 : 20,
     paddingLeft: type === 'user' || type === 'telephone' ? 40 : 20,
     color: colors.black,
