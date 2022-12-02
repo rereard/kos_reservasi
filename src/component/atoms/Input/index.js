@@ -8,6 +8,7 @@ export default function Input({
   onChangeText,
   type,
   backgroundColor,
+  value,
 }) {
   const [showPassword, setShowPassword] = useState(
     type === 'password' ? true : false,
@@ -32,6 +33,7 @@ export default function Input({
         onChangeText={onChangeText}
         secureTextEntry={showPassword}
         placeholderTextColor={colors.darkGrey}
+        value={value}
       />
       {type === 'password' ? (
         <Ionicons name={iconEye} style={styles.icon(type)} onPress={ShowPw} />

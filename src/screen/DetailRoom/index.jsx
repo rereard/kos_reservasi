@@ -12,10 +12,9 @@ import {colors, formatIDR} from '../../utils';
 import {Button} from '../../component/atoms';
 
 export default function DetailRoom({route, navigation}) {
-  const {name_room, price, bed_type, image} = route.params;
+  const {name_room, price, bed_type, image, room, person, checkIn, checkOut} =
+    route.params;
 
-  console.log('price', bed_type);
-  console.log('image', image);
   return (
     <SafeAreaView style={styles.page}>
       <View style={{padding: 20}}>
@@ -78,7 +77,24 @@ export default function DetailRoom({route, navigation}) {
             <Text style={{color: colors.white, marginLeft: 5}}>{bed_type}</Text>
           </View>
         </View>
-        <Button title="Book Now" color={colors.yellow} size={10} width={100} />
+        <Button
+          title="Book Now"
+          color={colors.yellow}
+          size={10}
+          width={100}
+          onPress={() =>
+            navigation.navigate('Booking', {
+              price: price,
+              bed_type: bed_type,
+              room: room,
+              person: person,
+              checkIn: checkIn,
+              checkOut: checkOut,
+              name_room: name_room,
+              image: image[1]?.url_original,
+            })
+          }
+        />
       </View>
     </SafeAreaView>
   );
