@@ -78,6 +78,7 @@ export default function SearchResult({route, navigation}) {
                     checkOut: checkOut,
                     guests: guests,
                     rooms: rooms,
+                    image: item?.main_photo_url
                   })
                 }
                 hotelId={item?.hotel_id}

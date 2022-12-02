@@ -12,7 +12,7 @@ import {colors, formatIDR} from '../../utils';
 import {Button} from '../../component/atoms';
 
 export default function DetailRoom({route, navigation}) {
-  const {name_room, price, bed_type, image, room, person, checkIn, checkOut} =
+  const {name_room, price, bed_type, image, room, person, checkIn, checkOut, mainImage} =
     route.params;
 
   return (
@@ -92,6 +92,7 @@ export default function DetailRoom({route, navigation}) {
               checkOut: checkOut,
               name_room: name_room,
               image: image[1]?.url_original,
+              mainImage
             })
           }
         />

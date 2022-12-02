@@ -12,7 +12,8 @@ import {
 } from 'react-native';
 import {colors} from '../../../utils';
 
-export default function BookHistoryCard({onPress}) {
+export default function BookHistoryCard({onPress, hotel_name, stay_length, checkIn, checkOut, price, mainImage}) {
+  const imageResize = mainImage?.replace('square60', 'max500');
   return (
     <View style={styles.container}>
       <Pressable
@@ -22,23 +23,22 @@ export default function BookHistoryCard({onPress}) {
         onPress={onPress}>
         <Image
           source={{
-            uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Hotel-room-renaissance-columbus-ohio.jpg/320px-Hotel-room-renaissance-columbus-ohio.jpg',
+            uri: imageResize,
           }}
           style={styles.img}
         />
         <View style={styles.content}>
           <View style={{flex: 1, justifyContent: 'center'}}>
             <Text numberOfLines={2} style={styles.textHeader(colors.black)}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia
-              expedita quis dolorem!
+              {hotel_name}
             </Text>
             <Text style={styles.textHeader(colors.darkGrey)}>
-              31/02/2023 - 32/02/2023 (x days)
+              {checkIn} - {checkOut} ({stay_length} days)
             </Text>
           </View>
           <View style={{flex: 0.1}} />
           <View style={{justifyContent: 'center', alignItems: 'flex-end'}}>
-            <Text style={styles.text(colors.darkBlue)}>Rp 999.999</Text>
+            <Text style={styles.text(colors.darkBlue)}>{price}</Text>
           </View>
         </View>
       </Pressable>

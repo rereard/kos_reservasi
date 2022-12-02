@@ -136,13 +136,7 @@ const Router = () => {
       <Stack.Screen
         name="Invoice"
         component={Invoice}
-        options={{
-          title: "Booking's Detail",
-          headerStyle: {
-            backgroundColor: colors.darkBlue,
-          },
-          headerTintColor: colors.white,
-        }}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );

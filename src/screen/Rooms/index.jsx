@@ -13,7 +13,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {fetchRooms} from '../../features/getRoomsSlice';
 
 export default function Rooms({route, navigation}) {
-  const {hotel_id, checkOut, checkIn, guests, rooms} = route.params;
+  const {hotel_id, checkOut, checkIn, guests, rooms, image} = route.params;
   const room = useSelector(state => state.rooms.rooms);
   const dispatch = useDispatch();
 
@@ -51,6 +51,7 @@ export default function Rooms({route, navigation}) {
                 checkIn: checkIn,
                 checkOut: checkOut,
                 image: room.rooms[item?.room_id].photos,
+                mainImage: image
               })
             }
           />

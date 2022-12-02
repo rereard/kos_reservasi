@@ -22,7 +22,7 @@ import Kebijakan from './parts/Kebijakan';
 import { formatIDR } from '../../utils';
 
 export default function DetailHotel({route, navigation}) {
-  const {hotel_id, checkIn, checkOut, guests, rooms} = route.params;
+  const {hotel_id, checkIn, checkOut, guests, rooms, image} = route.params;
   const [hotelPhotos, setHotelPhotos] = useState([]);
   const [lineText, setLineText] = useState(3);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -299,6 +299,7 @@ export default function DetailHotel({route, navigation}) {
                   checkIn: checkIn,
                   guests: guests,
                   rooms: rooms,
+                  image
                 })
               }
               title="Pilih Kamar"

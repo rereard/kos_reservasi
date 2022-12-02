@@ -11,21 +11,35 @@ import {
 } from 'react-native';
 import {colors} from '../../utils';
 import {Button} from '../../component/atoms';
+import { Header } from '../../component/molecules';
+import { useSelector } from 'react-redux';
 
-export default function Invoice({navigation}) {
+export default function Invoice({route, navigation}) {
+  const { book_id, afterCheckout } = route.params
+  const user = useSelector(state => state.login.user)
+  const bookHistory = useSelector(state => state.bookHistory.bookHistories[user.username])
+  const bookHistoryById = bookHistory.find(item => item.book_id === book_id)
+  const imageResize = (img) => img?.replace('square60', 'max500');
+  
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View>
+          <View style={{ padding: 10, backgroundColor: colors.darkBlue }}>
+            <Header 
+              title="Booking Detail"
+              onPress={() => afterCheckout ? navigation.navigate("main") : navigation.goBack()}
+            />
+          </View>
           <Image
             source={{
-              uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Hotel-room-renaissance-columbus-ohio.jpg/320px-Hotel-room-renaissance-columbus-ohio.jpg',
+              uri: imageResize(bookHistoryById.mainImage),
             }}
             style={styles.img}
           />
           <View style={{padding: 15}}>
             <Text numberOfLines={2} style={styles.textHeader}>
-              Lorem ipsum dolor sit amet consectetur adipisicing. Hotel
+              {bookHistoryById.hotel_name}
             </Text>
             <View style={styles.rowContainer}>
               <Text style={styles.text(colors.darkGrey)}>Booking ID:</Text>
@@ -34,7 +48,7 @@ export default function Invoice({navigation}) {
                   styles.text(colors.black),
                   {flex: 1, textAlign: 'right'},
                 ]}>
-                123456
+                {bookHistoryById.book_id}
               </Text>
             </View>
             <View style={styles.rowContainer}>
@@ -44,7 +58,7 @@ export default function Invoice({navigation}) {
                   styles.text(colors.black),
                   {flex: 1, textAlign: 'right'},
                 ]}>
-                99 days
+                {bookHistoryById.stay_length} days
               </Text>
             </View>
             <View style={styles.rowContainer}>
@@ -54,7 +68,7 @@ export default function Invoice({navigation}) {
                   styles.text(colors.black),
                   {flex: 1, textAlign: 'right'},
                 ]}>
-                22/2/2222
+                {bookHistoryById.checkIn}
               </Text>
             </View>
             <View style={styles.rowContainer}>
@@ -64,7 +78,7 @@ export default function Invoice({navigation}) {
                   styles.text(colors.black),
                   {flex: 1, textAlign: 'right'},
                 ]}>
-                33/3/3333
+                {bookHistoryById.checkOut}
               </Text>
             </View>
             <View style={styles.rowContainer}>
@@ -74,7 +88,7 @@ export default function Invoice({navigation}) {
                   styles.text(colors.black),
                   {flex: 1, textAlign: 'right'},
                 ]}>
-                99 guests
+                {bookHistoryById.person} guests
               </Text>
             </View>
             <View style={styles.rowContainer}>
@@ -84,7 +98,7 @@ export default function Invoice({navigation}) {
                   styles.text(colors.black),
                   {flex: 1, textAlign: 'right'},
                 ]}>
-                xxxx
+                {bookHistoryById.name_room}
               </Text>
             </View>
             <View style={styles.rowContainer}>
@@ -94,7 +108,7 @@ export default function Invoice({navigation}) {
                   styles.text(colors.black),
                   {flex: 1, textAlign: 'right', fontWeight: '800'},
                 ]}>
-                Rp 999.999
+                {bookHistoryById.price}
               </Text>
             </View>
           </View>

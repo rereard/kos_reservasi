@@ -12,6 +12,7 @@ import {Button, Input} from '../../component/atoms';
 import {colors} from '../../utils';
 import {Header} from '../../component/molecules';
 import { addBookHistory } from '../../features/bookHistorySlice';
+import { formatIDR } from '../../utils';
 
 function makeid(length) {
   var result           = '';
@@ -33,7 +34,8 @@ const lengthOfDay = (date1, date2) => {
 
 export default function Booking({route, navigation}) {
   const dispatch = useDispatch()
-  const {price, room, bed_type, person, checkIn, checkOut, name_room, image} = route.params;
+  const book_id = makeid(5)
+  const {price, room, bed_type, person, checkIn, checkOut, name_room, image, mainImage} = route.params;
   
   const user = useSelector(state => state.login?.user)
   const hotel_name = useSelector(state => state.detail?.detail?.hotel_name)
@@ -112,27 +114,31 @@ export default function Booking({route, navigation}) {
           <View>
             <Text style={styles.titleHeader}>Total Payment</Text>
             <View style={styles.totalPrice}>
-              <Text>Total</Text>
-              <Text>IDR {price * room}</Text>
+              <Text style={{ color: colors.darkBlue }}>Total</Text>
+              <Text style={{ color: colors.darkBlue }}>{formatIDR.format(price * room)}</Text>
             </View>
           </View>
           <Button 
             title="Booking" 
             color={colors.darkBlue} 
-            onPress={() => dispatch(addBookHistory({
-              username: user.username, 
-              data: {
-                hotel_name,  
-                book_id: makeid(5), 
-                stay_length: lengthOfDay(checkIn, checkOut), 
-                checkIn, 
-                checkOut, 
-                person, 
-                room, 
-                name_room, 
-                price: price*room 
-              } 
-            }))
+            onPress={() => {
+              dispatch(addBookHistory({
+                username: user.username, 
+                data: {
+                  mainImage,
+                  hotel_name,  
+                  book_id, 
+                  stay_length: lengthOfDay(checkIn, checkOut), 
+                  checkIn, 
+                  checkOut, 
+                  person, 
+                  room, 
+                  name_room, 
+                  price: formatIDR.format(price * room) 
+                } 
+              }))
+              navigation.navigate("Invoice", { book_id, afterCheckout: true })
+            }
           }/>
         </View>
         
