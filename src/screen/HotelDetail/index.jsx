@@ -31,6 +31,7 @@ export default function DetailHotel({route, navigation}) {
   const detail = useSelector(state => state.detail.detail);
   const isPending = useSelector(state => state.detail.isPending);
   const review = useSelector(state => state.review.review);
+  const user = useSelector(state => state.login.user)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,20 +56,6 @@ export default function DetailHotel({route, navigation}) {
   }, []);
 
   useEffect(() => {
-    console.log('hotel PHOTOS', hotelPhotos);
-  }, [hotelPhotos]);
-
-  // const [description, setDescription] = useState([]);
-
-  const readMore = () => {
-    if (lineText === 0) {
-      setLineText(3);
-    } else {
-      setLineText(0);
-    }
-  };
-
-  useEffect(() => {
     if (detail?.hotel_id !== hotel_id) {
       dispatch(fetchReview(route.params));
     }
@@ -79,31 +66,6 @@ export default function DetailHotel({route, navigation}) {
       dispatch(fetchDetail(route.params));
     }
   }, []);
-
-  // console.log('==>', description);
-
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       'https://apidojo-booking-v1.p.rapidapi.com/properties/get-description',
-  //       {
-  //         params: {
-  //           hotel_ids: hotel_id,
-  //           languagecode: 'id',
-  //         },
-  //         headers: {
-  //           'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
-  //           'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com',
-  //         },
-  //       },
-  //     )
-  //     .then(response => {
-  //       setDescription(response.data);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // }, []);
 
   return (
     <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
@@ -216,16 +178,18 @@ export default function DetailHotel({route, navigation}) {
               </Text>
             </View>
             <Button
-              onPress={() =>
-                navigation.navigate('Rooms', {
-                  hotel_id: hotel_id,
-                  checkOut: checkOut,
-                  checkIn: checkIn,
-                  guests: guests,
-                  rooms: rooms,
-                  image
-                })
-              }
+              onPress={() => {
+                user ? 
+                  navigation.navigate('Rooms', {
+                    hotel_id: hotel_id,
+                    checkOut: checkOut,
+                    checkIn: checkIn,
+                    guests: guests,
+                    rooms: rooms,
+                    image
+                  }) 
+                : navigation.navigate('Sign')
+              }}
               title="Pilih Kamar"
               color={colors.yellow}
               size={10}
