@@ -12,6 +12,7 @@ const loginSlice = createSlice({
       setUser: (state, action) => {
         state.user = action.payload.auth;
         state.user.pass = action.payload.pass
+        state.user.phone = action.payload.phone
       },
       removeLogin: (state) => {
         state.user = null;

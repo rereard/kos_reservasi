@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    bookHistories: []
+    bookHistories: {}
 }
 
 const bookHistorySlice = createSlice({
@@ -14,16 +14,17 @@ const bookHistorySlice = createSlice({
             if(isNotFirstUser) {
                 state.bookHistories[action.payload.username] = [...state.bookHistories[action.payload.username], action.payload.data]
             } else {
-            state.bookHistories[action.payload.username] = [action.payload.data]
+                // state.bookHistories[action.payload.username] = "a"
+                // console.log("bkhstryusername", state.bookHistories[action.payload.username]);
+                state.bookHistories[action.payload.username] = [action.payload.data]
             }
         },
-        // WIP masih bingung results API-nya
         deleteBookHistory: (state, action) => {
-            // const filter = state.bookHistories[action.payload.username].filter((id) => id !== action.payload.id);
-            // state.bookHistories[action.payload.username] = filter
-            // if(state.bookHistories[action.payload.username].length === 0) {
-            //     delete state.bookHistories[action.payload.username]
-            // }
+            const filter = state.bookHistories[action.payload.username].filter((item) => item.book_id !== action.payload.id);
+            state.bookHistories[action.payload.username] = filter
+            if(state.bookHistories[action.payload.username].length === 0) {
+                delete state.bookHistories[action.payload.username]
+            }
         }
     }
 })

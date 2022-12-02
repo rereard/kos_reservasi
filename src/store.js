@@ -26,7 +26,7 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage: AsyncStorage,
-  blacklist: ['hotel', 'review', 'detail'],
+  blacklist: ['hotel', 'review', 'detail', 'review', 'rooms'],
 };
 
 const rootReducer = combineReducers({

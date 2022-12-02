@@ -47,6 +47,7 @@ export const fetchHotels = createAsyncThunk(
           'X-RapidAPI-Host': 'apidojo-booking-v1.p.rapidapi.com',
         },
       });
+      console.log("api",process.env.REACT_APP_API_KEY);
       return [responseHotels.data.result, responseHotels.data.search_id];
     } catch (e) {
       throw e;

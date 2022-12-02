@@ -78,13 +78,13 @@ export default function Invoice({navigation}) {
               </Text>
             </View>
             <View style={styles.rowContainer}>
-              <Text style={styles.text(colors.darkGrey)}>Total Rooms:</Text>
+              <Text style={styles.text(colors.darkGrey)}>Room Name:</Text>
               <Text
                 style={[
                   styles.text(colors.black),
                   {flex: 1, textAlign: 'right'},
                 ]}>
-                99 rooms
+                xxxx
               </Text>
             </View>
             <View style={styles.rowContainer}>

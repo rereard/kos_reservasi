@@ -6,18 +6,41 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import React, {useState} from 'react';
 import {Button, Input} from '../../component/atoms';
 import {colors} from '../../utils';
 import {Header} from '../../component/molecules';
+import { addBookHistory } from '../../features/bookHistorySlice';
+
+function makeid(length) {
+  var result           = '';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
+const lengthOfDay = (date1, date2) => {
+  let d1 = new Date(date1)
+  let d2 = new Date(date2)
+  let Difference_In_Time = d2.getTime() - d1.getTime();
+  let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+  return(Difference_In_Days)
+}
 
 export default function Booking({route, navigation}) {
-  const {price, room, bed_type, person, checkIn, checkOut, name_room, image} =
-    route.params;
+  const dispatch = useDispatch()
+  const {price, room, bed_type, person, checkIn, checkOut, name_room, image} = route.params;
+  
+  const user = useSelector(state => state.login?.user)
+  const hotel_name = useSelector(state => state.detail?.detail?.hotel_name)
 
-  const [fullName, setFullName] = useState();
-  const [email, setEmail] = useState();
-  const [telephone, setTelephone] = useState(0);
+  const [fullName, setFullName] = useState(user.firstName + " " + user.lastName);
+  const [email, setEmail] = useState(user.email);
+  const [telephone, setTelephone] = useState(user.phone);
 
   return (
     <SafeAreaView style={styles.page}>
@@ -82,7 +105,24 @@ export default function Booking({route, navigation}) {
             </View>
           </View>
         </View>
-        <Button title="Booking" color={colors.darkBlue} />
+        <Button 
+          title="Booking" 
+          color={colors.darkBlue} 
+          onPress={() => dispatch(addBookHistory({
+            username: user.username, 
+            data: {
+              hotel_name,  
+              book_id: makeid(5), 
+              stay_length: lengthOfDay(checkIn, checkOut), 
+              checkIn, 
+              checkOut, 
+              person, 
+              room, 
+              name_room, 
+              price: price*room 
+            } 
+          }))
+        }/>
       </ScrollView>
     </SafeAreaView>
   );

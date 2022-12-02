@@ -17,20 +17,26 @@ export default function Sign({navigation}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const Login = () => {
-    axios
-      .post('https://dummyjson.com/auth/login', {
+  const Login = async () => {
+    try {
+      const responseAuth = await axios.post('https://dummyjson.com/auth/login', {
         username: username,
         password: password,
       })
-      .then(response => {
-        console.log(response);
-        dispatch(setUser({auth: response.data, pass: password}))
-        navigation.navigate('main');
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      const responseUserData = await axios.get(`https://dummyjson.com/users/${responseAuth.data.id}`)
+      dispatch(setUser({auth: responseAuth.data, pass: responseUserData.data.password, phone: responseUserData.data.phone}))
+      navigation.navigate('main');
+    } catch (e) {
+      throw(e)
+    }
+      // .then(response => {
+      //   console.log(response);
+      //   dispatch(setUser({auth: response.data, pass: password}))
+      //   navigation.navigate('main');
+      // })
+      // .catch(err => {
+      //   console.log(err);
+      // });
   };
 
   console.log(username);
