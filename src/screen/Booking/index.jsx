@@ -116,26 +116,26 @@ export default function Booking({route, navigation}) {
               <Text>IDR {price * room}</Text>
             </View>
           </View>
-          <Button title="Booking" color={colors.darkBlue} />
+          <Button 
+            title="Booking" 
+            color={colors.darkBlue} 
+            onPress={() => dispatch(addBookHistory({
+              username: user.username, 
+              data: {
+                hotel_name,  
+                book_id: makeid(5), 
+                stay_length: lengthOfDay(checkIn, checkOut), 
+                checkIn, 
+                checkOut, 
+                person, 
+                room, 
+                name_room, 
+                price: price*room 
+              } 
+            }))
+          }/>
         </View>
-        <Button 
-          title="Booking" 
-          color={colors.darkBlue} 
-          onPress={() => dispatch(addBookHistory({
-            username: user.username, 
-            data: {
-              hotel_name,  
-              book_id: makeid(5), 
-              stay_length: lengthOfDay(checkIn, checkOut), 
-              checkIn, 
-              checkOut, 
-              person, 
-              room, 
-              name_room, 
-              price: price*room 
-            } 
-          }))
-        }/>
+        
       </ScrollView>
     </SafeAreaView>
   );
