@@ -47,6 +47,9 @@ export default function Rooms({route, navigation}) {
                   room.rooms[item?.room_id].bed_configurations[0].bed_types[0]
                     .name_with_count,
                 room: rooms,
+                person: guests,
+                checkIn: checkIn,
+                checkOut: checkOut,
                 image: room.rooms[item?.room_id].photos,
               })
             }
