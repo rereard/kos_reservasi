@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import {Header} from '../../component/molecules';
-import {colors} from '../../utils';
+import {colors, formatIDR} from '../../utils';
 import {Button} from '../../component/atoms';
 
 export default function DetailRoom({route, navigation}) {
@@ -58,7 +58,7 @@ export default function DetailRoom({route, navigation}) {
               fontWeight: 'bold',
               fontSize: 15,
             }}>
-            {price}
+            {formatIDR.format(price)}
             <Text
               style={{
                 color: colors.white,

@@ -17,6 +17,7 @@ import Button from '../../atoms/Button';
 import {colors} from '../../../utils';
 import {addFavorite, deleteFavorite} from '../../../features/favoriteSlice';
 import Icon from '../../atoms/Button/icon';
+import { formatIDR } from '../../../utils';
 
 export default function HotelCard({
   onPress,
@@ -152,7 +153,7 @@ export default function HotelCard({
                 </View>
               </View>
               <View>
-                <Text style={styles.text}>IDR {price}</Text>
+                <Text style={styles.text}>{formatIDR.format(price)}</Text>
                 <Text style={styles.text}>/Night</Text>
               </View>
             </View>

@@ -19,6 +19,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {fetchDetail} from '../../features/detailHotelSlice';
 import {fetchReview} from '../../features/ReviewSlice';
 import Kebijakan from './parts/Kebijakan';
+import { formatIDR } from '../../utils';
 
 export default function DetailHotel({route, navigation}) {
   const {hotel_id, checkIn, checkOut, guests, rooms} = route.params;
@@ -189,7 +190,7 @@ export default function DetailHotel({route, navigation}) {
                 <Header onPress={() => navigation.goBack()} />
               </View>
               <View style={styles.boxPrice}>
-                <Text style={styles.price}>RP 200.000</Text>
+                <Text style={styles.price}>{formatIDR.format(detail?.composite_price_breakdown?.all_inclusive_amount?.value)}</Text>
                 <Text style={styles.price}>/Night</Text>
               </View>
             </View>
@@ -279,7 +280,7 @@ export default function DetailHotel({route, navigation}) {
                   fontWeight: 'bold',
                   fontSize: 15,
                 }}>
-                200.000
+                {formatIDR.format(detail?.composite_price_breakdown?.all_inclusive_amount?.value)}
                 <Text
                   style={{
                     color: colors.white,

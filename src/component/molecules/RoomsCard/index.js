@@ -1,7 +1,7 @@
 import {View, Text, Image, StyleSheet, Pressable} from 'react-native';
 import React from 'react';
 import {Button} from '../../atoms';
-import {colors} from '../../../utils';
+import {colors, formatIDR} from '../../../utils';
 
 export default function RoomsCard({
   onPress,
@@ -54,7 +54,7 @@ export default function RoomsCard({
             </View>
           </View>
           <View>
-            <Text style={styles.price}>IDR {price}</Text>
+            <Text style={styles.price}>{formatIDR.format(price)}</Text>
           </View>
         </View>
       </View>
