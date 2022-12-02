@@ -45,6 +45,16 @@ export default function Input({
       ) : (
         <></>
       )}
+      {type === 'user' ? (
+        <Ionicons name={'person-outline'} style={styles.icon(type)} />
+      ) : (
+        <></>
+      )}
+      {type === 'telephone' ? (
+        <Ionicons name={'call-outline'} style={styles.icon(type)} />
+      ) : (
+        <></>
+      )}
     </View>
   );
 }
@@ -53,17 +63,20 @@ const styles = StyleSheet.create({
   Input: (type, backgroundColor) => ({
     borderRadius: 10,
     backgroundColor:
-      backgroundColor === colors.grey ? colors.grey : colors.white,
+      backgroundColor === backgroundColor ? backgroundColor : colors.white,
     paddingRight: type === 'password' || type === 'search' ? 40 : 20,
-    paddingLeft: 20,
+    paddingLeft: type === 'user' || type === 'telephone' ? 40 : 20,
     color: colors.black,
   }),
   icon: type => ({
     position: 'absolute',
-    right: 0,
+    right: type === 'user' || type === 'telephone' ? null : 0,
     top: 0,
     fontSize: 20,
     padding: 14,
-    color: type === 'search' ? colors.darkGrey : colors.black,
+    color:
+      type === 'search' || type === 'user' || type === 'telephone'
+        ? colors.darkGrey
+        : colors.black,
   }),
 });

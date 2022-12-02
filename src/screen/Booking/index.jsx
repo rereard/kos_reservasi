@@ -44,66 +44,79 @@ export default function Booking({route, navigation}) {
 
   return (
     <SafeAreaView style={styles.page}>
-      <Header
-        title="booking"
-        color={colors.darkBlue}
-        onPress={() => navigation.goBack()}
-      />
+      <View style={styles.header}>
+        <Header
+          title="booking"
+          color={colors.white}
+          onPress={() => navigation.goBack()}
+        />
+      </View>
       <ScrollView>
-        <View>
-          <Text>Detail Pemesanan</Text>
+        <View style={styles.container}>
           <View>
-            <View style={{flexDirection: 'row'}}>
-              <Image source={{uri: image}} style={{width: 100, height: 100}} />
-              <View>
-                <Text>{name_room}</Text>
-                <Text>
-                  {room} x {bed_type}
-                </Text>
-                <Text>{person} Person</Text>
+            <Text style={styles.titleHeader}>Detail Pemesanan</Text>
+            <View style={{marginTop: 20}}>
+              <View style={styles.summaryBooking}>
+                <Image
+                  source={{uri: image}}
+                  style={{width: 90, height: 90, borderRadius: 10}}
+                />
+                <View style={{marginLeft: 10}}>
+                  <Text style={styles.nameRoom} numberOfLines={2}>
+                    {name_room}
+                  </Text>
+                  <Text style={styles.countBed}>
+                    {room} x {bed_type}
+                  </Text>
+                  <Text style={styles.person}>{person} Person</Text>
+                </View>
               </View>
-            </View>
-            <View>
-              <View
-                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Text>Check-in</Text>
-                <Text>{checkIn}</Text>
-              </View>
-              <View
-                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Text>Check-out</Text>
-                <Text>{checkOut}</Text>
+              <View style={styles.arrivalDate}>
+                <View style={styles.arrivaTitle}>
+                  <Text>Check-in</Text>
+                  <Text>{checkIn}</Text>
+                </View>
+                <View style={styles.arrivaTitle}>
+                  <Text>Check-out</Text>
+                  <Text>{checkOut}</Text>
+                </View>
               </View>
             </View>
           </View>
-        </View>
-        <Text>CONTACT INFORMATION</Text>
-        <Input
-          placeholder="Full name"
-          onChangeText={value => setFullName(value)}
-          value={fullName}
-        />
-        <Input
-          placeholder="email@gmail.com"
-          onChangeText={value => setEmail(value)}
-          value={email}
-        />
-        <Input
-          placeholder="No Telephone"
-          onChangeText={value => setTelephone(value)}
-          value={telephone}
-        />
-        <View>
-          <View>
-            <View>
-              <Text></Text>
+          <Text style={styles.titleHeader}>Contact Information</Text>
+          <View style={styles.contentInput}>
+            <Input
+              placeholder="Full name"
+              type="user"
+              onChangeText={value => setFullName(value)}
+              value={fullName}
+              backgroundColor={colors.grey}
+            />
+            <View style={{marginVertical: 10}}>
+              <Input
+                placeholder="email@gmail.com"
+                type="user"
+                onChangeText={value => setEmail(value)}
+                value={email}
+                backgroundColor={colors.grey}
+              />
             </View>
-            <View
-              style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Input
+              placeholder="No Telephone"
+              type="telephone"
+              onChangeText={value => setTelephone(value)}
+              value={telephone}
+              backgroundColor={colors.grey}
+            />
+          </View>
+          <View>
+            <Text style={styles.titleHeader}>Total Payment</Text>
+            <View style={styles.totalPrice}>
               <Text>Total</Text>
-              <Text>{price * room}</Text>
+              <Text>IDR {price * room}</Text>
             </View>
           </View>
+          <Button title="Booking" color={colors.darkBlue} />
         </View>
         <Button 
           title="Booking" 
@@ -129,7 +142,60 @@ export default function Booking({route, navigation}) {
 }
 
 const styles = StyleSheet.create({
-  page: {
+  summaryBooking: {
+    borderColor: colors.darkGrey,
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
+    flexDirection: 'row',
+  },
+  header: {
     padding: 20,
+    backgroundColor: colors.darkBlue,
+  },
+  contentInput: {
+    marginVertical: 20,
+  },
+  container: {
+    padding: 20,
+  },
+  titleHeader: {
+    color: colors.darkBlue,
+    fontWeight: 'bold',
+  },
+  nameRoom: {
+    color: colors.black,
+    fontWeight: 'bold',
+  },
+  countBed: {
+    marginVertical: 5,
+    color: colors.black,
+    fontSize: 13,
+  },
+  arrivaTitle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    color: colors.darkGrey,
+  },
+  arrivalDate: {
+    marginVertical: 15,
+  },
+  person: {
+    fontSize: 13,
+    color: colors.darkGrey,
+  },
+  page: {
+    backgroundColor: colors.white,
+    flex: 1,
+  },
+  totalPrice: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderColor: colors.darkGrey,
+    borderWidth: 1,
+    padding: 8,
+    paddingVertical: 10,
+    marginVertical: 10,
+    borderRadius: 10,
   },
 });
