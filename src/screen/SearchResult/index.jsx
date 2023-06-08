@@ -8,19 +8,19 @@ import {
   Modal,
   FlatList,
 } from 'react-native';
-import {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {colors} from '../../utils';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { colors } from '../../utils';
 import HotelCard from '../../component/molecules/HotelCard';
-import {Button} from '../../component/atoms';
-import {fetchHotels} from '../../features/hotelSlice';
+import { Button } from '../../component/atoms';
+import { fetchHotels } from '../../features/hotelSlice';
 
-export default function SearchResult({route, navigation}) {
+export default function SearchResult({ route, navigation }) {
   const dispatch = useDispatch();
   const hotels = useSelector(state => state.hotel.hotels);
   const isPending = useSelector(state => state.hotel.isPending);
 
-  const {location, checkIn, checkOut, guests, rooms} = route.params;
+  const { location, checkIn, checkOut, guests, rooms } = route.params;
 
   useEffect(() => {
     dispatch(fetchHotels(route.params));
@@ -44,30 +44,30 @@ export default function SearchResult({route, navigation}) {
           size={30}
           onPress={() => navigation.goBack()}
         />
-        <View style={{flex: 0.3}} />
+        <View style={{ flex: 0.3 }} />
         <View style={{}}>
           <Text
-            style={{color: colors.darkBlue, fontSize: 16, fontWeight: '600'}}>
+            style={{ color: colors.darkBlue, fontSize: 16, fontWeight: '600' }}>
             Search result for "{location}"
           </Text>
-          <Text style={{color: colors.darkBlue, fontSize: 15}}>
+          <Text style={{ color: colors.darkBlue, fontSize: 15 }}>
             {checkIn} - {checkOut}
           </Text>
-          <Text style={{color: colors.darkBlue, fontSize: 15}}>
+          <Text style={{ color: colors.darkBlue, fontSize: 15 }}>
             {guests} person | {rooms} rooms
           </Text>
         </View>
       </View>
       {isPending ? (
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
           <Text
-            style={{color: colors.darkBlue, fontSize: 18, fontWeight: '600'}}>
-            Loading...
+            style={{ color: colors.darkBlue, fontSize: 18, fontWeight: '600' }}>
+            Loading...aaaa
           </Text>
         </View>
       ) : (
         <ScrollView>
-          <View style={{padding: 10, paddingTop: 0, marginBottom: 100}}>
+          <View style={{ padding: 10, paddingTop: 0, marginBottom: 100 }}>
             {hotels.map(item => (
               <HotelCard
                 key={item?.hotel_id}
