@@ -15,7 +15,6 @@ import {
   Review,
   Rooms,
   DetailRoom,
-  BookingSuccess,
   KosDetail,
   MapRoom,
   SearchKos,
@@ -145,11 +144,6 @@ const Router = () => {
       <Stack.Screen
         name="Invoice"
         component={Invoice}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="BookingSuccess"
-        component={BookingSuccess}
         options={{headerShown: false}}
       />
       <Stack.Screen

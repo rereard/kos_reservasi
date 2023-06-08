@@ -8,7 +8,7 @@ import {
   Modal,
   ToastAndroid
 } from 'react-native';
-import Destination from './parts/Destination';
+// import Destination from './parts/Destination';
 import { colors, DataPopular, DataTop } from '../../utils';
 import { Button, Input } from '../../component/atoms';
 import Header from '../../component/molecules/Header';

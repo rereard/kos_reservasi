@@ -3,6 +3,7 @@ import Favorite from './Favorite';
 import Home from './Home';
 import DetailHotel from './HotelDetail';
 import Sign from './Sign';
+// import Profile from './Profile';
 import Profile from './Profile';
 import SearchResult from './SearchResult';
 import Receipt from './Receipt';
@@ -12,7 +13,6 @@ import Invoice from './Invoice';
 import Review from './Review';
 import Rooms from './Rooms';
 import DetailRoom from './DetailRoom';
-import BookingSuccess from './BookingSuccess';
 import KosDetail from './KosDetail';
 import MapRoom from './MapRoom';
 import SearchKos from './SearchKos';
@@ -33,7 +33,6 @@ export {
   Review,
   Rooms,
   DetailRoom,
-  BookingSuccess,
   KosDetail,
   MapRoom,
   SearchKos,
