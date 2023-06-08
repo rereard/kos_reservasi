@@ -9,10 +9,10 @@ import {
   ToastAndroid
 } from 'react-native';
 import Destination from './parts/Destination';
-import {colors, DataPopular, DataTop} from '../../utils';
-import {Button, Input} from '../../component/atoms';
+import { colors, DataPopular, DataTop } from '../../utils';
+import { Button, Input } from '../../component/atoms';
 import Header from '../../component/molecules/Header';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import InputModal from './parts/InputModal';
 import { TextInput } from 'react-native-gesture-handler';
@@ -38,7 +38,7 @@ const formatDate = date => {
   return [year, month, day].join('-');
 };
 
-export default function Home({navigation}) {
+export default function Home({ navigation }) {
   const [input, setInput] = useState('');
   const [inputCheckIn, setInputCheckIn] = useState(null);
   const [inputCheckOut, setInputCheckOut] = useState(null);
@@ -70,7 +70,7 @@ export default function Home({navigation}) {
   // console.log("minimumdate", minimumDate);
 
   return (
-    <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
+    <SafeAreaView style={{ backgroundColor: colors.white, flex: 1 }}>
       <ScrollView>
         <View style={styles.header}>
           <Header type="user" onPress={() => navigation.navigate('Sign')} />
@@ -79,7 +79,7 @@ export default function Home({navigation}) {
           </Text> */}
           <View style={styles.boxSearch}>
             <View>
-              <TextInput 
+              <TextInput
                 style={{
                   borderRadius: 10,
                   paddingHorizontal: 10,
@@ -97,7 +97,7 @@ export default function Home({navigation}) {
                 }}
                 value={input}
               />
-              <Ionicons name={'search-outline'} 
+              <Ionicons name={'search-outline'}
                 style={{
                   position: 'absolute',
                   right: 0,
@@ -105,9 +105,9 @@ export default function Home({navigation}) {
                   fontSize: 20,
                   padding: 14,
                   color: colors.darkGrey
-                }} 
+                }}
               />
-            </View>
+            </View >
             {/* <Input
               placeholder="Cari lokasi"
               type="search"
@@ -214,14 +214,14 @@ export default function Home({navigation}) {
                 })
               }
             /> */}
-          </View>
-        </View>
+          </View >
+        </View >
         {/* <View style={{marginLeft: 20}}>
           <Destination title="Top Destinations" data={DataTop} />
           <Destination title="Popular Destinations" data={DataPopular} />
         </View> */}
-      </ScrollView>
-    </SafeAreaView>
+      </ScrollView >
+    </SafeAreaView >
   );
 }
 

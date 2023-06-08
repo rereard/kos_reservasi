@@ -20,6 +20,7 @@ export default function Button({
     <TouchableOpacity
       style={{
         backgroundColor: color,
+        paddingVertical: 10,
         padding: 10,
         borderRadius: 10,
         width: width,
