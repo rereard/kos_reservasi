@@ -89,7 +89,7 @@ export default function KosDetail({navigation}){
 							</View>
 						)}
 					/>
-					<Swiper style={{height: 230}}>
+					<Swiper style={{height: 230}} index={currentImageIndex} loop={false} activeDotColor={colors.darkBlue}>
 						{images.map((item, index) => {
 							return(
 								<TouchableOpacity key={index} onPress={() => {
@@ -178,7 +178,7 @@ export default function KosDetail({navigation}){
 						<View>
 							<Text style={{
 								fontSize: 18,
-								color: colors.darkBlue,
+								color: colors.black,
 								fontWeight: 'bold',
 							}}>
 								Kos Testing
@@ -190,7 +190,7 @@ export default function KosDetail({navigation}){
 							}}>
 								<Icon 
 									icon={"location-outline"}
-									color={colors.darkBlue}
+									color={colors.black}
 									size={15} 
 								/>
 								<Text style={{
@@ -210,7 +210,7 @@ export default function KosDetail({navigation}){
 						borderTopColor: colors.grey,
 					}}>
 						<Text style={{
-							color: colors.darkBlue,
+							color: colors.black,
 							fontWeight: 'bold',
 							marginBottom: 5,
 							fontSize: 15
@@ -227,7 +227,7 @@ export default function KosDetail({navigation}){
 						marginTop: 20
 					}}>
 						<Text style={{
-							color: colors.darkBlue,
+							color: colors.black,
 							fontWeight: 'bold',
 							marginBottom: 5,
 							fontSize: 15
@@ -253,7 +253,7 @@ export default function KosDetail({navigation}){
 						marginTop: 20
 					}}>
 						<Text style={{
-							color: colors.darkBlue,
+							color: colors.black,
 							fontWeight: 'bold',
 							marginBottom: 5,
 							fontSize: 15

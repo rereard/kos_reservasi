@@ -18,7 +18,9 @@ import {
   KosDetail,
   MapRoom,
   SearchKos,
-  DaftarKamar
+  DaftarKamar,
+  KamarDetail,
+  Konfirmasi
 } from '../screen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -159,6 +161,16 @@ const Router = () => {
       <Stack.Screen
         name="DaftarKamar"
         component={DaftarKamar}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="KamarDetail"
+        component={KamarDetail}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Konfirmasi"
+        component={Konfirmasi}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

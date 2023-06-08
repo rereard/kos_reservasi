@@ -91,7 +91,9 @@ export default function Home({ navigation }) {
                 placeholderTextColor={colors.darkGrey}
                 onChangeText={value => setInput(value)}
                 onSubmitEditing={() => {
-                  navigation.navigate('SearchKos')
+                  navigation.navigate('SearchKos', {
+                    inputLocation: input
+                  })
                   ToastAndroid.show(input, ToastAndroid.SHORT)
                   setInput("")
                 }}

@@ -17,6 +17,8 @@ import KosDetail from './KosDetail';
 import MapRoom from './MapRoom';
 import SearchKos from './SearchKos';
 import DaftarKamar from './DaftarKamar';
+import KamarDetail from './KamarDetail';
+import Konfirmasi from './Konfirmasi';
 
 export {
   Sign,
@@ -36,5 +38,7 @@ export {
   KosDetail,
   MapRoom,
   SearchKos,
-  DaftarKamar
+  DaftarKamar,
+  KamarDetail,
+  Konfirmasi
 };
