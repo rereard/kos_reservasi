@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: net.time4j:time4j-android:4.8-2021a@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/c19b4058e4af20c34268b7b0e48d5683/transformed/jetified-time4j-android-4.8-2021a/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c19b4058e4af20c34268b7b0e48d5683/transformed/jetified-time4j-android-4.8-2021a/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
