@@ -6,16 +6,17 @@ import {
   View,
   Image,
   Modal,
+  ToastAndroid
 } from 'react-native';
-
-import {colors} from '../../utils';
-import {Button, Input} from '../../component/atoms';
+import Destination from './parts/Destination';
+import { colors, DataPopular, DataTop } from '../../utils';
+import { Button, Input } from '../../component/atoms';
 import Header from '../../component/molecules/Header';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import InputModal from './parts/InputModal';
-import TopDestinations from './parts/TopDestinations';
-import PopularDestinations from './parts/PopularDestinations';
+import { TextInput } from 'react-native-gesture-handler';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const maxDate = new Date();
 
@@ -37,7 +38,7 @@ const formatDate = date => {
   return [year, month, day].join('-');
 };
 
-export default function Home({navigation}) {
+export default function Home({ navigation }) {
   const [input, setInput] = useState('');
   const [inputCheckIn, setInputCheckIn] = useState(null);
   const [inputCheckOut, setInputCheckOut] = useState(null);
@@ -69,20 +70,50 @@ export default function Home({navigation}) {
   // console.log("minimumdate", minimumDate);
 
   return (
-    <SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
+    <SafeAreaView style={{ backgroundColor: colors.white, flex: 1 }}>
       <ScrollView>
         <View style={styles.header}>
           <Header type="user" onPress={() => navigation.navigate('Sign')} />
-          <Text style={styles.title}>
+          {/* <Text style={styles.title}>
             Find deals on hotels, homes, and much more...
-          </Text>
+          </Text> */}
           <View style={styles.boxSearch}>
-            <Input
-              placeholder="Search place or location.."
+            <View>
+              <TextInput
+                style={{
+                  borderRadius: 10,
+                  paddingHorizontal: 10,
+                  color: colors.black,
+                  borderWidth: 1,
+                  borderColor: colors.darkGrey
+                }}
+                placeholder="Cari lokasi"
+                placeholderTextColor={colors.darkGrey}
+                onChangeText={value => setInput(value)}
+                onSubmitEditing={() => {
+                  navigation.navigate('SearchKos')
+                  ToastAndroid.show(input, ToastAndroid.SHORT)
+                  setInput("")
+                }}
+                value={input}
+              />
+              <Ionicons name={'search-outline'}
+                style={{
+                  position: 'absolute',
+                  right: 0,
+                  top: 0,
+                  fontSize: 20,
+                  padding: 14,
+                  color: colors.darkGrey
+                }}
+              />
+            </View>
+            {/* <Input
+              placeholder="Cari lokasi"
               type="search"
               onChangeText={value => setInput(value)}
-            />
-            <View
+            /> */}
+            {/* <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
@@ -146,15 +177,15 @@ export default function Home({navigation}) {
                   />
                 )}
               </View>
-            </View>
-            <View style={{marginBottom: 10}}>
+            </View> */}
+            {/* <View style={{marginBottom: 10}}>
               <Button
                 title={`${guest} Guest & ${room} Room`}
                 color={colors.yellow}
                 onPress={() => setOpenModal(true)}
               />
-            </View>
-            <InputModal
+            </View> */}
+            {/* <InputModal
               guest={guest}
               room={room}
               buttonMinRoom={() => setRoom(room - 1)}
@@ -166,8 +197,8 @@ export default function Home({navigation}) {
                 setOpenModal(false);
               }}
               visible={openModal}
-            />
-            <Button
+            /> */}
+            {/* <Button
               title="Search"
               color={colors.darkBlue}
               onPress={() =>
@@ -182,13 +213,13 @@ export default function Home({navigation}) {
                   rooms: room,
                 })
               }
-            />
+            /> */}
           </View>
         </View>
-        <View style={{marginLeft: 20}}>
-          <TopDestinations />
-          <PopularDestinations />
-        </View>
+        {/* <View style={{marginLeft: 20}}>
+          <Destination title="Top Destinations" data={DataTop} />
+          <Destination title="Popular Destinations" data={DataPopular} />
+        </View> */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -206,9 +237,9 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   boxSearch: {
-    backgroundColor: colors.grey,
-    padding: 20,
-    marginTop: 30,
+    // backgroundColor: colors.grey,
+    // padding: 10,
+    marginTop: 15,
     borderRadius: 20,
   },
 });

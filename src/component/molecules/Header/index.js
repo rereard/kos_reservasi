@@ -5,7 +5,7 @@ import {colors} from '../../../utils';
 import {LogoSecondary} from '../../../assets/img';
 import {useSelector} from 'react-redux';
 
-export default function Header({title, onPress, type, color, numberOfLines}) {
+export default function Header({title, onPress, type, color, numberOfLines, size}) {
   const user = useSelector(state => state?.login?.user);
 
   if (type === 'user') {
@@ -17,7 +17,10 @@ export default function Header({title, onPress, type, color, numberOfLines}) {
           justifyContent: 'space-between',
           alignContent: 'center',
         }}>
-        <LogoSecondary width={90} />
+        <Text style={{color: colors.darkBlue, fontWeight: 'bold'}}>
+          Reservasi Kos
+        </Text>
+        {/* <LogoSecondary width={90} /> */}
         {user ? (
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Text
@@ -49,7 +52,7 @@ export default function Header({title, onPress, type, color, numberOfLines}) {
       <Button
         type="icon"
         icon={'chevron-back-outline'}
-        size={25}
+        size={size? size : 25}
         color={color ? color : colors.white}
         onPress={onPress}
       />

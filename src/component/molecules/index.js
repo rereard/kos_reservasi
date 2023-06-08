@@ -4,6 +4,7 @@ import Header from './Header';
 import HotelCard from './HotelCard';
 import ReviewCard from './ReviewCard';
 import RoomsCard from './RoomsCard';
+import ImageMapper from './ImageMapper';
 
 export {
   BookHistoryCard,
@@ -12,4 +13,5 @@ export {
   HotelCard,
   ReviewCard,
   RoomsCard,
+  ImageMapper
 };

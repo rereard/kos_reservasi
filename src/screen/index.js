@@ -12,6 +12,14 @@ import Invoice from './Invoice';
 import Review from './Review';
 import Rooms from './Rooms';
 import DetailRoom from './DetailRoom';
+<<<<<<< HEAD
+=======
+import BookingSuccess from './BookingSuccess';
+import KosDetail from './KosDetail';
+import MapRoom from './MapRoom';
+import SearchKos from './SearchKos';
+import DaftarKamar from './DaftarKamar';
+>>>>>>> 8dd6f49ede3a62da3b6c233aa86408cdb3c0b2d6
 
 export {
   Sign,
@@ -28,4 +36,12 @@ export {
   Review,
   Rooms,
   DetailRoom,
+<<<<<<< HEAD
+=======
+  BookingSuccess,
+  KosDetail,
+  MapRoom,
+  SearchKos,
+  DaftarKamar
+>>>>>>> 8dd6f49ede3a62da3b6c233aa86408cdb3c0b2d6
 };

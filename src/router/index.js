@@ -15,10 +15,14 @@ import {
   Review,
   Rooms,
   DetailRoom,
+  BookingSuccess,
+  KosDetail,
+  MapRoom,
+  SearchKos,
+  DaftarKamar
 } from '../screen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {colors} from '../utils';
 import {useSelector} from 'react-redux';
 
 const Stack = createStackNavigator();
@@ -113,6 +117,11 @@ const Router = () => {
         component={DetailHotel}
         options={{headerShown: false}}
       />
+      <Stack.Screen 
+        name="KosDetail"
+        component={KosDetail}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="SearchResult"
         component={SearchResult}
@@ -136,6 +145,26 @@ const Router = () => {
       <Stack.Screen
         name="Invoice"
         component={Invoice}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="BookingSuccess"
+        component={BookingSuccess}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="MapRoom"
+        component={MapRoom}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SearchKos"
+        component={SearchKos}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="DaftarKamar"
+        component={DaftarKamar}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

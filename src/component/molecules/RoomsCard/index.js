@@ -21,7 +21,7 @@ export default function RoomsCard({
           style={styles.image}
         />
         <View style={styles.content}>
-          <View>
+          <View style={{ flex: 1 }}>
             <Text style={styles.title} numberOfLines={2}>
               {title}
             </Text>
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 10,
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
