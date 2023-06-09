@@ -20,11 +20,13 @@ import {
   SearchKos,
   DaftarKamar,
   KamarDetail,
-  Konfirmasi
+  Konfirmasi,
+  TambahKos
 } from '../screen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useSelector} from 'react-redux';
+import { colors } from '../utils';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -33,7 +35,7 @@ const MainApp = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: '#0364CE',
+        tabBarActiveTintColor: colors.darkBlue,
       }}>
       <Tab.Screen
         name="Home"
@@ -42,6 +44,16 @@ const MainApp = () => {
           headerShown: false,
           tabBarIcon: ({color, size}) => (
             <Ionicons name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Tambah Kos"
+        component={TambahKos}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({color, size}) => (
+            <Ionicons name="home-outline" color={color} size={size} />
           ),
         }}
       />

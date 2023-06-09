@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity, ToastAndroid } from "react-native";
 import MapView from "react-native-maps";
 // import { SafeAreaView } from "react-native-safe-area-context";
 import { useState, useEffect } from "react";
@@ -7,17 +7,18 @@ import { TextInput } from "react-native-gesture-handler";
 import { Button } from "../../component/atoms";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Marker } from "react-native-maps";
-
+import { kos } from '../../assets/db/data'
+import GetLocation from 'react-native-get-location'
 const { width, height } = Dimensions.get('window')
 const SCREEN_HEIGHT = height
 const SCREEN_WIDTH = width
 
-function CustomMarker({ pressed }) {
+function CustomMarker() {
 	return (
 		<View>
 			<Ionicons name={'home-sharp'}
 				style={{
-					fontSize: pressed ? 50 : 30,
+					fontSize: 30,
 					color: colors.darkBlue
 				}}
 			/>
@@ -25,11 +26,47 @@ function CustomMarker({ pressed }) {
 	);
 }
 
-export default function SearchKos({ route, navigation }) {
+function calculateDistance(lat1, lon1, lat2, lon2) {
+	const toRad = (value) => (value * Math.PI) / 180;
+	const R = 6371;
+	const dLat = toRad(lat2 - lat1);
+	const dLon = toRad(lon2 - lon1);
+	const a =
+		Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+		Math.cos(toRad(lat1)) *
+		Math.cos(toRad(lat2)) *
+		Math.sin(dLon / 2) *
+		Math.sin(dLon / 2);
+	const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	const distance = R * c;
+	return distance;
+}
 
-	const { inputLocation } = route.params
+export default function SearchKos({ route, navigation }) {
+	const [myLocation, setMyLocation] = useState(null)
+	const requestLocation = () => {
+		GetLocation.getCurrentPosition({
+			enableHighAccuracy: true,
+			timeout: 60000,
+		}).then(location => {
+			setMyLocation({ latitude: location?.latitude, longitude: location?.longitude })
+			setRegion({
+				latitude: location?.latitude,
+				longitude: location?.longitude,
+				latitudeDelta: 0.01,
+				longitudeDelta: 0.01
+			})
+		}).catch(error => {
+			const { code, message } = error;
+			// console.warn(code, message);
+			ToastAndroid.show('Lokasi tidak tersedia', ToastAndroid.SHORT)
+		})
+	}
+
+	const { inputLocation, gpsLoc } = route.params
 	const [locationInput, setLocationInput] = useState(inputLocation)
 	const [location, setLocation] = useState(null);
+	const [filteredKos, setFilteredKos] = useState([])
 
 	const handleGetLocation = (location) => {
 		// Make a request to the Google Maps Geocoding API
@@ -40,44 +77,79 @@ export default function SearchKos({ route, navigation }) {
 			.then((responseJson) => {
 				console.log(responseJson);
 				// Extract the latitude and longitude from the response
-				const { lat, lng } = responseJson.results[0].geometry.location;
-				setLocation({ latitude: lat, longitude: lng });
-				setRegion({
-					latitude: lat,
-					longitude: lng,
-					latitudeDelta: 0.01,
-					longitudeDelta: 0.01
-				})
+				if (responseJson?.status ===
+					"ZERO_RESULTS") {
+					ToastAndroid.show('Tidak ditemukan lokasi', ToastAndroid.SHORT)
+				} else {
+					const { lat, lng } = responseJson?.results[0]?.geometry?.location;
+					setLocation({ latitude: lat, longitude: lng });
+					setRegion({
+						latitude: lat,
+						longitude: lng,
+						latitudeDelta: 0.01,
+						longitudeDelta: 0.01
+					})
+				}
 			})
-			.catch((error) => console.error(error));
+			.catch((error) => console.error(error))
 	};
 
+	const [pressId, setPressid] = useState(null)
+	const [region, setRegion] = useState(
+		gpsLoc ? gpsLoc : {
+			latitude: 35.6762,
+			longitude: 139.6503,
+			latitudeDelta: 0.01,
+			longitudeDelta: 0.01,
+		}
+	);
+
 	useEffect(() => {
-		handleGetLocation(locationInput)
-		console.log(location);
-		console.log(region);
+		locationInput &&
+			handleGetLocation(locationInput)
+		console.log('location', location);
+		console.log('region', region);
 	}, [locationInput]);
 
-	const [isMarkPressed, setIsMarkPressed] = useState(false)
-	const [pressId, setPressid] = useState(null)
-
-	const [region, setRegion] = useState({
-		latitude: 35.6762,
-		longitude: 139.6503,
-		latitudeDelta: 0.01,
-		longitudeDelta: 0.01,
-	});
 	const [input, setInput] = useState('');
+
+	useEffect(() => {
+		setFilteredKos([])
+		let result = []
+		kos.map((item) => {
+			const distance = calculateDistance(region.latitude, region.longitude, item.latitude, item.longitude)
+			console.log('distance', distance);
+			if (distance <= 1) {
+				console.log('item', item);
+				result.push(item)
+			}
+		})
+		setFilteredKos(result)
+		console.log('filteredkos', filteredKos);
+	}, [region]);
+
+	// useEffect(() => {
+	// 	// const index = kos.findIndex((item) => item.id_kos === pressId)
+	// 	// setIndexPressed(index)
+	// 	console.log('pressid', pressId);
+	// 	console.log('indexpressed', indexPressed);
+	// }, [pressId]);
 
 	return (
 		<View style={styles.container}>
+			<View style={{ position: 'absolute', zIndex: 3, top: '50%', left: '50%', marginLeft: -7, marginTop: -32 }}>
+				<Text style={{ color: colors.black, fontSize: 25 }}>+</Text>
+			</View>
 
 			<MapView
 				style={styles.map}
 				onRegionChangeComplete={(region) => setRegion(region)}
 				region={region}
-				onPress={() => setPressid(null)}
+				onPress={() => {
+					setPressid(null)
+				}}
 				loadingEnabled={true}
+				showsUserLocation={true}
 				customMapStyle={[
 					{
 						"featureType": "poi.business",
@@ -98,32 +170,24 @@ export default function SearchKos({ route, navigation }) {
 					}
 				]}
 			>
-				<Marker
-					coordinate={{
-						latitude: 35.6762,
-						longitude: 139.6503,
-						latitudeDelta: 0.01,
-						longitudeDelta: 0.01,
-					}}
-					title="Tokyo"
-					description="lorem ipsum ngentot babi"
-					onPress={() => setPressid(1)}
-				>
-					<CustomMarker pressed={isMarkPressed} />
-				</Marker>
-				<Marker
-					coordinate={{
-						latitude: 35.678013,
-						longitude: 139.651491,
-						latitudeDelta: 0.01,
-						longitudeDelta: 0.01,
-					}}
-					title="Tokyo ii"
-					description="lorem ipsum ngentot babi"
-					onPress={() => setPressid(2)}
-				>
-					<CustomMarker pressed={isMarkPressed} />
-				</Marker>
+				{filteredKos.map((item, index) => (
+					<Marker
+						key={item.id_kos}
+						coordinate={({
+							latitude: item.latitude,
+							longitude: item.longitude,
+							latitudeDelta: 0.01,
+							longitudeDelta: 0.01,
+						})}
+						title={item.nama_kos}
+						description={item.alamat}
+						onPress={() => {
+							setPressid(item.id_kos)
+						}}
+					>
+						<CustomMarker />
+					</Marker>
+				))}
 			</MapView>
 			<View style={{
 				marginHorizontal: 10,
@@ -173,12 +237,9 @@ export default function SearchKos({ route, navigation }) {
 							padding: 14,
 							color: colors.darkGrey
 						}}
-						onPress={() => setRegion({
-							latitude: 37.686693536206,
-							longitude: 83.015901809229,
-							latitudeDelta: 0.4,
-							longitudeDelta: 0.7
-						})}
+						onPress={() => {
+							requestLocation()
+						}}
 					/>
 				</View>
 			</View>
@@ -193,13 +254,16 @@ export default function SearchKos({ route, navigation }) {
 				flexDirection: 'row',
 				justifyContent: 'space-between',
 				// alignItems: 'center',
-				borderWidth: 1
+				borderWidth: 1,
+				flex: 1
 			}}>
-				<View>
-					<Text style={{ color: colors.black, fontSize: 25 }}>{pressId === 1 ? 'Kos Ngentot 1' : pressId === 2 ? 'Kos Ngentot 2' : 'congrats'}</Text>
-					<Text style={{ color: colors.darkGrey, fontSize: 18 }}>{pressId === 1 ? 'Jl Ngentot 1' : pressId === 2 ? 'Jl Ngentot 2' : 'congrats'}</Text>
+				<View style={{ flex: 1.5 }}>
+					{/* <Text style={{ color: colors.black, fontSize: 25 }}>{pressId === 1 ? 'Kos Ngentot 1' : pressId === 2 ? 'Kos Ngentot 2' : 'congrats'}</Text>
+					<Text style={{ color: colors.darkGrey, fontSize: 18 }}>{pressId === 1 ? 'Jl Ngentot 1' : pressId === 2 ? 'Jl Ngentot 2' : 'congrats'}</Text> */}
+					<Text style={{ color: colors.black, fontSize: 25 }}>{pressId ? kos.find((item) => item.id_kos === pressId).nama_kos : ''}</Text>
+					<Text style={{ color: colors.darkGrey, fontSize: 15 }}>{pressId ? kos.find((item) => item.id_kos === pressId).alamat : ''}</Text>
 				</View>
-				<View style={{ alignItems: 'center' }}>
+				<View style={{ alignItems: 'center', flex: 1 }}>
 					<TouchableOpacity
 						style={{
 							backgroundColor: colors.darkBlue,
@@ -209,7 +273,9 @@ export default function SearchKos({ route, navigation }) {
 							borderRadius: 999,
 							alignItems: 'center'
 						}}
-						onPress={() => navigation.navigate('KosDetail')}
+						onPress={() => navigation.navigate('KosDetail', {
+							data: kos.find((item) => item.id_kos === pressId)
+						})}
 					>
 						<Ionicons name="arrow-forward" style={{
 							fontSize: 30

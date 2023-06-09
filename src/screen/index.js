@@ -19,6 +19,7 @@ import SearchKos from './SearchKos';
 import DaftarKamar from './DaftarKamar';
 import KamarDetail from './KamarDetail';
 import Konfirmasi from './Konfirmasi';
+import TambahKos from './TambahKos';
 
 export {
   Sign,
@@ -40,5 +41,6 @@ export {
   SearchKos,
   DaftarKamar,
   KamarDetail,
-  Konfirmasi
+  Konfirmasi,
+  TambahKos
 };

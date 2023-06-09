@@ -6,7 +6,8 @@ import {
   View,
   Image,
   Modal,
-  ToastAndroid
+  ToastAndroid,
+  Linking
 } from 'react-native';
 // import Destination from './parts/Destination';
 import { colors, DataPopular, DataTop } from '../../utils';
@@ -17,6 +18,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import InputModal from './parts/InputModal';
 import { TextInput } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import GetLocation from 'react-native-get-location'
 
 const maxDate = new Date();
 
@@ -52,6 +54,27 @@ export default function Home({ navigation }) {
   const [guest, setGuest] = useState(1);
   const [room, setRoom] = useState(1);
 
+  const [myLocation, setMyLocation] = useState(null)
+  const [error, setError] = useState(null);
+  const requestLocation = () => {
+    setError(null)
+    GetLocation.getCurrentPosition({
+      enableHighAccuracy: true,
+      timeout: 60000,
+    }).then(location => {
+      // setMyLocation({ latitude: location.latitude, longitude: location.longitude })
+      setMyLocation({
+        latitude: location.latitude,
+        longitude: location.longitude,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01
+      })
+    }).catch(error => {
+      const { code, message } = error;
+      console.warn(code, message);
+      setError(code)
+    })
+  }
   const checkOutButton = () => {
     if (inputCheckIn) {
       setOpenCheckout(true);
@@ -99,7 +122,7 @@ export default function Home({ navigation }) {
                 }}
                 value={input}
               />
-              <Ionicons name={'search-outline'}
+              <Ionicons name={'location-outline'}
                 style={{
                   position: 'absolute',
                   right: 0,
@@ -107,6 +130,16 @@ export default function Home({ navigation }) {
                   fontSize: 20,
                   padding: 14,
                   color: colors.darkGrey
+                }}
+                onPress={() => {
+                  requestLocation()
+                  if (error === 'UNAVAILABLE') {
+                    ToastAndroid.show('Lokasi tidak tersedia', ToastAndroid.SHORT)
+                  } else {
+                    navigation.navigate('SearchKos', {
+                      gpsLoc: myLocation
+                    })
+                  }
                 }}
               />
             </View >

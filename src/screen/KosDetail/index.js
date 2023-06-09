@@ -16,7 +16,6 @@ import { useState } from 'react';
 import Icon from '../../component/atoms/Button/icon';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ImageView from 'react-native-image-viewing'
-import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const FacilityText = ({text}) => {
 	return(
@@ -44,23 +43,10 @@ const RuleText = ({text, index}) => {
 		</View>
 	)
 }
-const images = [
-  {
-    uri: "https://www.99.co/id/panduan/wp-content/uploads/2022/11/memulai-bisnis-kos-kosan-1000x630.png",
-  },
-  {
-    uri: "https://mojok.co/wp-content/uploads/2021/05/Jasa-info-kos-dibutuhkan-atau-meresahkan.jpeg",
-  },
-  {
-    uri: "https://www.pajak.com/storage/2022/08/indekos-1024x662.png",
-  },
-];
-export default function KosDetail({navigation}){
-	const [photos, setPhotos] = useState([
-		"https://www.99.co/id/panduan/wp-content/uploads/2022/11/memulai-bisnis-kos-kosan-1000x630.png", 
-		"https://mojok.co/wp-content/uploads/2021/05/Jasa-info-kos-dibutuhkan-atau-meresahkan.jpeg", 
-		"https://www.pajak.com/storage/2022/08/indekos-1024x662.png"
-	])
+
+export default function KosDetail({navigation, route}){
+	console.log(route.params.data);
+	const { alamat, deskripsi, fasilitas, foto_kos, id_akunPemilik, id_kos, nama_kos, peraturan } = route.params.data
 	
 	const [visible, setIsVisible] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -69,7 +55,7 @@ export default function KosDetail({navigation}){
 			<ScrollView>
 				<View>
 					<ImageView
-						images={images}
+						images={foto_kos}
 						imageIndex={currentImageIndex}
 						visible={visible}
 						onRequestClose={() => setIsVisible(false)}
@@ -84,13 +70,13 @@ export default function KosDetail({navigation}){
 									fontSize: 17,
 									color: "#FFF"
 								}}>
-									{`${imageIndex + 1} / ${images.length}`}
+									{`${imageIndex + 1} / ${foto_kos.length}`}
 								</Text>
 							</View>
 						)}
 					/>
 					<Swiper style={{height: 230}} index={currentImageIndex} loop={false} activeDotColor={colors.darkBlue}>
-						{images.map((item, index) => {
+						{foto_kos.map((item, index) => {
 							return(
 								<TouchableOpacity key={index} onPress={() => {
 										setIsVisible(true)
@@ -181,7 +167,7 @@ export default function KosDetail({navigation}){
 								color: colors.black,
 								fontWeight: 'bold',
 							}}>
-								Kos Testing
+								{nama_kos}
 							</Text>
 							<View style={{
 								flexDirection: 'row',
@@ -198,7 +184,7 @@ export default function KosDetail({navigation}){
 									color: colors.darkGrey,
 									fontSize: 15
 								}}>
-									Jl. Testing 69, Irlandia Utara
+									{alamat}
 								</Text>
 							</View>
 						</View>
@@ -219,7 +205,7 @@ export default function KosDetail({navigation}){
 						</Text>
 						<View>
 							<Text style={{color: colors.darkGrey, fontSize: 15}}>
-								Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet, voluptatem enim, perspiciatis doloremque assumenda sunt quisquam error amet et nobis fugit accusantium distinctio. Soluta doloribus temporibus commodi nesciunt error ratione.
+								{deskripsi}
 							</Text>
 						</View>
 					</View>
@@ -240,13 +226,9 @@ export default function KosDetail({navigation}){
 							alignItems: 'flex-start',
 							flex: 1,
 						}}>
-							<FacilityText text={"Dapur"} />
-							<FacilityText text={"Kamar mandi luar"} />
-							<FacilityText text={"Kamar mandi luar"} />
-							<FacilityText text={"Kamar mandi luar"} />
-							<FacilityText text={"Kamar mandi luar"} />
-							<FacilityText text={"Kamar mandi luar"} />
-							<FacilityText text={"Kamar mandi luar"} />
+							{fasilitas.map((item, index) => (
+								<FacilityText key={index} text={item} />
+							))}
 						</View>
 					</View>
 					<View style={{
@@ -260,9 +242,9 @@ export default function KosDetail({navigation}){
 						}}>
 							Peraturan Kos
 						</Text>
-						<RuleText index={1} text="Kos putra" />
-						<RuleText index={2} text="Bebas 24 Jam" />
-						<RuleText index={3} text="Dilarang membawa tamu lawan jenis masuk kamar" />
+						{peraturan.map((item, index) => (
+							<RuleText key={index} index={index+1} text={item}  />
+						))}
 					</View>
 				</View>
 			</ScrollView>

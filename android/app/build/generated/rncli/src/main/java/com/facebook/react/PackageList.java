@@ -19,6 +19,8 @@ import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
 import com.henninghall.date_picker.DatePickerPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
+// react-native-get-location
+import com.github.douglasjunior.reactNativeGetLocation.ReactNativeGetLocationPackage;
 // react-native-maps
 import com.rnmaps.maps.MapsPackage;
 // react-native-safe-area-context
@@ -78,6 +80,7 @@ public class PackageList {
       new RNDateTimePickerPackage(),
       new DatePickerPackage(),
       new RNGestureHandlerPackage(),
+      new ReactNativeGetLocationPackage(),
       new MapsPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),

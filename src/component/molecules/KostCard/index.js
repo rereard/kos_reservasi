@@ -50,25 +50,6 @@ export default function KostCard({onPress}) {
         />
         <View
           style={{
-            flexDirection: 'row',
-            position: 'absolute',
-            top: 0,
-            padding: 5,
-            backgroundColor: colors.darkBlue,
-            borderTopStartRadius: 10,
-            borderBottomEndRadius: 10,
-          }}>
-          <Button
-            type="icon"
-            icon={'star'}
-            color={colors.yellow}
-            size={15}></Button>
-          <Text style={{color: colors.white, marginLeft: 5}}>
-            5 | 100 Review
-          </Text>
-        </View>
-        <View
-          style={{
             padding: 8,
           }}>
           <View>
@@ -90,40 +71,16 @@ export default function KostCard({onPress}) {
                   <Button
                     type="icon"
                     color={colors.darkGrey}
-                    icon={'location-outline'}
+                    icon={'bed-outline'}
                     size={15}
                   />
                   <Text
                     numberOfLines={1}
                     style={{color: colors.darkGrey, maxWidth: 170}}>
-                    Jl. Testing Irlandia Utara
+                    Kamar tes 1
                   </Text>
                 </View>
-                <View style={{flexDirection: 'row', marginTop: 8}}>
-                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Icon
-                      icon={'md-bed-outline'}
-                      color={colors.darkBlue}
-                      size={15}
-                    />
-                    <Text style={{marginLeft: 5, color: colors.darkBlue}}>
-                      69 kamar
-                    </Text>
-                  </View>
-                  <Text style={{marginHorizontal: 5, color: colors.darkBlue}}>
-                    |
-                  </Text>
-                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Icon
-                      icon={'male-outline'}
-                      color={colors.darkBlue}
-                      size={15}
-                    />
-                    <Text style={{marginLeft: 5, color: colors.darkBlue}}>
-                      Putra
-                    </Text>
-                  </View>
-                </View>
+                
               </View>
               <View>
                 <Text
@@ -133,16 +90,7 @@ export default function KostCard({onPress}) {
                     fontWeight: '400',
                     textAlign: 'right',
                   }}>
-                  Rp 500.000,00 - 750.000,00
-                </Text>
-                <Text
-                  style={{
-                    color: '#0364ce',
-                    fontSize: 15,
-                    fontWeight: '400',
-                    textAlign: 'right',
-                  }}>
-                  /bulan
+                  Rp 500.000,00
                 </Text>
               </View>
             </View>
