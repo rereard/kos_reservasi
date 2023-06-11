@@ -123,7 +123,9 @@ export default function KosDetail({navigation, route}){
 								alignItems: 'center',
 								justifyContent: 'center'
 							}}
-							onPress={() => navigation.navigate('DaftarKamar')}
+							onPress={() => navigation.navigate('DaftarKamar', {
+								id_kos: id_kos
+							})}
 						>
 							<Icon 
 								color={colors.white}

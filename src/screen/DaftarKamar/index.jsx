@@ -13,6 +13,7 @@ import {
 import { colors } from '../../utils';
 import { Button } from '../../component/atoms';
 import { Header } from '../../component/molecules';
+import { kamar_kos } from '../../assets/db/data';
 
 const KamarCard = ({ nama, harga, img, onPress }) => {
 	return (
@@ -52,7 +53,9 @@ const KamarCard = ({ nama, harga, img, onPress }) => {
 	)
 }
 
-export default function DaftarKamar({ navigation }) {
+export default function DaftarKamar({ navigation, route }) {
+	const { id_kos } = route.params
+	const filteredKamarKos = kamar_kos.filter((item) => item.id_kos === id_kos)
 	return (
 		<SafeAreaView style={{ flex: 1 }}>
 			<View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: colors.darkBlue, padding: 15 }}>
@@ -60,11 +63,14 @@ export default function DaftarKamar({ navigation }) {
 			</View>
 			<ScrollView>
 				<Text style={{ color: colors.black, fontWeight: '600', fontSize: 20, margin: 15, marginBottom: 0 }}>Daftar Kamar:</Text>
-				<KamarCard nama={'Kamar 1'} harga={200000} img={'https://parboaboa.com/data/foto_berita/kamar-kost-kmd.webp'} onPress={() => navigation.navigate('KamarDetail')} />
-				<KamarCard nama={'Kamar 2'} harga={400000} img={'https://parboaboa.com/data/foto_berita/kamar-kost-kmd.webp'} />
-				<KamarCard nama={'Kamar 3'} harga={700000} img={'https://parboaboa.com/data/foto_berita/kamar-kost-kmd.webp'} />
-				<KamarCard nama={'Kamar 3'} harga={700000} img={'https://parboaboa.com/data/foto_berita/kamar-kost-kmd.webp'} />
-				<KamarCard nama={'Kamar 3'} harga={700000} img={'https://parboaboa.com/data/foto_berita/kamar-kost-kmd.webp'} />
+				{filteredKamarKos.map(item => (
+					<KamarCard
+						key={item.id_kamar}
+						nama={item.nama_kamar}
+						harga={item.harga}
+						img={item.foto_kamar[0].uri}
+					/>
+				))}
 				<View style={{ marginTop: 20 }} />
 			</ScrollView>
 		</SafeAreaView>

@@ -1,4 +1,4 @@
-export let kos = [
+export const kos = [
   {
     id_kos: 1,
     id_akunPemilik: 1,
@@ -96,5 +96,95 @@ export let kos = [
     ],
     latitude: -6.982582, 
     longitude: 110.400869,
+  },
+]
+export const kamar_kos = [
+  {
+    id_kamar: 1,
+    id_kos: 1,
+    foto_kamar: [
+      {
+        uri: 'https://picsum.photos/500/300?random=7'
+      },
+      {
+        uri: 'https://picsum.photos/500/300?random=8'
+      },
+      {
+        uri: 'https://picsum.photos/500/300?random=9'
+      },
+    ],
+    nama_kamar: 'Kamar 1',
+    fasilitas_kamar: [
+      'Kamar mandi dalam',
+      'Meja',
+      'Kasur'
+    ],
+    harga: '900000'
+  },
+  {
+    id_kamar: 2,
+    id_kos: 1,
+    foto_kamar: [
+      {
+        uri: 'https://picsum.photos/500/300?random=7'
+      },
+      {
+        uri: 'https://picsum.photos/500/300?random=8'
+      },
+      {
+        uri: 'https://picsum.photos/500/300?random=9'
+      },
+    ],
+    nama_kamar: 'Kamar 2',
+    fasilitas_kamar: [
+      'Kamar mandi dalam',
+      'Meja',
+      'Kasur'
+    ],
+    harga: '900000'
+  },
+  {
+    id_kamar: 3,
+    id_kos: 2,
+    foto_kamar: [
+      {
+        uri: 'https://picsum.photos/500/300?random=7'
+      },
+      {
+        uri: 'https://picsum.photos/500/300?random=8'
+      },
+      {
+        uri: 'https://picsum.photos/500/300?random=9'
+      },
+    ],
+    nama_kamar: 'Kamar 1',
+    fasilitas_kamar: [
+      'Kamar mandi dalam',
+      'Meja',
+      'Kasur'
+    ],
+    harga: '900000'
+  },
+  {
+    id_kamar: 4,
+    id_kos: 3,
+    foto_kamar: [
+      {
+        uri: 'https://picsum.photos/500/300?random=7'
+      },
+      {
+        uri: 'https://picsum.photos/500/300?random=8'
+      },
+      {
+        uri: 'https://picsum.photos/500/300?random=9'
+      },
+    ],
+    nama_kamar: 'Kamar 1',
+    fasilitas_kamar: [
+      'Kamar mandi dalam',
+      'Meja',
+      'Kasur'
+    ],
+    harga: '900000'
   },
 ]
