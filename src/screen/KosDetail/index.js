@@ -16,6 +16,7 @@ import { useState } from 'react';
 import Icon from '../../component/atoms/Button/icon';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ImageView from 'react-native-image-viewing'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const FacilityText = ({text}) => {
 	return(
@@ -105,30 +106,10 @@ export default function KosDetail({navigation, route}){
 					}}>
 						<Header onPress={() => navigation.goBack()} size={35} />
 					</View>
-					<View style={{
-						position: 'absolute',
-						backgroundColor: colors.darkBlue,
-						right: 0,
-						// bottom: 10,
-						paddingLeft: 20,
-						paddingRight: 10,
-						paddingVertical: 5,
-						borderBottomLeftRadius: 20,
-					}}>
-						<Text style={{
-							textAlign: 'right',
-							color: colors.white,
-						}}>
-							Rp 200.000,00 - 500.000,00
-						</Text>
-						<Text style={{
-							textAlign: 'right',
-							color: colors.white,
-						}}>/bulan</Text>
-					</View>
 				</View>
 				<View style={{
 					padding: 10,
+					marginBottom: 20
 				}}>
 					<View style={{
 						marginBottom: 10
@@ -136,7 +117,7 @@ export default function KosDetail({navigation, route}){
 						<TouchableOpacity style={{
 								backgroundColor: colors.darkBlue,
 								padding: 10,
-								borderRadius: 15,
+								borderRadius: 99,
 								// marginBottom: 10,
 								flexDirection: 'row',
 								alignItems: 'center',
@@ -161,7 +142,7 @@ export default function KosDetail({navigation, route}){
 						flexDirection: 'row',
 						alignItems: 'center',
 					}}>
-						<View>
+						<View style={{ flex: 1 }}>
 							<Text style={{
 								fontSize: 18,
 								color: colors.black,
@@ -187,6 +168,24 @@ export default function KosDetail({navigation, route}){
 									{alamat}
 								</Text>
 							</View>
+						</View>
+						<View style={{ flex: 1, alignItems: 'flex-end' }}>
+							<Text style={{
+								textAlign: 'right',
+								color: colors.darkGrey,
+							}}>Sewa kamar mulai</Text>
+							<Text style={{
+								textAlign: 'right',
+								color: colors.black,
+								fontWeight: 'bold',
+								fontSize: 16
+							}}>
+								Rp 200.000,00 - 500.000,00
+							</Text>
+							<Text style={{
+								textAlign: 'right',
+								color: colors.darkGrey,
+							}}>/bulan</Text>
 						</View>
 					</View>
 					<View style={{
@@ -245,6 +244,28 @@ export default function KosDetail({navigation, route}){
 						{peraturan.map((item, index) => (
 							<RuleText key={index} index={index+1} text={item}  />
 						))}
+					</View>
+					<View style={{
+						marginTop: 20
+					}}>
+						<Text style={{
+							color: colors.black,
+							fontWeight: 'bold',
+							marginBottom: 10,
+							fontSize: 15
+						}}>
+							Hubungi Pemilik Kos
+						</Text>
+						<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+							<Ionicons
+								name='logo-whatsapp' 
+								style={{
+									color: '#28D146',
+									fontSize: 40,
+								}}
+							/>
+							<Text style={{ color: colors.darkGrey, fontWeight: 'bold', marginLeft: 10 }}>WhatsApp</Text>
+						</View>
 					</View>
 				</View>
 			</ScrollView>

@@ -3,12 +3,13 @@ export let kos = [
     id_kos: 1,
     id_akunPemilik: 1,
     nama_kos: 'Kos Testing',
-    alamat: 'Jalan Tes, xxxxxxxxxxxx',
+    alamat: 'Jalan Tes, xxxxxxxxxxxx xxxxxxxx xxx',
     deskripsi: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam quasi velit sint vero assumenda magni ullam, consectetur architecto, expedita iste quisquam! Officia minus vero earum omnis laboriosam, laudantium adipisci ab nesciunt nihil tempore velit fugit cupiditate at ullam debitis?',
     fasilitas: [
       'Dapur', 
       'Mesin cuci', 
-      'Kulkas'
+      'Kulkas',
+      'WiFi'
     ],
     peraturan: [
       'Kos Putra',
@@ -40,7 +41,8 @@ export let kos = [
     fasilitas: [
       'Dapur', 
       'Mesin cuci', 
-      'Kulkas'
+      'Kulkas',
+      'WiFi'
     ],
     peraturan: [
       'Kos Putra',
