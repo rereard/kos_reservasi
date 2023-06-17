@@ -13,8 +13,9 @@ import {
 import {Button} from '../../atoms';
 import Icon from '../../atoms/Button/icon';
 import {colors} from '../../../utils';
+import { formatIDR } from '../../../utils';
 
-export default function KostCard({onPress}) {
+export default function KostCard({onPress, nama, alamatKos, nama2, id, foto, harga, tanggal}) {
   return (
     <View
       style={{
@@ -32,17 +33,15 @@ export default function KostCard({onPress}) {
         marginBottom: 20,
       }}>
       <Pressable
-        style={({pressed}) => [
-          {backgroundColor: pressed ? '#e5e5e5' : 'white', borderRadius: 10},
-        ]}
+        style={{borderRadius: 10, backgroundColor: colors.white}}
         onPress={onPress}
       >
         <Image
           source={{
-            uri: 'https://www.99.co/id/panduan/wp-content/uploads/2022/11/memulai-bisnis-kos-kosan-1000x630.png',
+            uri: foto,
           }}
           style={{
-            height: 150,
+            height: 125,
             width: '100%',
             borderTopLeftRadius: 10,
             borderTopRightRadius: 10,
@@ -50,7 +49,7 @@ export default function KostCard({onPress}) {
         />
         <View
           style={{
-            padding: 8,
+            padding: 10,
           }}>
           <View>
             <View
@@ -61,26 +60,45 @@ export default function KostCard({onPress}) {
                   style={{
                     color: '#0364ce',
                     fontWeight: 'bold',
-                    fontSize: 16,
-                    marginBottom: 5,
+                    fontSize: 17,
+                    marginBottom: 3,
                     maxWidth: 210,
                   }}>
-                  Kos Testing
+                  {nama}
                 </Text>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <Button
-                    type="icon"
-                    color={colors.darkGrey}
-                    icon={'bed-outline'}
-                    size={15}
-                  />
-                  <Text
-                    numberOfLines={1}
-                    style={{color: colors.darkGrey, maxWidth: 170}}>
-                    Kamar tes 1
-                  </Text>
-                </View>
-                
+                {alamatKos && (
+                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Button
+                      type="icon"
+                      color={colors.darkGrey}
+                      icon={'location'}
+                      size={15}
+                    />
+                    <Text
+                      numberOfLines={2}
+                      style={{color: colors.darkGrey}}>
+                      {alamatKos}
+                    </Text>
+                  </View>
+                )}
+                {nama2 && (
+                  <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                   <Button
+                     type="icon"
+                     color={colors.darkGrey}
+                     icon={'home-outline'}
+                     size={15}
+                   />
+                   <Text
+                     numberOfLines={2}
+                     style={{color: colors.darkGrey}}>
+                     {nama2}
+                   </Text>
+                 </View>
+                )}
+                {tanggal && (
+                  <Text style={{ color: colors.darkGrey, marginTop: 3 }}>{tanggal}</Text>
+                )}
               </View>
               <View>
                 <Text
@@ -90,7 +108,7 @@ export default function KostCard({onPress}) {
                     fontWeight: '400',
                     textAlign: 'right',
                   }}>
-                  Rp 500.000,00
+                  Rp {formatIDR.format(harga).replace('IDR', '').trim()}
                 </Text>
               </View>
             </View>

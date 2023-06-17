@@ -9,6 +9,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Marker } from "react-native-maps";
 import { kos } from '../../assets/db/data'
 import GetLocation from 'react-native-get-location'
+// import db from "../../firebase";
+import firestore from '@react-native-firebase/firestore';
 const { width, height } = Dimensions.get('window')
 const SCREEN_HEIGHT = height
 const SCREEN_WIDTH = width
@@ -116,7 +118,7 @@ export default function SearchKos({ route, navigation }) {
 	useEffect(() => {
 		setFilteredKos([])
 		let result = []
-		kos.map((item) => {
+		dataKos?.map((item) => {
 			const distance = calculateDistance(region.latitude, region.longitude, item.latitude, item.longitude)
 			console.log('distance', distance);
 			if (distance <= 1) {
@@ -126,7 +128,7 @@ export default function SearchKos({ route, navigation }) {
 		})
 		setFilteredKos(result)
 		console.log('filteredkos', filteredKos);
-	}, [region]);
+	}, [region, dataKos]);
 
 	// useEffect(() => {
 	// 	// const index = kos.findIndex((item) => item.id_kos === pressId)
@@ -134,6 +136,21 @@ export default function SearchKos({ route, navigation }) {
 	// 	console.log('pressid', pressId);
 	// 	console.log('indexpressed', indexPressed);
 	// }, [pressId]);
+
+	const [dataKos, setDataKos] = useState([])
+
+	const getKosCollection = async () => {
+		const kosCollection = await firestore().collection('kos').get();
+		// console.log("collection", kosCollection.docs[0].data);
+		const kos = kosCollection?.docs?.map((item) => ({ ...item?.data(), id: item?.id }))
+		// console.log(kos);
+		// const tes = kosCollection.docs[0].data()
+		setDataKos(kos)
+	}
+
+	useEffect(() => {
+		getKosCollection()
+	}, []);
 
 	return (
 		<View style={styles.container}>
@@ -170,19 +187,19 @@ export default function SearchKos({ route, navigation }) {
 					}
 				]}
 			>
-				{filteredKos.map((item, index) => (
+				{filteredKos?.map((item, index) => (
 					<Marker
-						key={item.id_kos}
+						key={item?.id}
 						coordinate={({
-							latitude: item.latitude,
-							longitude: item.longitude,
+							latitude: item?.latitude,
+							longitude: item?.longitude,
 							latitudeDelta: 0.01,
 							longitudeDelta: 0.01,
 						})}
-						title={item.nama_kos}
-						description={item.alamat}
+						title={item?.nama_kos}
+						description={item?.alamat}
 						onPress={() => {
-							setPressid(item.id_kos)
+							setPressid(item?.id)
 						}}
 					>
 						<CustomMarker />
@@ -217,12 +234,6 @@ export default function SearchKos({ route, navigation }) {
 						placeholderTextColor={colors.darkGrey}
 						onChangeText={value => setInput(value)}
 						onSubmitEditing={() => {
-							// setRegion({
-							// 	latitude: 37.78825,
-							// 	longitude: -122.4324,
-							// 	latitudeDelta: 0.0922,
-							// 	longitudeDelta: 0.0421,
-							// })
 							setLocationInput(input)
 							setInput('')
 						}}
@@ -260,8 +271,8 @@ export default function SearchKos({ route, navigation }) {
 				<View style={{ flex: 1.5 }}>
 					{/* <Text style={{ color: colors.black, fontSize: 25 }}>{pressId === 1 ? 'Kos Ngentot 1' : pressId === 2 ? 'Kos Ngentot 2' : 'congrats'}</Text>
 					<Text style={{ color: colors.darkGrey, fontSize: 18 }}>{pressId === 1 ? 'Jl Ngentot 1' : pressId === 2 ? 'Jl Ngentot 2' : 'congrats'}</Text> */}
-					<Text style={{ color: colors.black, fontSize: 25 }}>{pressId ? kos.find((item) => item.id_kos === pressId).nama_kos : ''}</Text>
-					<Text style={{ color: colors.darkGrey, fontSize: 15 }}>{pressId ? kos.find((item) => item.id_kos === pressId).alamat : ''}</Text>
+					<Text style={{ color: colors.black, fontSize: 25 }}>{pressId ? dataKos?.find((item) => item?.id === pressId).nama_kos : ''}</Text>
+					<Text style={{ color: colors.darkGrey, fontSize: 15 }}>{pressId ? dataKos?.find((item) => item?.id === pressId).alamat : ''}</Text>
 				</View>
 				<View style={{ alignItems: 'center', flex: 1 }}>
 					<TouchableOpacity
@@ -274,7 +285,7 @@ export default function SearchKos({ route, navigation }) {
 							alignItems: 'center'
 						}}
 						onPress={() => navigation.navigate('KosDetail', {
-							data: kos.find((item) => item.id_kos === pressId)
+							id_kos: dataKos?.find((item) => item.id === pressId).id
 						})}
 					>
 						<Ionicons name="arrow-forward" style={{

@@ -770,10 +770,17 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="date_description">Select Date</string>
     <string name="day_description">Select Day</string>
+    <string name="default_web_client_id" translatable="false">357625349234-kfhsg6c6bq2elqc0rv4ictgerjibvsr5.apps.googleusercontent.com</string>
     <string name="error_icon_content_description">Error</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
+    <string name="firebase_database_url" translatable="false">https://reservasi-kos-381508-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+    <string name="gcm_defaultSenderId" translatable="false">357625349234</string>
+    <string name="google_api_key" translatable="false">AIzaSyCWDB9x26Wyeqw1wxbMFrBIPh4X_a84hhQ</string>
+    <string name="google_app_id" translatable="false">1:357625349234:android:68121a4779a71048516eeb</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCWDB9x26Wyeqw1wxbMFrBIPh4X_a84hhQ</string>
+    <string name="google_storage_bucket" translatable="false">reservasi-kos-381508.appspot.com</string>
     <string name="header_description" translatable="false">Heading</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="hour_description">Select Hour</string>
@@ -829,6 +836,7 @@
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
     <string name="progressbar_description" translatable="false">Progress Bar</string>
+    <string name="project_id" translatable="false">reservasi-kos-381508</string>
     <string name="radiogroup_description" translatable="false">Radio Group</string>
     <string name="rn_tab_description" translatable="false">Tab</string>
     <string name="scrollbar_description" translatable="false">Scroll Bar</string>

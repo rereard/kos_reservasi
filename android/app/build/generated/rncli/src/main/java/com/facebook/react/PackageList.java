@@ -13,8 +13,18 @@ import java.util.ArrayList;
 
 // @react-native-async-storage/async-storage
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+// @react-native-clipboard/clipboard
+import com.reactnativecommunity.clipboard.ClipboardPackage;
+// @react-native-community/checkbox
+import com.reactnativecommunity.checkbox.ReactCheckBoxPackage;
 // @react-native-community/datetimepicker
 import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
+// @react-native-firebase/app
+import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
+// @react-native-firebase/firestore
+import io.invertase.firebase.firestore.ReactNativeFirebaseFirestorePackage;
+// @react-native-firebase/storage
+import io.invertase.firebase.storage.ReactNativeFirebaseStoragePackage;
 // react-native-date-picker
 import com.henninghall.date_picker.DatePickerPackage;
 // react-native-gesture-handler
@@ -79,7 +89,12 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new AsyncStoragePackage(),
+      new ClipboardPackage(),
+      new ReactCheckBoxPackage(),
       new RNDateTimePickerPackage(),
+      new ReactNativeFirebaseAppPackage(),
+      new ReactNativeFirebaseFirestorePackage(),
+      new ReactNativeFirebaseStoragePackage(),
       new DatePickerPackage(),
       new RNGestureHandlerPackage(),
       new ReactNativeGetLocationPackage(),

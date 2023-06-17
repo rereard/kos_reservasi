@@ -6,18 +6,25 @@ import {
   View,
   Image,
 } from 'react-native';
-import {useSelector, useDispatch} from 'react-redux';
-import {SettingsRow} from './parts';
+import { useSelector, useDispatch } from 'react-redux';
+import { SettingsRow } from './parts';
 import Button from '../../component/atoms/Button';
-import {colors} from '../../utils';
-import {removeLogin} from '../../features/loginSlice';
+import { colors } from '../../utils';
+import { removeLogin } from '../../features/loginSlice';
+import { useState, useEffect } from 'react';
 
-export default function Profile({navigation}) {
+export default function Profile({ navigation }) {
   const dispatch = useDispatch();
-
+  const [logout, setLogout] = useState(false)
   const user = useSelector(state => state?.login?.user);
   const favorites = useSelector(state => state?.favorite?.favorites)
   const bookHistories = useSelector(state => state?.bookHistory?.bookHistories)
+
+  useEffect(() => {
+    if (!user) {
+      navigation.navigate('Sign');
+    }
+  }, [user]);
 
   return (
     <SafeAreaView style={styles.page}>
@@ -27,17 +34,17 @@ export default function Profile({navigation}) {
             <>
               <Text style={styles.header}>Profile</Text>
               <View style={styles.profileUser}>
-                <Image source={{uri: user?.image}} style={styles.image} />
-                <View style={{marginTop: 10}}>
-                  <Text style={styles.userName}>
+                {/* <Image source={{uri: user?.image}} style={styles.image} /> */}
+                <View style={{ marginTop: 10 }}>
+                  {/* <Text style={styles.userName}>
                     {user?.firstName} {user?.lastName}
-                  </Text>
+                  </Text> */}
                   <Text style={styles.email}>{user?.email}</Text>
                 </View>
               </View>
               <View style={styles.boxActivity}>
                 <View style={styles.activity}>
-                  <View style={{marginHorizontal: 10}}>
+                  <View style={{ marginHorizontal: 10 }}>
                     <Text
                       style={styles.totalActivity}
                       onPress={() => navigation.navigate('Receipt')}>
@@ -45,7 +52,7 @@ export default function Profile({navigation}) {
                     </Text>
                     <Text style={styles.titleActivity}>Booking</Text>
                   </View>
-                  <View style={{marginHorizontal: 10}}>
+                  <View style={{ marginHorizontal: 10 }}>
                     <Text
                       style={styles.totalActivity}
                       onPress={() => navigation.navigate('Favorite')}>
@@ -66,7 +73,7 @@ export default function Profile({navigation}) {
                   title="Password"
                   dataEditable={true}
                   isPassword={true}
-                  data={user?.pass}
+                  data={user?.password}
                   prop="pass"
                 />
                 <SettingsRow
@@ -75,7 +82,7 @@ export default function Profile({navigation}) {
                   data={user?.email}
                   prop="email"
                 />
-                <SettingsRow
+                {/* <SettingsRow
                   title="First Name"
                   dataEditable={true}
                   data={user?.firstName}
@@ -86,18 +93,18 @@ export default function Profile({navigation}) {
                   dataEditable={true}
                   data={user?.lastName}
                   prop="lastName"
-                />
+                /> */}
                 <SettingsRow
                   title="Phone"
                   dataEditable={true}
-                  data={user?.phone}
+                  data={user?.noWa}
                   prop="phone"
                 />
               </View>
             </>
           ) : (
-            <View style={[styles.profileBox, {marginBottom: 10}]}>
-              <Text style={[styles.textHeader(colors.black), {marginBottom: 5}]}>
+            <View style={[styles.profileBox, { marginBottom: 10 }]}>
+              <Text style={[styles.textHeader(colors.black), { marginBottom: 5 }]}>
                 My Profile
               </Text>
               <Text style={styles.text(colors.black)}>
@@ -110,12 +117,11 @@ export default function Profile({navigation}) {
             onPress={
               user
                 ? () => {
-                    dispatch(removeLogin());
-                    navigation.navigate('Home');
-                  }
+                  dispatch(removeLogin())
+                }
                 : () => {
-                    navigation.navigate('Sign');
-                  }
+                  navigation.navigate('Sign');
+                }
             }
             title={user ? 'Sign out' : 'Sign in'}
             color={colors.darkBlue}

@@ -21,35 +21,35 @@
 14-->C:\Kuliah\Tugas\Hacktiv8\HotelReservation\android\app\src\main\AndroidManifest.xml:9:5-80
 14-->C:\Kuliah\Tugas\Hacktiv8\HotelReservation\android\app\src\main\AndroidManifest.xml:9:22-78
 15    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-15-->[com.facebook.flipper:flipper:0.125.0] C:\Users\rerea\.gradle\caches\transforms-3\03f04a3f11198ce3b7c6cedb9b41266b\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:16:5-76
-15-->[com.facebook.flipper:flipper:0.125.0] C:\Users\rerea\.gradle\caches\transforms-3\03f04a3f11198ce3b7c6cedb9b41266b\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:16:22-73
+15-->[com.facebook.flipper:flipper:0.125.0] C:\Users\rerea\.gradle\caches\transforms-3\436f54e1c9e400a7ad96009301b788b4\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:16:5-76
+15-->[com.facebook.flipper:flipper:0.125.0] C:\Users\rerea\.gradle\caches\transforms-3\436f54e1c9e400a7ad96009301b788b4\transformed\jetified-flipper-0.125.0\AndroidManifest.xml:16:22-73
 16    <uses-permission android:name="android.permission.WAKE_LOCK" />
-16-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:25:5-68
-16-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:25:22-65
+16-->[:react-native-firebase_storage] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-68
+16-->[:react-native-firebase_storage] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-65
 17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-17-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:26:5-79
-17-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:26:22-76
+17-->[:react-native-firebase_storage] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-79
+17-->[:react-native-firebase_storage] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\storage\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-76
 18    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-18-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:27:5-81
-18-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:27:22-78
+18-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:27:5-81
+18-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:27:22-78
 19    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-19-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:28:5-77
-19-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:28:22-74
+19-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:28:5-77
+19-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:28:22-74
 20
 21    <uses-feature
-21-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\5b94eed69c74e072e7c17c8facb87462\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:26:5-28:35
+21-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\52a2fce4aee195acae89b335dcc6797a\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:26:5-28:35
 22        android:glEsVersion="0x00020000"
-22-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\5b94eed69c74e072e7c17c8facb87462\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:27:9-41
+22-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\52a2fce4aee195acae89b335dcc6797a\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:27:9-41
 23        android:required="true" />
-23-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\5b94eed69c74e072e7c17c8facb87462\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:28:9-32
+23-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\52a2fce4aee195acae89b335dcc6797a\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:28:9-32
 24
 25    <queries>
-25-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\5b94eed69c74e072e7c17c8facb87462\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:30:5-34:15
+25-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\52a2fce4aee195acae89b335dcc6797a\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:30:5-34:15
 26
 27        <!-- Needs to be explicitly declared on Android R+ -->
 28        <package android:name="com.google.android.apps.maps" />
-28-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\5b94eed69c74e072e7c17c8facb87462\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:33:9-64
-28-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\5b94eed69c74e072e7c17c8facb87462\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:33:18-61
+28-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\52a2fce4aee195acae89b335dcc6797a\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:33:9-64
+28-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\52a2fce4aee195acae89b335dcc6797a\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:33:18-61
 29    </queries>
 30
 31    <application
@@ -59,7 +59,7 @@
 33        android:allowBackup="false"
 33-->C:\Kuliah\Tugas\Hacktiv8\HotelReservation\android\app\src\main\AndroidManifest.xml:16:7-34
 34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-34-->[androidx.core:core:1.7.0] C:\Users\rerea\.gradle\caches\transforms-3\63a3df243d2d102452600006144a86df\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+34-->[androidx.core:core:1.7.0] C:\Users\rerea\.gradle\caches\transforms-3\12cba7cf5359c966f50d933ae798b1d0\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 35        android:debuggable="true"
 36        android:icon="@mipmap/ic_launcher"
 36-->C:\Kuliah\Tugas\Hacktiv8\HotelReservation\android\app\src\main\AndroidManifest.xml:14:7-41
@@ -110,261 +110,344 @@
 59            </intent-filter>
 60        </activity>
 61
-62        <provider
-62-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
-63            android:name="com.imagepicker.ImagePickerProvider"
-63-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-63
-64            android:authorities="com.hotelreservation.imagepickerprovider"
-64-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-71
-65            android:exported="false"
-65-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
-66            android:grantUriPermissions="true" >
-66-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-47
-67            <meta-data
-67-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-17:70
-68                android:name="android.support.FILE_PROVIDER_PATHS"
-68-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
-69                android:resource="@xml/imagepicker_provider_paths" />
-69-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-67
-70        </provider>
-71        <provider
-71-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:31:9-39:20
-72            android:name="androidx.startup.InitializationProvider"
-72-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:32:13-67
-73            android:authorities="com.hotelreservation.androidx-startup"
-73-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:33:13-68
-74            android:exported="false" >
-74-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:34:13-37
-75            <meta-data
-75-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:36:13-38:52
-76                android:name="androidx.work.WorkManagerInitializer"
-76-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:37:17-68
-77                android:value="androidx.startup" />
-77-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:38:17-49
-78            <meta-data
-78-->[androidx.emoji2:emoji2:1.0.0] C:\Users\rerea\.gradle\caches\transforms-3\b6fe4da57007a43d86a66ba4c66459bd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
-79                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-79-->[androidx.emoji2:emoji2:1.0.0] C:\Users\rerea\.gradle\caches\transforms-3\b6fe4da57007a43d86a66ba4c66459bd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
-80                android:value="androidx.startup" />
-80-->[androidx.emoji2:emoji2:1.0.0] C:\Users\rerea\.gradle\caches\transforms-3\b6fe4da57007a43d86a66ba4c66459bd\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
-81            <meta-data
-81-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\rerea\.gradle\caches\transforms-3\bc74a39e1ea23fea00bfcf2682a93948\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
-82                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-82-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\rerea\.gradle\caches\transforms-3\bc74a39e1ea23fea00bfcf2682a93948\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
-83                android:value="androidx.startup" />
-83-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\rerea\.gradle\caches\transforms-3\bc74a39e1ea23fea00bfcf2682a93948\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
-84        </provider>
-85
-86        <service
-86-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:41:9-46:35
-87            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
-87-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:42:13-88
-88            android:directBootAware="false"
-88-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:43:13-44
-89            android:enabled="@bool/enable_system_alarm_service_default"
-89-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:44:13-72
-90            android:exported="false" />
-90-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:45:13-37
-91        <service
-91-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:47:9-53:35
-92            android:name="androidx.work.impl.background.systemjob.SystemJobService"
-92-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:48:13-84
-93            android:directBootAware="false"
-93-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:49:13-44
-94            android:enabled="@bool/enable_system_job_service_default"
-94-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:50:13-70
-95            android:exported="true"
-95-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:51:13-36
-96            android:permission="android.permission.BIND_JOB_SERVICE" />
-96-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:52:13-69
-97        <service
-97-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:54:9-59:35
-98            android:name="androidx.work.impl.foreground.SystemForegroundService"
-98-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:55:13-81
-99            android:directBootAware="false"
-99-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:56:13-44
-100            android:enabled="@bool/enable_system_foreground_service_default"
-100-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:57:13-77
-101            android:exported="false" />
-101-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:58:13-37
-102
-103        <receiver
-103-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:61:9-66:35
-104            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
-104-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:62:13-88
-105            android:directBootAware="false"
-105-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:63:13-44
-106            android:enabled="true"
-106-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:64:13-35
-107            android:exported="false" />
-107-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:65:13-37
-108        <receiver
-108-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:67:9-77:20
-109            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
-109-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:68:13-106
-110            android:directBootAware="false"
-110-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:69:13-44
-111            android:enabled="false"
-111-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:70:13-36
-112            android:exported="false" >
-112-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:71:13-37
-113            <intent-filter>
-113-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:73:13-76:29
-114                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-114-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:74:17-87
-114-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:74:25-84
-115                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-115-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:75:17-90
-115-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:75:25-87
-116            </intent-filter>
-117        </receiver>
-118        <receiver
-118-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:78:9-88:20
-119            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
-119-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:79:13-104
-120            android:directBootAware="false"
-120-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:80:13-44
-121            android:enabled="false"
-121-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:81:13-36
-122            android:exported="false" >
-122-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:82:13-37
-123            <intent-filter>
-123-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:84:13-87:29
-124                <action android:name="android.intent.action.BATTERY_OKAY" />
-124-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:85:17-77
-124-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:85:25-74
-125                <action android:name="android.intent.action.BATTERY_LOW" />
-125-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:86:17-76
-125-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:86:25-73
-126            </intent-filter>
-127        </receiver>
-128        <receiver
-128-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:89:9-99:20
-129            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
-129-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:90:13-104
-130            android:directBootAware="false"
-130-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:91:13-44
-131            android:enabled="false"
-131-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:92:13-36
-132            android:exported="false" >
-132-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:93:13-37
-133            <intent-filter>
-133-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:95:13-98:29
-134                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
-134-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:96:17-83
-134-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:96:25-80
-135                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
-135-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:97:17-82
-135-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:97:25-79
-136            </intent-filter>
-137        </receiver>
-138        <receiver
-138-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:100:9-109:20
-139            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
-139-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:101:13-103
-140            android:directBootAware="false"
-140-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:102:13-44
-141            android:enabled="false"
-141-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:103:13-36
-142            android:exported="false" >
-142-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:104:13-37
-143            <intent-filter>
-143-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:106:13-108:29
-144                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-144-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:107:17-79
-144-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:107:25-76
-145            </intent-filter>
-146        </receiver>
-147        <receiver
-147-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:110:9-121:20
-148            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
-148-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:111:13-88
-149            android:directBootAware="false"
-149-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:112:13-44
-150            android:enabled="false"
-150-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:113:13-36
-151            android:exported="false" >
-151-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:114:13-37
-152            <intent-filter>
-152-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:116:13-120:29
-153                <action android:name="android.intent.action.BOOT_COMPLETED" />
-153-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:117:17-79
-153-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:117:25-76
-154                <action android:name="android.intent.action.TIME_SET" />
-154-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:118:17-73
-154-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:118:25-70
-155                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
-155-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:119:17-81
-155-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:119:25-78
-156            </intent-filter>
-157        </receiver>
-158        <receiver
-158-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:122:9-131:20
-159            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
-159-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:123:13-99
-160            android:directBootAware="false"
-160-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:124:13-44
-161            android:enabled="@bool/enable_system_alarm_service_default"
-161-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:125:13-72
-162            android:exported="false" >
-162-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:126:13-37
-163            <intent-filter>
-163-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:128:13-130:29
-164                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
-164-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:129:17-98
-164-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:129:25-95
-165            </intent-filter>
-166        </receiver>
-167        <receiver
-167-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:132:9-142:20
-168            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
-168-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:133:13-78
-169            android:directBootAware="false"
-169-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:134:13-44
-170            android:enabled="true"
-170-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:135:13-35
-171            android:exported="true"
-171-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:136:13-36
-172            android:permission="android.permission.DUMP" >
-172-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:137:13-57
-173            <intent-filter>
-173-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:139:13-141:29
-174                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
-174-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:140:17-88
-174-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\3bc811facf50ede55bc8298072e0374d\transformed\work-runtime-2.7.1\AndroidManifest.xml:140:25-85
-175            </intent-filter>
-176        </receiver>
-177
-178        <service
-178-->[androidx.room:room-runtime:2.2.5] C:\Users\rerea\.gradle\caches\transforms-3\d6dec416bb888634412be1a5a950fd3c\transformed\room-runtime-2.2.5\AndroidManifest.xml:25:9-28:40
-179            android:name="androidx.room.MultiInstanceInvalidationService"
-179-->[androidx.room:room-runtime:2.2.5] C:\Users\rerea\.gradle\caches\transforms-3\d6dec416bb888634412be1a5a950fd3c\transformed\room-runtime-2.2.5\AndroidManifest.xml:26:13-74
-180            android:directBootAware="true"
-180-->[androidx.room:room-runtime:2.2.5] C:\Users\rerea\.gradle\caches\transforms-3\d6dec416bb888634412be1a5a950fd3c\transformed\room-runtime-2.2.5\AndroidManifest.xml:27:13-43
-181            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
-181-->[androidx.room:room-runtime:2.2.5] C:\Users\rerea\.gradle\caches\transforms-3\d6dec416bb888634412be1a5a950fd3c\transformed\room-runtime-2.2.5\AndroidManifest.xml:28:13-37
-182        <uses-library
-182-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\5b94eed69c74e072e7c17c8facb87462\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:39:9-41:40
-183            android:name="org.apache.http.legacy"
-183-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\5b94eed69c74e072e7c17c8facb87462\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:40:13-50
-184            android:required="false" />
-184-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\5b94eed69c74e072e7c17c8facb87462\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:41:13-37
-185
-186        <activity
-186-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\rerea\.gradle\caches\transforms-3\7f54a7dfe19ef0767a7a4a59f18603f7\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
-187            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-187-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\rerea\.gradle\caches\transforms-3\7f54a7dfe19ef0767a7a4a59f18603f7\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
-188            android:exported="false"
-188-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\rerea\.gradle\caches\transforms-3\7f54a7dfe19ef0767a7a4a59f18603f7\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
-189            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-189-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\rerea\.gradle\caches\transforms-3\7f54a7dfe19ef0767a7a4a59f18603f7\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
-190
-191        <meta-data
-191-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\rerea\.gradle\caches\transforms-3\ea51e9565e00dfcc01c5228a0311af20\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
-192            android:name="com.google.android.gms.version"
-192-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\rerea\.gradle\caches\transforms-3\ea51e9565e00dfcc01c5228a0311af20\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
-193            android:value="@integer/google_play_services_version" />
-193-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\rerea\.gradle\caches\transforms-3\ea51e9565e00dfcc01c5228a0311af20\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
-194    </application>
-195
-196</manifest>
+62        <meta-data
+62-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:9-13:36
+63            android:name="app_data_collection_default_enabled"
+63-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-63
+64            android:value="true" />
+64-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-33
+65
+66        <service
+66-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-23:19
+67            android:name="com.google.firebase.components.ComponentDiscoveryService"
+67-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-84
+68            android:directBootAware="true"
+68-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-43
+69            android:exported="false" >
+69-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:18:13-37
+70            <meta-data
+70-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:20:13-22:85
+71                android:name="com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar"
+71-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:21:17-120
+72                android:value="com.google.firebase.components.ComponentRegistrar" />
+72-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:22:17-82
+73            <meta-data
+73-->[com.google.firebase:firebase-firestore:24.6.1] C:\Users\rerea\.gradle\caches\transforms-3\7f6b12a36d8f174341cf513731d34cbf\transformed\jetified-firebase-firestore-24.6.1\AndroidManifest.xml:19:13-21:85
+74                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+74-->[com.google.firebase:firebase-firestore:24.6.1] C:\Users\rerea\.gradle\caches\transforms-3\7f6b12a36d8f174341cf513731d34cbf\transformed\jetified-firebase-firestore-24.6.1\AndroidManifest.xml:20:17-111
+75                android:value="com.google.firebase.components.ComponentRegistrar" />
+75-->[com.google.firebase:firebase-firestore:24.6.1] C:\Users\rerea\.gradle\caches\transforms-3\7f6b12a36d8f174341cf513731d34cbf\transformed\jetified-firebase-firestore-24.6.1\AndroidManifest.xml:21:17-82
+76            <meta-data
+76-->[com.google.firebase:firebase-storage:20.2.0] C:\Users\rerea\.gradle\caches\transforms-3\3b768f80143d556f3d311e452da23190\transformed\jetified-firebase-storage-20.2.0\AndroidManifest.xml:32:13-34:85
+77                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+77-->[com.google.firebase:firebase-storage:20.2.0] C:\Users\rerea\.gradle\caches\transforms-3\3b768f80143d556f3d311e452da23190\transformed\jetified-firebase-storage-20.2.0\AndroidManifest.xml:33:17-107
+78                android:value="com.google.firebase.components.ComponentRegistrar" />
+78-->[com.google.firebase:firebase-storage:20.2.0] C:\Users\rerea\.gradle\caches\transforms-3\3b768f80143d556f3d311e452da23190\transformed\jetified-firebase-storage-20.2.0\AndroidManifest.xml:34:17-82
+79        </service>
+80
+81        <provider
+81-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:25:9-29:38
+82            android:name="io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider"
+82-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:26:13-88
+83            android:authorities="com.hotelreservation.reactnativefirebaseappinitprovider"
+83-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:27:13-86
+84            android:exported="false"
+84-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:28:13-37
+85            android:initOrder="99" />
+85-->[:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:29:13-35
+86        <provider
+86-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
+87            android:name="com.imagepicker.ImagePickerProvider"
+87-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-63
+88            android:authorities="com.hotelreservation.imagepickerprovider"
+88-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-71
+89            android:exported="false"
+89-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
+90            android:grantUriPermissions="true" >
+90-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-47
+91            <meta-data
+91-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-17:70
+92                android:name="android.support.FILE_PROVIDER_PATHS"
+92-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
+93                android:resource="@xml/imagepicker_provider_paths" />
+93-->[:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-67
+94        </provider>
+95        <provider
+95-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:31:9-39:20
+96            android:name="androidx.startup.InitializationProvider"
+96-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:32:13-67
+97            android:authorities="com.hotelreservation.androidx-startup"
+97-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:33:13-68
+98            android:exported="false" >
+98-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:34:13-37
+99            <meta-data
+99-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:36:13-38:52
+100                android:name="androidx.work.WorkManagerInitializer"
+100-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:37:17-68
+101                android:value="androidx.startup" />
+101-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:38:17-49
+102            <meta-data
+102-->[androidx.emoji2:emoji2:1.0.0] C:\Users\rerea\.gradle\caches\transforms-3\b261c6f403307910e557cc2f90eed1e8\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+103                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+103-->[androidx.emoji2:emoji2:1.0.0] C:\Users\rerea\.gradle\caches\transforms-3\b261c6f403307910e557cc2f90eed1e8\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+104                android:value="androidx.startup" />
+104-->[androidx.emoji2:emoji2:1.0.0] C:\Users\rerea\.gradle\caches\transforms-3\b261c6f403307910e557cc2f90eed1e8\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+105            <meta-data
+105-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\rerea\.gradle\caches\transforms-3\619a89f1314a1f65bd02b1ae20d6fac5\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+106                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+106-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\rerea\.gradle\caches\transforms-3\619a89f1314a1f65bd02b1ae20d6fac5\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+107                android:value="androidx.startup" />
+107-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\rerea\.gradle\caches\transforms-3\619a89f1314a1f65bd02b1ae20d6fac5\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+108        </provider>
+109
+110        <service
+110-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:41:9-46:35
+111            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+111-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:42:13-88
+112            android:directBootAware="false"
+112-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:43:13-44
+113            android:enabled="@bool/enable_system_alarm_service_default"
+113-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:44:13-72
+114            android:exported="false" />
+114-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:45:13-37
+115        <service
+115-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:47:9-53:35
+116            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+116-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:48:13-84
+117            android:directBootAware="false"
+117-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:49:13-44
+118            android:enabled="@bool/enable_system_job_service_default"
+118-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:50:13-70
+119            android:exported="true"
+119-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:51:13-36
+120            android:permission="android.permission.BIND_JOB_SERVICE" />
+120-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:52:13-69
+121        <service
+121-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:54:9-59:35
+122            android:name="androidx.work.impl.foreground.SystemForegroundService"
+122-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:55:13-81
+123            android:directBootAware="false"
+123-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:56:13-44
+124            android:enabled="@bool/enable_system_foreground_service_default"
+124-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:57:13-77
+125            android:exported="false" />
+125-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:58:13-37
+126
+127        <receiver
+127-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:61:9-66:35
+128            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+128-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:62:13-88
+129            android:directBootAware="false"
+129-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:63:13-44
+130            android:enabled="true"
+130-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:64:13-35
+131            android:exported="false" />
+131-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:65:13-37
+132        <receiver
+132-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:67:9-77:20
+133            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+133-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:68:13-106
+134            android:directBootAware="false"
+134-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:69:13-44
+135            android:enabled="false"
+135-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:70:13-36
+136            android:exported="false" >
+136-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:71:13-37
+137            <intent-filter>
+137-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:73:13-76:29
+138                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+138-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:74:17-87
+138-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:74:25-84
+139                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+139-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:75:17-90
+139-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:75:25-87
+140            </intent-filter>
+141        </receiver>
+142        <receiver
+142-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:78:9-88:20
+143            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+143-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:79:13-104
+144            android:directBootAware="false"
+144-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:80:13-44
+145            android:enabled="false"
+145-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:81:13-36
+146            android:exported="false" >
+146-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:82:13-37
+147            <intent-filter>
+147-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:84:13-87:29
+148                <action android:name="android.intent.action.BATTERY_OKAY" />
+148-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:85:17-77
+148-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:85:25-74
+149                <action android:name="android.intent.action.BATTERY_LOW" />
+149-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:86:17-76
+149-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:86:25-73
+150            </intent-filter>
+151        </receiver>
+152        <receiver
+152-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:89:9-99:20
+153            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+153-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:90:13-104
+154            android:directBootAware="false"
+154-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:91:13-44
+155            android:enabled="false"
+155-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:92:13-36
+156            android:exported="false" >
+156-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:93:13-37
+157            <intent-filter>
+157-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:95:13-98:29
+158                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+158-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:96:17-83
+158-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:96:25-80
+159                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+159-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:97:17-82
+159-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:97:25-79
+160            </intent-filter>
+161        </receiver>
+162        <receiver
+162-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:100:9-109:20
+163            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+163-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:101:13-103
+164            android:directBootAware="false"
+164-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:102:13-44
+165            android:enabled="false"
+165-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:103:13-36
+166            android:exported="false" >
+166-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:104:13-37
+167            <intent-filter>
+167-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:106:13-108:29
+168                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+168-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:107:17-79
+168-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:107:25-76
+169            </intent-filter>
+170        </receiver>
+171        <receiver
+171-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:110:9-121:20
+172            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+172-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:111:13-88
+173            android:directBootAware="false"
+173-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:112:13-44
+174            android:enabled="false"
+174-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:113:13-36
+175            android:exported="false" >
+175-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:114:13-37
+176            <intent-filter>
+176-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:116:13-120:29
+177                <action android:name="android.intent.action.BOOT_COMPLETED" />
+177-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:117:17-79
+177-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:117:25-76
+178                <action android:name="android.intent.action.TIME_SET" />
+178-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:118:17-73
+178-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:118:25-70
+179                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+179-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:119:17-81
+179-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:119:25-78
+180            </intent-filter>
+181        </receiver>
+182        <receiver
+182-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:122:9-131:20
+183            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+183-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:123:13-99
+184            android:directBootAware="false"
+184-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:124:13-44
+185            android:enabled="@bool/enable_system_alarm_service_default"
+185-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:125:13-72
+186            android:exported="false" >
+186-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:126:13-37
+187            <intent-filter>
+187-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:128:13-130:29
+188                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+188-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:129:17-98
+188-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:129:25-95
+189            </intent-filter>
+190        </receiver>
+191        <receiver
+191-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:132:9-142:20
+192            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+192-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:133:13-78
+193            android:directBootAware="false"
+193-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:134:13-44
+194            android:enabled="true"
+194-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:135:13-35
+195            android:exported="true"
+195-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:136:13-36
+196            android:permission="android.permission.DUMP" >
+196-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:137:13-57
+197            <intent-filter>
+197-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:139:13-141:29
+198                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+198-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:140:17-88
+198-->[androidx.work:work-runtime:2.7.1] C:\Users\rerea\.gradle\caches\transforms-3\92879e6e6f3fd6aeedb9363b6fa828d4\transformed\work-runtime-2.7.1\AndroidManifest.xml:140:25-85
+199            </intent-filter>
+200        </receiver>
+201
+202        <service
+202-->[androidx.room:room-runtime:2.2.5] C:\Users\rerea\.gradle\caches\transforms-3\dbd75f7f051acfdc2dc1dcf87eb72c95\transformed\room-runtime-2.2.5\AndroidManifest.xml:25:9-28:40
+203            android:name="androidx.room.MultiInstanceInvalidationService"
+203-->[androidx.room:room-runtime:2.2.5] C:\Users\rerea\.gradle\caches\transforms-3\dbd75f7f051acfdc2dc1dcf87eb72c95\transformed\room-runtime-2.2.5\AndroidManifest.xml:26:13-74
+204            android:directBootAware="true"
+204-->[androidx.room:room-runtime:2.2.5] C:\Users\rerea\.gradle\caches\transforms-3\dbd75f7f051acfdc2dc1dcf87eb72c95\transformed\room-runtime-2.2.5\AndroidManifest.xml:27:13-43
+205            android:exported="false" />
+205-->[androidx.room:room-runtime:2.2.5] C:\Users\rerea\.gradle\caches\transforms-3\dbd75f7f051acfdc2dc1dcf87eb72c95\transformed\room-runtime-2.2.5\AndroidManifest.xml:28:13-37
+206
+207        <provider
+207-->[com.google.firebase:firebase-common:20.3.2] C:\Users\rerea\.gradle\caches\transforms-3\222948e1cea199507c8ac58f1031aabf\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:25:9-30:39
+208            android:name="com.google.firebase.provider.FirebaseInitProvider"
+208-->[com.google.firebase:firebase-common:20.3.2] C:\Users\rerea\.gradle\caches\transforms-3\222948e1cea199507c8ac58f1031aabf\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:26:13-77
+209            android:authorities="com.hotelreservation.firebaseinitprovider"
+209-->[com.google.firebase:firebase-common:20.3.2] C:\Users\rerea\.gradle\caches\transforms-3\222948e1cea199507c8ac58f1031aabf\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:27:13-72
+210            android:directBootAware="true"
+210-->[com.google.firebase:firebase-common:20.3.2] C:\Users\rerea\.gradle\caches\transforms-3\222948e1cea199507c8ac58f1031aabf\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:28:13-43
+211            android:exported="false"
+211-->[com.google.firebase:firebase-common:20.3.2] C:\Users\rerea\.gradle\caches\transforms-3\222948e1cea199507c8ac58f1031aabf\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:29:13-37
+212            android:initOrder="100" />
+212-->[com.google.firebase:firebase-common:20.3.2] C:\Users\rerea\.gradle\caches\transforms-3\222948e1cea199507c8ac58f1031aabf\transformed\jetified-firebase-common-20.3.2\AndroidManifest.xml:30:13-36
+213
+214        <activity
+214-->[com.google.android.gms:play-services-auth:20.5.0] C:\Users\rerea\.gradle\caches\transforms-3\19b28cb06c8e58106354be3642a74a69\transformed\jetified-play-services-auth-20.5.0\AndroidManifest.xml:23:9-27:75
+215            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+215-->[com.google.android.gms:play-services-auth:20.5.0] C:\Users\rerea\.gradle\caches\transforms-3\19b28cb06c8e58106354be3642a74a69\transformed\jetified-play-services-auth-20.5.0\AndroidManifest.xml:24:13-93
+216            android:excludeFromRecents="true"
+216-->[com.google.android.gms:play-services-auth:20.5.0] C:\Users\rerea\.gradle\caches\transforms-3\19b28cb06c8e58106354be3642a74a69\transformed\jetified-play-services-auth-20.5.0\AndroidManifest.xml:25:13-46
+217            android:exported="false"
+217-->[com.google.android.gms:play-services-auth:20.5.0] C:\Users\rerea\.gradle\caches\transforms-3\19b28cb06c8e58106354be3642a74a69\transformed\jetified-play-services-auth-20.5.0\AndroidManifest.xml:26:13-37
+218            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+218-->[com.google.android.gms:play-services-auth:20.5.0] C:\Users\rerea\.gradle\caches\transforms-3\19b28cb06c8e58106354be3642a74a69\transformed\jetified-play-services-auth-20.5.0\AndroidManifest.xml:27:13-72
+219        <!--
+220            Service handling Google Sign-In user revocation. For apps that do not integrate with
+221            Google Sign-In, this service will never be started.
+222        -->
+223        <service
+223-->[com.google.android.gms:play-services-auth:20.5.0] C:\Users\rerea\.gradle\caches\transforms-3\19b28cb06c8e58106354be3642a74a69\transformed\jetified-play-services-auth-20.5.0\AndroidManifest.xml:33:9-37:51
+224            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+224-->[com.google.android.gms:play-services-auth:20.5.0] C:\Users\rerea\.gradle\caches\transforms-3\19b28cb06c8e58106354be3642a74a69\transformed\jetified-play-services-auth-20.5.0\AndroidManifest.xml:34:13-89
+225            android:exported="true"
+225-->[com.google.android.gms:play-services-auth:20.5.0] C:\Users\rerea\.gradle\caches\transforms-3\19b28cb06c8e58106354be3642a74a69\transformed\jetified-play-services-auth-20.5.0\AndroidManifest.xml:35:13-36
+226            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+226-->[com.google.android.gms:play-services-auth:20.5.0] C:\Users\rerea\.gradle\caches\transforms-3\19b28cb06c8e58106354be3642a74a69\transformed\jetified-play-services-auth-20.5.0\AndroidManifest.xml:36:13-107
+227            android:visibleToInstantApps="true" /> <!-- Needs to be explicitly declared on P+ -->
+227-->[com.google.android.gms:play-services-auth:20.5.0] C:\Users\rerea\.gradle\caches\transforms-3\19b28cb06c8e58106354be3642a74a69\transformed\jetified-play-services-auth-20.5.0\AndroidManifest.xml:37:13-48
+228        <uses-library
+228-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\52a2fce4aee195acae89b335dcc6797a\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:39:9-41:40
+229            android:name="org.apache.http.legacy"
+229-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\52a2fce4aee195acae89b335dcc6797a\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:40:13-50
+230            android:required="false" />
+230-->[com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\52a2fce4aee195acae89b335dcc6797a\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:41:13-37
+231
+232        <activity
+232-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\rerea\.gradle\caches\transforms-3\3c5cd40a450fb7a3b3a3cb4263b56109\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+233            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+233-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\rerea\.gradle\caches\transforms-3\3c5cd40a450fb7a3b3a3cb4263b56109\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+234            android:exported="false"
+234-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\rerea\.gradle\caches\transforms-3\3c5cd40a450fb7a3b3a3cb4263b56109\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+235            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+235-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\rerea\.gradle\caches\transforms-3\3c5cd40a450fb7a3b3a3cb4263b56109\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+236
+237        <meta-data
+237-->[com.google.android.gms:play-services-basement:18.2.0] C:\Users\rerea\.gradle\caches\transforms-3\201ea8b1a4187b6105a1913add1a5a14\transformed\jetified-play-services-basement-18.2.0\AndroidManifest.xml:21:9-23:69
+238            android:name="com.google.android.gms.version"
+238-->[com.google.android.gms:play-services-basement:18.2.0] C:\Users\rerea\.gradle\caches\transforms-3\201ea8b1a4187b6105a1913add1a5a14\transformed\jetified-play-services-basement-18.2.0\AndroidManifest.xml:22:13-58
+239            android:value="@integer/google_play_services_version" />
+239-->[com.google.android.gms:play-services-basement:18.2.0] C:\Users\rerea\.gradle\caches\transforms-3\201ea8b1a4187b6105a1913add1a5a14\transformed\jetified-play-services-basement-18.2.0\AndroidManifest.xml:23:13-66
+240    </application>
+241
+242</manifest>

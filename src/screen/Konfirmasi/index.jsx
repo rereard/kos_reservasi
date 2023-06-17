@@ -14,8 +14,30 @@ import { colors } from '../../utils';
 import { Button } from '../../component/atoms';
 import { Header } from '../../component/molecules';
 import Icon from '../../component/atoms/Button/icon';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { useEffect, useState } from 'react';
+import { formatIDR } from '../../utils';
+import firestore from '@react-native-firebase/firestore';
+import { useSelector } from "react-redux"
 
-export default function Konfirmasi({ navigation }) {
+export default function Konfirmasi({ navigation, route }) {
+
+  const { id_kamar, id_kos, nama_kos, nama_kamar, foto_kamar, harga, id_pemilik } = route.params
+
+  const user = useSelector((state) => state.login.user)
+
+  const dateNow = new Date()
+  const date = new Date()
+  const dateMax = new Date(date.setMonth(date.getMonth() + 1))
+
+  useEffect(() => {
+    console.log(route.params);
+    console.log(tglTinggal);
+  }, [tglTinggal]);
+
+  const [openDatePick, setDatePick] = useState(false)
+  const [tglTinggal, setTglTinggal] = useState(null)
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: colors.darkBlue, padding: 15 }}>
@@ -40,7 +62,7 @@ export default function Konfirmasi({ navigation }) {
         }}>
           <Image
             source={{
-              uri: 'https://parboaboa.com/data/foto_berita/kamar-kost-kmd.webp'
+              uri: foto_kamar
             }}
             style={{
               height: 125,
@@ -49,11 +71,45 @@ export default function Konfirmasi({ navigation }) {
             }}
           />
           <View style={{ padding: 10, justifyContent: 'center' }}>
-            <Text style={{ color: colors.black, fontSize: 18, fontWeight: 'bold' }}>Kos Testing</Text>
-            <Text style={{ color: colors.black, fontSize: 15, fontWeight: '400' }}>Kamar 1</Text>
-            <Text style={{ color: colors.darkGrey, fontSize: 15, fontWeight: '400' }}>Rp 200.000,00/bulan</Text>
+            <Text style={{ color: colors.black, fontSize: 18, fontWeight: 'bold' }}>{nama_kos}</Text>
+            <Text style={{ color: colors.black, fontSize: 15, fontWeight: '400' }}>{nama_kamar}</Text>
+            <Text style={{ color: colors.darkGrey, fontSize: 15, fontWeight: '400' }}>Rp {formatIDR.format(harga).replace('IDR', '').trim()}/bulan</Text>
           </View>
         </View>
+      </View>
+      <View style={{
+        marginHorizontal: 15,
+        marginTop: 15,
+        flexDirection: 'row',
+        alignItems: 'center'
+      }}>
+        <Text style={{ color: colors.black, fontWeight: 'bold', fontSize: 16 }}>
+          Tanggal mulai menginap:
+        </Text>
+        <View style={{ flex: 1, alignItems: 'center' }}>
+          <Button
+            title={tglTinggal ? tglTinggal : 'Tekan'}
+            onPress={() => setDatePick(true)}
+            color={colors.darkBlue}
+            width={120}
+          />
+        </View>
+        {openDatePick && (
+          <DateTimePicker
+            value={dateNow}
+            mode='date'
+            minimumDate={dateNow}
+            maximumDate={dateMax}
+            onChange={(event, selectedDate) => {
+              if (event.type == 'set') {
+                setDatePick(false);
+                setTglTinggal(selectedDate.toLocaleDateString('pt-PT'))
+              } else {
+                setDatePick(false);
+              }
+            }}
+          />
+        )}
       </View>
       <View style={{
         margin: 15,
@@ -79,7 +135,30 @@ export default function Konfirmasi({ navigation }) {
           justifyContent: 'space-between',
           flex: 1
         }}
-          onPress={() => navigation.navigate('Konfirmasi')}
+          onPress={() => {
+            if (tglTinggal) {
+              firestore().collection('transaksi').add({
+                foto_bukti: '',
+                foto_kamar,
+                id_kamar,
+                id_kos,
+                id_pelanggan: user.id_akun,
+                id_pemilik,
+                jumlah_bayar: harga,
+                mulai_tinggal: tglTinggal,
+                nama_kamar,
+                nama_kos,
+                status: 'belum_bayar',
+                tanggal_transaksi: new Date().toLocaleString('pt-PT')
+              }).then(docRef => {
+                console.log(docRef);
+                navigation.navigate('Transaksi', {
+                  id_transaksi: docRef.id,
+                  fromConfirm: true
+                })
+              })
+            }
+          }}
         >
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Icon
@@ -95,7 +174,7 @@ export default function Konfirmasi({ navigation }) {
               {(" ")}Sewa kamar
             </Text>
           </View>
-          <Text style={{ color: colors.white, fontSize: 17, fontWeight: 'bold' }}>Rp 200.000,00</Text>
+          <Text style={{ color: colors.white, fontSize: 17, fontWeight: 'bold' }}>Rp {formatIDR.format(harga).replace('IDR', '').trim()}</Text>
         </Pressable>
       </View>
     </SafeAreaView>

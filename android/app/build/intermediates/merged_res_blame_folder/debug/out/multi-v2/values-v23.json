@@ -1,29 +1,29 @@
 {
     "logs": [
         {
-            "outputFile": "com.hotelreservation.app-mergeDebugResources-4:/values-v23/values-v23.xml",
+            "outputFile": "com.hotelreservation.app-mergeDebugResources-5:/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\rerea\\.gradle\\caches\\transforms-3\\ff7f9e1ea9c2e709fffb9e018f2252cf\\transformed\\material-1.1.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\rerea\\.gradle\\caches\\transforms-3\\4eea42eebfba2270fda721556cd19c69\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
                     "from": {
-                        "startLines": "2,6",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,320",
-                        "endLines": "5,9",
-                        "endColumns": "10,10",
-                        "endOffsets": "315,588"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
                     },
                     "to": {
-                        "startLines": "55,59",
-                        "startColumns": "4,4",
-                        "startOffsets": "3511,3776",
-                        "endLines": "58,62",
-                        "endColumns": "10,10",
-                        "endOffsets": "3771,4044"
+                        "startLines": "52",
+                        "startColumns": "4",
+                        "startOffsets": "3361",
+                        "endLines": "54",
+                        "endColumns": "12",
+                        "endOffsets": "3506"
                     }
                 },
                 {
-                    "source": "C:\\Users\\rerea\\.gradle\\caches\\transforms-3\\1b40e4574e76bff5831ef4bf4270480d\\transformed\\appcompat-1.4.1\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\rerea\\.gradle\\caches\\transforms-3\\83445e1e40ac16980ab69ece4da013c8\\transformed\\appcompat-1.4.1\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -42,7 +42,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\rerea\\.gradle\\caches\\transforms-3\\3bc811facf50ede55bc8298072e0374d\\transformed\\work-runtime-2.7.1\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\rerea\\.gradle\\caches\\transforms-3\\92879e6e6f3fd6aeedb9363b6fa828d4\\transformed\\work-runtime-2.7.1\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -52,22 +52,22 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\rerea\\.gradle\\caches\\transforms-3\\3cb37a6faf29ddf73604c194d6dae8fd\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\rerea\\.gradle\\caches\\transforms-3\\4e506807a0d345185fb42e4af67f5dbe\\transformed\\material-1.1.0\\res\\values-v23\\values-v23.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "4",
-                        "endColumns": "12",
-                        "endOffsets": "200"
+                        "startLines": "2,6",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,320",
+                        "endLines": "5,9",
+                        "endColumns": "10,10",
+                        "endOffsets": "315,588"
                     },
                     "to": {
-                        "startLines": "52",
-                        "startColumns": "4",
-                        "startOffsets": "3361",
-                        "endLines": "54",
-                        "endColumns": "12",
-                        "endOffsets": "3506"
+                        "startLines": "55,59",
+                        "startColumns": "4,4",
+                        "startOffsets": "3511,3776",
+                        "endLines": "58,62",
+                        "endColumns": "10,10",
+                        "endOffsets": "3771,4044"
                     }
                 }
             ]

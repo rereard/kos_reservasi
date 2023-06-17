@@ -1,46 +1,70 @@
 [
     {
-        "merged": "com.hotelreservation.app-merged_res-6:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "com.hotelreservation.app-main-8:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "com.hotelreservation.app-merged_res-7:/drawable-mdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "com.hotelreservation.app-main-9:/drawable-mdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
     },
     {
-        "merged": "com.hotelreservation.app-merged_res-6:/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "com.hotelreservation.app-main-8:/mipmap-xxhdpi/ic_launcher_round.png"
+        "merged": "com.hotelreservation.app-merged_res-7:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.hotelreservation.app-main-9:/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "com.hotelreservation.app-merged_res-6:/drawable_rn_edit_text_material.xml.flat",
-        "source": "com.hotelreservation.app-main-8:/drawable/rn_edit_text_material.xml"
+        "merged": "com.hotelreservation.app-merged_res-7:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.hotelreservation.app-main-9:/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.hotelreservation.app-merged_res-6:/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "com.hotelreservation.app-main-8:/mipmap-hdpi/ic_launcher_round.png"
+        "merged": "com.hotelreservation.app-merged_res-7:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.hotelreservation.app-main-9:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.hotelreservation.app-merged_res-6:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.hotelreservation.app-main-8:/mipmap-hdpi/ic_launcher.png"
+        "merged": "com.hotelreservation.app-merged_res-7:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.hotelreservation.app-main-9:/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.hotelreservation.app-merged_res-6:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "com.hotelreservation.app-main-8:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "com.hotelreservation.app-merged_res-7:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.hotelreservation.app-main-9:/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.hotelreservation.app-merged_res-6:/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "com.hotelreservation.app-main-8:/mipmap-xhdpi/ic_launcher_round.png"
+        "merged": "com.hotelreservation.app-merged_res-7:/drawable-hdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "com.hotelreservation.app-main-9:/drawable-hdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
     },
     {
-        "merged": "com.hotelreservation.app-merged_res-6:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "com.hotelreservation.app-main-8:/mipmap-xxxhdpi/ic_launcher_round.png"
+        "merged": "com.hotelreservation.app-merged_res-7:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.hotelreservation.app-main-9:/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.hotelreservation.app-merged_res-6:/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "com.hotelreservation.app-main-8:/mipmap-mdpi/ic_launcher_round.png"
+        "merged": "com.hotelreservation.app-merged_res-7:/drawable-xxhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "com.hotelreservation.app-main-9:/drawable-xxhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
     },
     {
-        "merged": "com.hotelreservation.app-merged_res-6:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "com.hotelreservation.app-main-8:/mipmap-mdpi/ic_launcher.png"
+        "merged": "com.hotelreservation.app-merged_res-7:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.hotelreservation.app-main-9:/mipmap-hdpi/ic_launcher_round.png"
     },
     {
-        "merged": "com.hotelreservation.app-merged_res-6:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "com.hotelreservation.app-main-8:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "com.hotelreservation.app-merged_res-7:/drawable-xxxhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "com.hotelreservation.app-main-9:/drawable-xxxhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "com.hotelreservation.app-merged_res-7:/drawable_rn_edit_text_material.xml.flat",
+        "source": "com.hotelreservation.app-main-9:/drawable/rn_edit_text_material.xml"
+    },
+    {
+        "merged": "com.hotelreservation.app-merged_res-7:/drawable-xhdpi_node_modules_reactnavigation_elements_src_assets_backicon.png.flat",
+        "source": "com.hotelreservation.app-main-9:/drawable-xhdpi/node_modules_reactnavigation_elements_src_assets_backicon.png"
+    },
+    {
+        "merged": "com.hotelreservation.app-merged_res-7:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.hotelreservation.app-main-9:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.hotelreservation.app-merged_res-7:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.hotelreservation.app-main-9:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.hotelreservation.app-merged_res-7:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.hotelreservation.app-main-9:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.hotelreservation.app-merged_res-7:/drawable-mdpi_node_modules_reactnavigation_elements_src_assets_backiconmask.png.flat",
+        "source": "com.hotelreservation.app-main-9:/drawable-mdpi/node_modules_reactnavigation_elements_src_assets_backiconmask.png"
     }
 ]

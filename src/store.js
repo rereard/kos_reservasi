@@ -10,6 +10,7 @@ import loginReducer from './features/loginSlice';
 import logger from 'redux-logger';
 import ReviewSlice from './features/ReviewSlice';
 import detailHotelSlice from './features/detailHotelSlice';
+import onAppSlice from './features/onAppSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   FLUSH,
@@ -26,7 +27,7 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage: AsyncStorage,
-  blacklist: ['hotel', 'review', 'detail', 'rooms'],
+  blacklist: ['hotel', 'review', 'detail', 'rooms', 'onApp'],
 };
 
 const rootReducer = combineReducers({
@@ -37,6 +38,7 @@ const rootReducer = combineReducers({
   review: ReviewSlice,
   detail: detailHotelSlice,
   rooms: getRoomsSlice,
+  onApp: onAppSlice
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -19,6 +19,10 @@ import InputModal from './parts/InputModal';
 import { TextInput } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import GetLocation from 'react-native-get-location'
+import { useSelector } from 'react-redux';
+import KostCard from '../../component/molecules/KostCard';
+import firestore from '@react-native-firebase/firestore';
+import { useIsFocused } from '@react-navigation/native'
 
 const maxDate = new Date();
 
@@ -53,16 +57,31 @@ export default function Home({ navigation }) {
   const [openModal, setOpenModal] = useState(false);
   const [guest, setGuest] = useState(1);
   const [room, setRoom] = useState(1);
-
+  const user = useSelector(state => state?.login?.user);
   const [myLocation, setMyLocation] = useState(null)
   const [error, setError] = useState(null);
+  const [kosPemilik, setKosPemilik] = useState([])
+
+  const isFocused = useIsFocused()
+
+  useEffect(() => {
+    if (isFocused) {
+      const getKos = async () => {
+        const kosCollection = await firestore().collection('kos').where('id_pemilik', '==', user.id_akun).get()
+        const kamar = kosCollection?.docs?.map((item) => ({ ...item?.data(), id: item?.id }))
+        console.log('kos', kamar);
+        setKosPemilik(kamar)
+      }
+      getKos()
+    }
+  }, [isFocused]);
+
   const requestLocation = () => {
     setError(null)
     GetLocation.getCurrentPosition({
       enableHighAccuracy: true,
       timeout: 60000,
     }).then(location => {
-      // setMyLocation({ latitude: location.latitude, longitude: location.longitude })
       setMyLocation({
         latitude: location.latitude,
         longitude: location.longitude,
@@ -89,17 +108,51 @@ export default function Home({ navigation }) {
     }
   }, [guest, room]);
 
-  // console.log("inputcheckin", inputCheckIn);
-  // console.log("minimumdate", minimumDate);
 
+
+
+  if (user?.tipeAkun === 2) {
+    return (
+      <SafeAreaView style={{ flex: 1 }}>
+        <ScrollView>
+          <View style={styles.header}>
+            <Header type="user" onPress={() => navigation.navigate('Sign')} />
+            <View style={{ marginTop: 15 }}>
+              <Text style={{
+                color: colors.black,
+                fontSize: 18,
+                fontWeight: 'bold'
+              }}>
+                Daftar Kos-ku:
+              </Text>
+              <View style={{
+                marginTop: 15
+              }}>
+                {kosPemilik.map(item => (
+                  <KostCard
+                    key={item?.id}
+                    nama={item?.nama_kos}
+                    alamatKos={item?.alamat}
+                    foto={item?.foto_kos[0]?.uri}
+                    onPress={() => {
+                      navigation.navigate('KosDetail', {
+                        id_kos: item?.id
+                      })
+                    }}
+                  />
+                ))}
+              </View>
+            </View>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    )
+  }
   return (
     <SafeAreaView style={{ backgroundColor: colors.white, flex: 1 }}>
       <ScrollView>
         <View style={styles.header}>
           <Header type="user" onPress={() => navigation.navigate('Sign')} />
-          {/* <Text style={styles.title}>
-            Find deals on hotels, homes, and much more...
-          </Text> */}
           <View style={styles.boxSearch}>
             <View>
               <TextInput
@@ -272,8 +325,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   boxSearch: {
-    // backgroundColor: colors.grey,
-    // padding: 10,
     marginTop: 15,
     borderRadius: 20,
   },

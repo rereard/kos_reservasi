@@ -7,16 +7,19 @@ import {
 	ScrollView,
 	Dimensions,
 	FlatList,
-	Modal
+	Modal,
+	TouchableOpacity
 } from 'react-native';
 import { Header } from '../../component/molecules';
 import { colors } from '../../utils';
 import Swiper from 'react-native-swiper';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Icon from '../../component/atoms/Button/icon';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+// import { TouchableOpacity } from 'react-native-gesture-handler';
 import ImageView from 'react-native-image-viewing'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import storage from '@react-native-firebase/storage';
+import firestore from '@react-native-firebase/firestore';
 
 const FacilityText = ({text}) => {
 	return(
@@ -46,231 +49,275 @@ const RuleText = ({text, index}) => {
 }
 
 export default function KosDetail({navigation, route}){
-	console.log(route.params.data);
-	const { alamat, deskripsi, fasilitas, foto_kos, id_akunPemilik, id_kos, nama_kos, peraturan } = route.params.data
+	const id = route.params.id_kos
 	
 	const [visible, setIsVisible] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+	const [imageKos, setImageKos] = useState([])
+	const [detailKos, setDetailKos] = useState({})
+	const [loading, setLoading] = useState(false)
+
+	useEffect(() => {
+		console.log('imageKos', imageKos);
+	}, [imageKos]);
+
+	const getDetailKos = async () => {
+		setLoading(true)
+		const kosData = await firestore().collection('kos').doc(id).get()
+		setDetailKos(kosData.data())
+		setImageKos(kosData.data().foto_kos)
+		setLoading(false)
+	}
+
+	useEffect(() => {
+		getDetailKos()
+	}, []);
+
+	useEffect(() => {
+		console.log('loading', loading);
+	}, [loading]);
+
+	useEffect(() => {
+		console.log('detail kos', detailKos);
+	}, [detailKos]);		
+	
 	return(
 		<SafeAreaView style={{backgroundColor: colors.white, flex: 1}}>
-			<ScrollView>
-				<View>
-					<ImageView
-						images={foto_kos}
-						imageIndex={currentImageIndex}
-						visible={visible}
-						onRequestClose={() => setIsVisible(false)}
-						FooterComponent={({ imageIndex }) => (
-							<View style={{
-								height: 64,
-								backgroundColor: "#00000077",
-								alignItems: "center",
-								justifyContent: "center"
-							}}>
-								<Text style={{
-									fontSize: 17,
-									color: "#FFF"
-								}}>
-									{`${imageIndex + 1} / ${foto_kos.length}`}
-								</Text>
-							</View>
-						)}
-					/>
-					<Swiper style={{height: 230}} index={currentImageIndex} loop={false} activeDotColor={colors.darkBlue}>
-						{foto_kos.map((item, index) => {
-							return(
-								<TouchableOpacity key={index} onPress={() => {
-										setIsVisible(true)
-										setCurrentImageIndex(index)
-									}}
-									activeOpacity={1}
-								>
-									<Image 
-										key={index}
-										source={{ uri: item.uri }}
-										style={{
-											height: 230,
-											width: '100%',
-										}}
-									/>
-								</TouchableOpacity>
-								
-							)
-						})}
-					</Swiper>
-					<View style={{
-						position: 'absolute',
-						padding: 5,
-						margin: 0,
-						zIndex: 1
-					}}>
-						<Header onPress={() => navigation.goBack()} size={35} />
-					</View>
+			{loading ? (
+				<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+					<Text style={{ color: colors.darkGrey, fontStyle: 'italic', fontSize: 20 }}>Loading...</Text>
 				</View>
-				<View style={{
-					padding: 10,
-					marginBottom: 20
-				}}>
-					<View style={{
-						marginBottom: 10
-					}}>
-						<TouchableOpacity style={{
-								backgroundColor: colors.darkBlue,
-								padding: 10,
-								borderRadius: 99,
-								// marginBottom: 10,
-								flexDirection: 'row',
-								alignItems: 'center',
-								justifyContent: 'center'
-							}}
-							onPress={() => navigation.navigate('DaftarKamar', {
-								id_kos: id_kos
-							})}
-						>
-							<Icon 
-								color={colors.white}
-								icon="bed-outline"
-							/>
-							<Text style={{
-								color: colors.white,
-								textAlign: 'center'
-							}}>
-								{(" ")}Daftar Kamar
-							</Text>
-						</TouchableOpacity>
-					</View>
-					<View style={{
-						justifyContent: 'space-between',
-						flexDirection: 'row',
-						alignItems: 'center',
-					}}>
-						<View style={{ flex: 1 }}>
-							<Text style={{
-								fontSize: 18,
-								color: colors.black,
-								fontWeight: 'bold',
-							}}>
-								{nama_kos}
-							</Text>
-							<View style={{
-								flexDirection: 'row',
-								alignItems: 'center',
-								marginTop: 5,
-							}}>
-								<Icon 
-									icon={"location-outline"}
-									color={colors.black}
-									size={15} 
-								/>
-								<Text style={{
-									marginLeft: 5,
-									color: colors.darkGrey,
-									fontSize: 15
+			) : (
+				<ScrollView>
+					<View>
+						<ImageView
+							images={imageKos}
+							imageIndex={currentImageIndex}
+							visible={visible}
+							onRequestClose={() => setIsVisible(false)}
+							FooterComponent={({ imageIndex }) => (
+								<View style={{
+									height: 64,
+									backgroundColor: "#00000077",
+									alignItems: "center",
+									justifyContent: "center"
 								}}>
-									{alamat}
-								</Text>
-							</View>
-						</View>
-						<View style={{ flex: 1, alignItems: 'flex-end' }}>
-							<Text style={{
-								textAlign: 'right',
-								color: colors.darkGrey,
-							}}>Sewa kamar mulai</Text>
-							<Text style={{
-								textAlign: 'right',
-								color: colors.black,
-								fontWeight: 'bold',
-								fontSize: 16
-							}}>
-								Rp 200.000,00 - 500.000,00
-							</Text>
-							<Text style={{
-								textAlign: 'right',
-								color: colors.darkGrey,
-							}}>/bulan</Text>
-						</View>
-					</View>
-					<View style={{
-						paddingTop: 10,
-						marginTop: 15,
-						borderTopWidth: 2,
-						borderTopColor: colors.grey,
-					}}>
-						<Text style={{
-							color: colors.black,
-							fontWeight: 'bold',
-							marginBottom: 5,
-							fontSize: 15
-						}}>
-							Deskripsi Kos
-						</Text>
-						<View>
-							<Text style={{color: colors.darkGrey, fontSize: 15}}>
-								{deskripsi}
-							</Text>
-						</View>
-					</View>
-					<View style={{
-						marginTop: 20
-					}}>
-						<Text style={{
-							color: colors.black,
-							fontWeight: 'bold',
-							marginBottom: 5,
-							fontSize: 15
-						}}>
-							Fasilitas Bersama
-						</Text>
-						<View style={{
-							flexDirection: 'row',
-							flexWrap: 'wrap',
-							alignItems: 'flex-start',
-							flex: 1,
-						}}>
-							{fasilitas.map((item, index) => (
-								<FacilityText key={index} text={item} />
-							))}
-						</View>
-					</View>
-					<View style={{
-						marginTop: 20
-					}}>
-						<Text style={{
-							color: colors.black,
-							fontWeight: 'bold',
-							marginBottom: 5,
-							fontSize: 15
-						}}>
-							Peraturan Kos
-						</Text>
-						{peraturan.map((item, index) => (
-							<RuleText key={index} index={index+1} text={item}  />
-						))}
-					</View>
-					<View style={{
-						marginTop: 20
-					}}>
-						<Text style={{
-							color: colors.black,
-							fontWeight: 'bold',
-							marginBottom: 10,
-							fontSize: 15
-						}}>
-							Hubungi Pemilik Kos
-						</Text>
-						<View style={{ flexDirection: 'row', alignItems: 'center' }}>
-							<Ionicons
-								name='logo-whatsapp' 
+									<Text style={{
+										fontSize: 17,
+										color: "#FFF"
+									}}>
+										{`${imageIndex + 1} / ${imageKos.length}`}
+									</Text>
+								</View>
+							)}
+						/>
+						{imageKos.length !== 0 ? (
+							<Swiper style={{height: 230}} index={currentImageIndex} loop={false} activeDotColor={colors.darkBlue}>
+								{imageKos.map((item, index) => {
+									return(
+										<TouchableOpacity key={index} onPress={() => {
+												setIsVisible(true)
+												setCurrentImageIndex(index)
+											}}
+											activeOpacity={1}
+										>
+											<Image 
+												key={index}
+												source={{ uri: item.uri }}
+												style={{
+													height: 230,
+													width: '100%',
+												}}
+											/>
+										</TouchableOpacity>
+										
+									)
+								})}
+							</Swiper>
+						) : (
+							<Image 
+								source={{ uri: 'https://htmlcolorcodes.com/assets/images/colors/steel-gray-color-solid-background-1920x1080.png' }}
 								style={{
-									color: '#28D146',
-									fontSize: 40,
+									height: 230,
+									width: '100%',
 								}}
 							/>
-							<Text style={{ color: colors.darkGrey, fontWeight: 'bold', marginLeft: 10 }}>WhatsApp</Text>
+						)}
+						<View style={{
+							position: 'absolute',
+							padding: 5,
+							margin: 0,
+							zIndex: 1
+						}}>
+							<Header onPress={() => navigation.goBack()} size={35} />
 						</View>
 					</View>
-				</View>
-			</ScrollView>
+					<View style={{
+						padding: 10,
+						marginBottom: 20
+					}}>
+						<View style={{
+							marginBottom: 10
+						}}>
+							<TouchableOpacity style={{
+									backgroundColor: colors.darkBlue,
+									padding: 10,
+									borderRadius: 99,
+									// marginBottom: 10,
+									flexDirection: 'row',
+									alignItems: 'center',
+									justifyContent: 'center'
+								}}
+								onPress={() => navigation.navigate('DaftarKamar', {
+									id_kos: id,
+									nama_kos: detailKos?.nama_kos
+								})}
+							>
+								<Icon 
+									color={colors.white}
+									icon="bed-outline"
+								/>
+								<Text style={{
+									color: colors.white,
+									textAlign: 'center'
+								}}>
+									{(" ")}Daftar Kamar
+								</Text>
+							</TouchableOpacity>
+						</View>
+						<View style={{
+							justifyContent: 'space-between',
+							flexDirection: 'row',
+							alignItems: 'center',
+						}}>
+							<View style={{ flex: 1 }}>
+								<Text style={{
+									fontSize: 18,
+									color: colors.black,
+									fontWeight: 'bold',
+								}}>
+									{detailKos?.nama_kos}
+								</Text>
+								<View style={{
+									flexDirection: 'row',
+									alignItems: 'center',
+									marginTop: 5,
+								}}>
+									<Icon 
+										icon={"location-outline"}
+										color={colors.black}
+										size={15} 
+									/>
+									<Text style={{
+										marginLeft: 5,
+										color: colors.darkGrey,
+										fontSize: 15
+									}}>
+										{detailKos?.alamat}
+									</Text>
+								</View>
+							</View>
+							<View style={{ flex: 1, alignItems: 'flex-end' }}>
+								<Text style={{
+									textAlign: 'right',
+									color: colors.darkGrey,
+								}}>Sewa kamar mulai</Text>
+								<Text style={{
+									textAlign: 'right',
+									color: colors.black,
+									fontWeight: 'bold',
+									fontSize: 16
+								}}>
+									Rp 200.000,00 - 500.000,00
+								</Text>
+								<Text style={{
+									textAlign: 'right',
+									color: colors.darkGrey,
+								}}>/bulan</Text>
+							</View>
+						</View>
+						<View style={{
+							paddingTop: 10,
+							marginTop: 15,
+							borderTopWidth: 2,
+							borderTopColor: colors.grey,
+						}}>
+							<Text style={{
+								color: colors.black,
+								fontWeight: 'bold',
+								marginBottom: 5,
+								fontSize: 15
+							}}>
+								Deskripsi Kos
+							</Text>
+							<View>
+								<Text style={{color: colors.darkGrey, fontSize: 15}}>
+									{detailKos?.deskripsi}
+								</Text>
+							</View>
+						</View>
+						<View style={{
+							marginTop: 20
+						}}>
+							<Text style={{
+								color: colors.black,
+								fontWeight: 'bold',
+								marginBottom: 5,
+								fontSize: 15
+							}}>
+								Fasilitas Bersama
+							</Text>
+							<View style={{
+								flexDirection: 'row',
+								flexWrap: 'wrap',
+								alignItems: 'flex-start',
+								flex: 1,
+							}}>
+								{detailKos?.fasilitas?.map((item) => (
+									<FacilityText key={item.id} text={item.isi} />
+								))}
+							</View>
+						</View>
+						<View style={{
+							marginTop: 20
+						}}>
+							<Text style={{
+								color: colors.black,
+								fontWeight: 'bold',
+								marginBottom: 5,
+								fontSize: 15
+							}}>
+								Peraturan Kos
+							</Text>
+							{detailKos?.peraturan?.map((item, index) => (
+								<RuleText key={index} index={index+1} text={item.isi}  />
+							))}
+						</View>
+						<View style={{
+							marginTop: 20
+						}}>
+							<Text style={{
+								color: colors.black,
+								fontWeight: 'bold',
+								marginBottom: 10,
+								fontSize: 15
+							}}>
+								Hubungi Pemilik Kos
+							</Text>
+							<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+								<Ionicons
+									name='logo-whatsapp' 
+									style={{
+										color: '#28D146',
+										fontSize: 40,
+									}}
+								/>
+								<Text style={{ color: colors.darkGrey, fontWeight: 'bold', marginLeft: 10 }}>WhatsApp</Text>
+							</View>
+						</View>
+					</View>
+				</ScrollView>
+			)}
 		</SafeAreaView>
 	)
 }

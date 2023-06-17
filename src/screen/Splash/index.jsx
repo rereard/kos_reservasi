@@ -2,16 +2,21 @@ import { View, StyleSheet, Text, Image } from 'react-native';
 import React, { useEffect } from 'react';
 import { Logo } from '../../assets/img';
 import { colors } from '../../utils';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+// import { setIsOnApp } from '../../features/loginSlice';
+import { setIsOnApp } from '../../features/onAppSlice';
 
 export default function Splash({ navigation }) {
 
   const user = useSelector(state => state.login.user)
+  const isOnApp = useSelector(state => state.onApp.isOnApp)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace(user ? 'main' : 'GetStarted');
-    }, 3000);
+      navigation.replace(user ? 'main' : 'Sign');
+      dispatch(setIsOnApp(true))
+    }, 1500);
   }, []);
 
   return (

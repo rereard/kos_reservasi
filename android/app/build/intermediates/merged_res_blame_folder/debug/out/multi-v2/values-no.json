@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.hotelreservation.app-mergeDebugResources-4:/values-no/values-no.xml",
+            "outputFile": "com.hotelreservation.app-mergeDebugResources-5:/values-no/values-no.xml",
             "map": [
                 {
                     "source": "C:\\Kuliah\\Tugas\\Hacktiv8\\HotelReservation\\node_modules\\react-native-date-picker\\android\\build\\intermediates\\packaged_res\\debug\\values-no\\values-no.xml",

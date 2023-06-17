@@ -31,13 +31,13 @@ export default function Header({title, onPress, type, color, numberOfLines, size
               }}>
               Hi,
             </Text>
-            <Text style={styles.Sayhello}>{user?.firstName}</Text>
-            <Image
+            <Text style={styles.Sayhello}>{user?.nama}</Text>
+            {/* <Image
               source={{
                 uri: user?.image,
               }}
               style={styles.Image}
-            />
+            /> */}
           </View>
         ) : (
           <View style={{width: 50}}>

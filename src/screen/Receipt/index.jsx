@@ -9,51 +9,78 @@ import {
   FlatList,
   Image,
 } from 'react-native';
-import {colors} from '../../utils';
-import {useSelector} from 'react-redux';
+import { colors } from '../../utils';
+import { useSelector } from 'react-redux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import BookHistoryCard from '../../component/molecules/BookHistoryCard';
-import {Button} from '../../component/atoms';
+import { Button } from '../../component/atoms';
+import firestore from '@react-native-firebase/firestore';
+import Filter from '@react-native-firebase/firestore';
+import { formatIDR } from '../../utils';
+import { useEffect, useState } from 'react';
+import KostCard from '../../component/molecules/KostCard';
 
-export default function Receipt({navigation}) {
+export default function Receipt({ navigation }) {
   const user = useSelector(state => state?.login?.user);
-  const bookHistories = useSelector(state => state?.bookHistory.bookHistories[user?.username])
+
+  useEffect(() => {
+    console.log(user?.id_akun);
+    const getDataTransaksi = async () => {
+      firestore().collection('transaksi').where(
+        Filter.Filter.or(
+          Filter.Filter('id_pelanggan', '==', user?.id_akun),
+          Filter.Filter('id_pemilik', '==', user?.id_akun)
+        )
+      ).get().then(qSnap => {
+        console.log(qSnap);
+        const data = qSnap.docs.map(item => ({ ...item?.data(), id: item?.id }))
+        console.log(data);
+        setDataTransaksi(data)
+      })
+    }
+    getDataTransaksi()
+  }, []);
+
+  const [dataTransaksi, setDataTransaksi] = useState([])
+
+  useEffect(() => {
+    console.log('...', dataTransaksi);
+  }, [dataTransaksi]);
 
   if (user) {
     return (
       <SafeAreaView>
         <ScrollView>
-          <View style={{margin: 20}}>
+          <View style={{ margin: 20 }}>
             <Text style={{ color: colors.black, fontSize: 18, fontWeight: "700" }}>Booking History</Text>
-            {bookHistories ? (
-              <View style={{ marginTop: 15 }}>
-                {bookHistories?.map(item => (
-                  <BookHistoryCard
-                    key={item?.book_id} 
-                    onPress={() => navigation.navigate('Invoice', { book_id: item?.book_id, afterCheckout: false })} 
-                    hotel_name={item?.hotel_name}
-                    stay_length={item?.stay_length}
-                    checkIn={item?.checkIn}
-                    checkOut={item?.checkOut}
-                    price={item?.price}
-                    mainImage={item?.mainImage}
-                  />
-                ))}
-              </View>
-            ) : (
-              <View style={{ marginTop: 50 }}>
-                <Text style={{ color: colors.black, fontSize: 18, fontStyle: "italic", textAlign: "center" }}>Empty~</Text>
-              </View>
-            )}
+            <View style={{ marginTop: 15 }}>
+              {dataTransaksi?.map(item => (
+                <KostCard
+                  key={item?.id}
+                  id={item?.id}
+                  foto={item?.foto_kamar}
+                  nama={item?.nama_kamar}
+                  nama2={item?.nama_kos}
+                  tanggal={item?.tanggal_transaksi}
+                  harga={item?.jumlah_bayar}
+                  onPress={() => {
+                    navigation.navigate('Transaksi', {
+                      id_transaksi: item?.id,
+                      fromConfirm: false
+                    })
+                  }}
+                />
+              ))}
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
     );
   } else {
     return (
-      <SafeAreaView style={{flex: 1, margin: 20}}>
-        <View style={[styles.profileBox, {marginBottom: 10}]}>
-          <Text style={[styles.textHeader(colors.black), {marginBottom: 5}]}>
+      <SafeAreaView style={{ flex: 1, margin: 20 }}>
+        <View style={[styles.profileBox, { marginBottom: 10 }]}>
+          <Text style={[styles.textHeader(colors.black), { marginBottom: 5 }]}>
             Booking History
           </Text>
           <Text style={styles.text(colors.black)}>

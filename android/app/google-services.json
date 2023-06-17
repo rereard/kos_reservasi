@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "357625349234",
+    "firebase_url": "https://reservasi-kos-381508-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "reservasi-kos-381508",
+    "storage_bucket": "reservasi-kos-381508.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357625349234:android:68121a4779a71048516eeb",
+        "android_client_info": {
+          "package_name": "com.hotelreservation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357625349234-kfhsg6c6bq2elqc0rv4ictgerjibvsr5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWDB9x26Wyeqw1wxbMFrBIPh4X_a84hhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357625349234-kfhsg6c6bq2elqc0rv4ictgerjibvsr5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

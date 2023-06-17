@@ -9,6 +9,7 @@ export default function Input({
   type,
   backgroundColor,
   value,
+  keyboard
 }) {
   const [showPassword, setShowPassword] = useState(
     type === 'password' ? true : false,
@@ -28,6 +29,7 @@ export default function Input({
   return (
     <View>
       <TextInput
+        keyboardType={keyboard}
         style={styles.Input(type, backgroundColor)}
         placeholder={placeholder}
         onChangeText={onChangeText}
