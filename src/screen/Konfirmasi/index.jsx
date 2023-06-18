@@ -142,7 +142,7 @@ export default function Konfirmasi({ navigation, route }) {
                 foto_kamar,
                 id_kamar,
                 id_kos,
-                id_pelanggan: user.id_akun,
+                id_pelanggan: user?.id_akun,
                 id_pemilik,
                 jumlah_bayar: harga,
                 mulai_tinggal: tglTinggal,
@@ -156,6 +156,8 @@ export default function Konfirmasi({ navigation, route }) {
                   id_transaksi: docRef.id,
                   fromConfirm: true
                 })
+              }).catch(e => {
+                console.log(e);
               })
             }
           }}

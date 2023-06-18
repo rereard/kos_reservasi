@@ -28,6 +28,7 @@ export default function Receipt({ navigation }) {
   useEffect(() => {
     console.log(user?.id_akun);
     const getDataTransaksi = async () => {
+      setLoading(true)
       firestore().collection('transaksi').where(
         Filter.Filter.or(
           Filter.Filter('id_pelanggan', '==', user?.id_akun),
@@ -38,6 +39,7 @@ export default function Receipt({ navigation }) {
         const data = qSnap.docs.map(item => ({ ...item?.data(), id: item?.id }))
         console.log('data1', data);
         setDataTransaksi(data)
+        setLoading(false)
       })
     }
     if (isFocused) {
@@ -49,6 +51,7 @@ export default function Receipt({ navigation }) {
   const [belumBayar, setBelumBayar] = useState([])
   const [menungguKonfirm, setMenungguKonfirm] = useState([])
   const [selesai, setSelesai] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     console.log('...', dataTransaksi);
@@ -66,79 +69,85 @@ export default function Receipt({ navigation }) {
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: colors.darkBlue }}>
           <Text style={{ color: colors.white, fontWeight: 'bold', fontSize: 20, marginHorizontal: 15, marginVertical: 20 }}>Riwayat Transaksi</Text>
         </View>
-        <ScrollView>
-          <View style={{ margin: 20, marginBottom: 70 }}>
-            {(belumBayar.length !== 0 && user?.tipeAkun === 1) && (
-              <View>
-                <Text style={{ color: colors.black, fontWeight: 'bold', marginBottom: 7, fontSize: 16 }}>Belum dibayar ({belumBayar.length})</Text>
-                {belumBayar?.map(item => (
-                  <KostCard
-                    key={item?.id}
-                    id={item?.id}
-                    foto={item?.foto_kamar}
-                    nama={item?.nama_kamar}
-                    nama2={item?.nama_kos}
-                    tanggal={item?.tanggal_transaksi}
-                    harga={item?.jumlah_bayar}
-                    status={item?.status}
-                    onPress={() => {
-                      navigation.navigate('Transaksi', {
-                        id_transaksi: item?.id,
-                        fromConfirm: false
-                      })
-                    }}
-                  />
-                ))}
-              </View>
-            )}
-            {menungguKonfirm.length !== 0 && (
-              <View>
-                <Text style={{ color: colors.black, fontWeight: 'bold', marginBottom: 7, fontSize: 16 }}>Menunggu konfirmasi ({menungguKonfirm.length})</Text>
-                {menungguKonfirm?.map(item => (
-                  <KostCard
-                    key={item?.id}
-                    id={item?.id}
-                    foto={item?.foto_kamar}
-                    nama={item?.nama_kamar}
-                    nama2={item?.nama_kos}
-                    tanggal={item?.tanggal_transaksi}
-                    harga={item?.jumlah_bayar}
-                    status={item?.status}
-                    onPress={() => {
-                      navigation.navigate('Transaksi', {
-                        id_transaksi: item?.id,
-                        fromConfirm: false
-                      })
-                    }}
-                  />
-                ))}
-              </View>
-            )}
-            {selesai.length !== 0 && (
-              <View>
-                <Text style={{ color: colors.black, fontWeight: 'bold', marginBottom: 7, fontSize: 16 }}>Transaksi selesai ({selesai.length})</Text>
-                {selesai?.map(item => (
-                  <KostCard
-                    key={item?.id}
-                    id={item?.id}
-                    foto={item?.foto_kamar}
-                    nama={item?.nama_kamar}
-                    nama2={item?.nama_kos}
-                    tanggal={item?.tanggal_transaksi}
-                    harga={item?.jumlah_bayar}
-                    status={item?.status}
-                    onPress={() => {
-                      navigation.navigate('Transaksi', {
-                        id_transaksi: item?.id,
-                        fromConfirm: false
-                      })
-                    }}
-                  />
-                ))}
-              </View>
-            )}
+        {dataTransaksi.length === 0 ? (
+          <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 50 }}>
+            <Text style={{ color: colors.darkGrey, fontStyle: 'italic', fontSize: 20 }}>Masih kosong~</Text>
           </View>
-        </ScrollView>
+        ) : (
+          <ScrollView>
+            <View style={{ margin: 20, marginBottom: 70 }}>
+              {(belumBayar.length !== 0 && user?.tipeAkun === 1) && (
+                <View>
+                  <Text style={{ color: colors.black, fontWeight: 'bold', marginBottom: 7, fontSize: 16 }}>Belum dibayar ({belumBayar.length})</Text>
+                  {belumBayar?.map(item => (
+                    <KostCard
+                      key={item?.id}
+                      id={item?.id}
+                      foto={item?.foto_kamar}
+                      nama={item?.nama_kamar}
+                      nama2={item?.nama_kos}
+                      tanggal={item?.tanggal_transaksi}
+                      harga={item?.jumlah_bayar}
+                      status={item?.status}
+                      onPress={() => {
+                        navigation.navigate('Transaksi', {
+                          id_transaksi: item?.id,
+                          fromConfirm: false
+                        })
+                      }}
+                    />
+                  ))}
+                </View>
+              )}
+              {menungguKonfirm.length !== 0 && (
+                <View>
+                  <Text style={{ color: colors.black, fontWeight: 'bold', marginBottom: 7, fontSize: 16 }}>Menunggu konfirmasi ({menungguKonfirm.length})</Text>
+                  {menungguKonfirm?.map(item => (
+                    <KostCard
+                      key={item?.id}
+                      id={item?.id}
+                      foto={item?.foto_kamar}
+                      nama={item?.nama_kamar}
+                      nama2={item?.nama_kos}
+                      tanggal={item?.tanggal_transaksi}
+                      harga={item?.jumlah_bayar}
+                      status={item?.status}
+                      onPress={() => {
+                        navigation.navigate('Transaksi', {
+                          id_transaksi: item?.id,
+                          fromConfirm: false
+                        })
+                      }}
+                    />
+                  ))}
+                </View>
+              )}
+              {selesai.length !== 0 && (
+                <View>
+                  <Text style={{ color: colors.black, fontWeight: 'bold', marginBottom: 7, fontSize: 16 }}>Transaksi selesai ({selesai.length})</Text>
+                  {selesai?.map(item => (
+                    <KostCard
+                      key={item?.id}
+                      id={item?.id}
+                      foto={item?.foto_kamar}
+                      nama={item?.nama_kamar}
+                      nama2={item?.nama_kos}
+                      tanggal={item?.tanggal_transaksi}
+                      harga={item?.jumlah_bayar}
+                      status={item?.status}
+                      onPress={() => {
+                        navigation.navigate('Transaksi', {
+                          id_transaksi: item?.id,
+                          fromConfirm: false
+                        })
+                      }}
+                    />
+                  ))}
+                </View>
+              )}
+            </View>
+          </ScrollView>
+        )}
       </SafeAreaView>
     );
   } else {

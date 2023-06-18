@@ -46,31 +46,23 @@ const formatDate = date => {
 
 export default function Home({ navigation }) {
   const [input, setInput] = useState('');
-  const [inputCheckIn, setInputCheckIn] = useState(null);
-  const [inputCheckOut, setInputCheckOut] = useState(null);
-  const date = new Date();
-  const [minimumDate, setMinimumDate] = useState(date);
-  const [checkIn, setCheckIn] = useState('Check in');
-  const [checkOut, setCheckOut] = useState('Check Out');
-  const [openCheckin, setOpenCheckin] = useState(false);
-  const [openCheckout, setOpenCheckout] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
-  const [guest, setGuest] = useState(1);
-  const [room, setRoom] = useState(1);
   const user = useSelector(state => state?.login?.user);
   const [myLocation, setMyLocation] = useState(null)
   const [error, setError] = useState(null);
   const [kosPemilik, setKosPemilik] = useState([])
+  const [loading, setLoading] = useState(false)
 
   const isFocused = useIsFocused()
 
   useEffect(() => {
     if (isFocused) {
+      setLoading(true)
       const getKos = async () => {
         const kosCollection = await firestore().collection('kos').where('id_pemilik', '==', user.id_akun).get()
         const kamar = kosCollection?.docs?.map((item) => ({ ...item?.data(), id: item?.id }))
         console.log('kos', kamar);
         setKosPemilik(kamar)
+        setLoading(false)
       }
       getKos()
     }
@@ -94,57 +86,47 @@ export default function Home({ navigation }) {
       setError(code)
     })
   }
-  const checkOutButton = () => {
-    if (inputCheckIn) {
-      setOpenCheckout(true);
-    } else {
-      alert('Please input Check-in');
-    }
-  };
-
-  useEffect(() => {
-    if (room > guest) {
-      setRoom(guest);
-    }
-  }, [guest, room]);
-
-
-
 
   if (user?.tipeAkun === 2) {
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <ScrollView>
-          <View style={styles.header}>
-            <Header type="user" onPress={() => navigation.navigate('Sign')} />
-            <View style={{ marginTop: 15 }}>
-              <Text style={{
-                color: colors.black,
-                fontSize: 18,
-                fontWeight: 'bold'
-              }}>
-                Daftar Kos-ku:
-              </Text>
-              <View style={{
-                marginTop: 15
-              }}>
-                {kosPemilik.map(item => (
-                  <KostCard
-                    key={item?.id}
-                    nama={item?.nama_kos}
-                    alamatKos={item?.alamat}
-                    foto={item?.foto_kos[0]?.uri}
-                    onPress={() => {
-                      navigation.navigate('KosDetail', {
-                        id_kos: item?.id
-                      })
-                    }}
-                  />
-                ))}
+        {loading ? (
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text style={{ color: colors.darkGrey, fontStyle: 'italic', fontSize: 20 }}>Loading...</Text>
+          </View>
+        ) : (
+          <ScrollView>
+            <View style={styles.header}>
+              <Header type="user" onPress={() => navigation.navigate('Sign')} />
+              <View style={{ marginTop: 15 }}>
+                <Text style={{
+                  color: colors.black,
+                  fontSize: 18,
+                  fontWeight: 'bold'
+                }}>
+                  Daftar Kos-ku:
+                </Text>
+                <View style={{
+                  marginTop: 15
+                }}>
+                  {kosPemilik.map(item => (
+                    <KostCard
+                      key={item?.id}
+                      nama={item?.nama_kos}
+                      alamatKos={item?.alamat}
+                      foto={item?.foto_kos[0]?.uri}
+                      onPress={() => {
+                        navigation.navigate('KosDetail', {
+                          id_kos: item?.id
+                        })
+                      }}
+                    />
+                  ))}
+                </View>
               </View>
             </View>
-          </View>
-        </ScrollView>
+          </ScrollView>
+        )}
       </SafeAreaView>
     )
   }
@@ -196,118 +178,8 @@ export default function Home({ navigation }) {
                 }}
               />
             </View >
-            {/* <Input
-              placeholder="Cari lokasi"
-              type="search"
-              onChangeText={value => setInput(value)}
-            /> */}
-            {/* <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginVertical: 10,
-                alignItems: 'center',
-              }}>
-              <View>
-                <Button
-                  title={checkIn}
-                  onPress={() => setOpenCheckin(true)}
-                  color={colors.yellow}
-                  width={120}
-                />
-                {openCheckin && (
-                  <DateTimePicker
-                    value={date}
-                    mode={'date'}
-                    display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-                    minimumDate={date}
-                    maximumDate={maxDate}
-                    onChange={(event, selectedDate) => {
-                      if (event.type == 'set') {
-                        setOpenCheckin(false);
-                        setInputCheckIn(formatDate(selectedDate));
-                        setCheckIn(selectedDate.toLocaleDateString('pt-PT'));
-                        setMinimumDate(
-                          new Date(
-                            selectedDate.setDate(selectedDate.getDate() + 1),
-                          ),
-                        );
-                      } else {
-                        setOpenCheckin(false);
-                      }
-                    }}
-                  />
-                )}
-              </View>
-              <Text style={{fontSize: 20, color: colors.black}}>-</Text>
-              <View>
-                <Button
-                  title={checkOut}
-                  onPress={checkOutButton}
-                  color={colors.yellow}
-                  width={120}
-                />
-                {openCheckout && (
-                  <DateTimePicker
-                    value={minimumDate}
-                    mode={'date'}
-                    display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-                    minimumDate={minimumDate}
-                    onChange={(event, selectedDate) => {
-                      if (event.type == 'set') {
-                        setOpenCheckout(false);
-                        setInputCheckOut(formatDate(selectedDate));
-                        setCheckOut(selectedDate.toLocaleDateString('pt-PT'));
-                      } else {
-                        setOpenCheckout(false);
-                      }
-                    }}
-                  />
-                )}
-              </View>
-            </View> */}
-            {/* <View style={{marginBottom: 10}}>
-              <Button
-                title={`${guest} Guest & ${room} Room`}
-                color={colors.yellow}
-                onPress={() => setOpenModal(true)}
-              />
-            </View> */}
-            {/* <InputModal
-              guest={guest}
-              room={room}
-              buttonMinRoom={() => setRoom(room - 1)}
-              buttonPlusRoom={() => setRoom(room + 1)}
-              buttonMinGuest={() => setGuest(guest - 1)}
-              buttonPlusGuest={() => setGuest(guest + 1)}
-              onRequestClose={() => setOpenModal(!openModal)}
-              onPressOk={() => {
-                setOpenModal(false);
-              }}
-              visible={openModal}
-            /> */}
-            {/* <Button
-              title="Search"
-              color={colors.darkBlue}
-              onPress={() =>
-                input !== '' &&
-                inputCheckIn &&
-                inputCheckOut &&
-                navigation.navigate('SearchResult', {
-                  location: input,
-                  checkIn: inputCheckIn,
-                  checkOut: inputCheckOut,
-                  guests: guest,
-                  rooms: room,
-                })
-              }
-            /> */}
           </View >
         </View >
-        {/* <View style={{marginLeft: 20}}>
-          <Destination title="Top Destinations" data={DataTop} />
-          <Destination title="Popular Destinations" data={DataPopular} />
-        </View> */}
       </ScrollView >
     </SafeAreaView >
   );

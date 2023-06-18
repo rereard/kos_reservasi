@@ -646,6 +646,7 @@ export default function TambahKos({ navigation }) {
         setIdForEditKamar={setIdForEditKamar}
         idForEditKamar={idForEditKamar}
         editDataKamarById={editDataKamarById}
+        id_pemilik={id_akun}
       />
       <Modal
         isVisible={loadingUpload}
@@ -728,7 +729,7 @@ export default function TambahKos({ navigation }) {
                     alamat,
                     deskripsi,
                     fasilitas,
-                    id_pemilik: id_akun && id_akun,
+                    id_pemilik: id_akun,
                     latitude,
                     longitude,
                     nama_kos: nama,
@@ -842,7 +843,7 @@ const ModalMap = memo(function ModalMap({ isVisible, setIsVisible, region, setLa
   )
 })
 
-const ModalKamar = memo(function ModalKamar({ imageKamarTemp, namaKamar, fasilitasKamar, hargaKamar, setImageKamarTemp, setNamaKamar, setFasilitasKamar, setHargaKamar, isModalAddKamarVisible, setModalAddKamarVisible, idForEditKamar, setIdForEditKamar, deleteImgKamar, selectCameraPhotos, selectGalleryPhotos, deleteFasilitasKamarById, kamarVisible, setKamarVisible, dataKamar, setDataKamar, editDataKamarById, luasKamar, setLuasKamar, statusKamar, setStatusKamar, listrik, setListrik }) {
+const ModalKamar = memo(function ModalKamar({ imageKamarTemp, namaKamar, fasilitasKamar, hargaKamar, setImageKamarTemp, setNamaKamar, setFasilitasKamar, setHargaKamar, isModalAddKamarVisible, setModalAddKamarVisible, idForEditKamar, setIdForEditKamar, deleteImgKamar, selectCameraPhotos, selectGalleryPhotos, deleteFasilitasKamarById, kamarVisible, setKamarVisible, dataKamar, setDataKamar, editDataKamarById, luasKamar, setLuasKamar, statusKamar, setStatusKamar, listrik, setListrik, id_pemilik }) {
   const [fasilitasKamarInput, setFasilitasKamarInput] = useState('')
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [luasKiri, setLuasKiri] = useState('')
@@ -1130,7 +1131,8 @@ const ModalKamar = memo(function ModalKamar({ imageKamarTemp, namaKamar, fasilit
                         luasKamar,
                         listrik,
                         statusKamar,
-                        fasilitasKamar
+                        fasilitasKamar,
+                        id_pemilik,
                       }])
                       setModalAddKamarVisible(false)
                       setNamaKamar('')
