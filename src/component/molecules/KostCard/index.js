@@ -15,7 +15,7 @@ import Icon from '../../atoms/Button/icon';
 import {colors} from '../../../utils';
 import { formatIDR } from '../../../utils';
 
-export default function KostCard({onPress, nama, alamatKos, nama2, id, foto, harga, tanggal}) {
+export default function KostCard({onPress, nama, alamatKos, nama2, id, foto, harga, tanggal, status}) {
   return (
     <View
       style={{
@@ -100,17 +100,32 @@ export default function KostCard({onPress, nama, alamatKos, nama2, id, foto, har
                   <Text style={{ color: colors.darkGrey, marginTop: 3 }}>{tanggal}</Text>
                 )}
               </View>
-              <View>
-                <Text
-                  style={{
-                    color: '#0364ce',
-                    fontSize: 15,
-                    fontWeight: '400',
-                    textAlign: 'right',
-                  }}>
-                  Rp {formatIDR.format(harga).replace('IDR', '').trim()}
-                </Text>
-              </View>
+              {harga && (
+                <View style={{ flex: 1 }}>
+                  
+                    <Text
+                    style={{
+                      color: '#0364ce',
+                      fontSize: 15,
+                      fontWeight: '400',
+                      textAlign: 'right',
+                    }}>
+                      Rp {formatIDR.format(harga).replace('IDR', '').trim()}
+                    </Text>
+                  
+                  {(status || status !== 'selesai') && (
+                    <Text
+                      style={{
+                        color: status === 'belum_bayar' ? 'red' : colors.darkBlue,
+                        fontSize: 15,
+                        fontWeight: 'bold',
+                        textAlign: 'right',
+                      }}>
+                        {status === 'belum_bayar' ? 'Belum dibayar' : status === 'tunggu_konfirm' ? 'Menunggu konfirmasi' : status === 'batal' ? 'Dibatalkan' : null}
+                    </Text>
+                  ) }
+                </View>
+              )}
             </View>
           </View>
         </View>
