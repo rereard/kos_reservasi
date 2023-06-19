@@ -36,7 +36,7 @@ export default function Input({
         secureTextEntry={showPassword}
         placeholderTextColor={colors.darkGrey}
         value={value}
-        onSubmitEditing={(event) => ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT)}
+        onSubmitEditing={() => {}}
       />
       {type === 'password' ? (
         <Ionicons name={iconEye} style={styles.icon(type)} onPress={ShowPw} />

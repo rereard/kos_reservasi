@@ -135,35 +135,45 @@ const ModalAddPhotos = memo(function ModalAddPhotos({ isVisible, onPressCamera, 
 
 export default function TambahKos({ navigation }) {
 
-  useEffect(() => {
-    console.log('fasilitas', fasilitas);
-  }, [fasilitas]);
-  useEffect(() => {
-    console.log('peraturan', peraturan);
-  }, [peraturan]);
-  useEffect(() => {
-    console.log('luasKamar', luasKamar);
-  }, [luasKamar]);
+  const [region, setRegion] = useState({
+    latitude: latitude ? latitude : 35.6762,
+    longitude: longitude ? longitude : 139.6503,
+    latitudeDelta: 3,
+    longitudeDelta: 3,
+  })
 
-  useEffect(() => {
-    console.log('imageTemp', imageTemp);
-  }, [imageTemp]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [visible, setIsVisible] = useState(false);
+  const [kamarVisible, setKamarVisible] = useState(false)
 
-  useEffect(() => {
-    console.log('isModalVisible', isModalVisible);
-  }, [isModalVisible]);
+  const [fasilitas, setFasilitas] = useState([])
+  const [peraturan, setPeraturan] = useState([])
+  const [nama, setNama] = useState('')
+  const [alamat, setAlamat] = useState('')
+  const [deskripsi, setDeskripsi] = useState('')
 
-  useEffect(() => {
-    console.log('dataKamar', dataKamar);
-  }, [dataKamar]);
+  const [imageKamarTemp, setImageKamarTemp] = useState([])
+  const [namaKamar, setNamaKamar] = useState('')
+  const [fasilitasKamar, setFasilitasKamar] = useState([])
+  const [hargaKamar, setHargaKamar] = useState(null)
+  const [luasKamar, setLuasKamar] = useState({ panjang: '', lebar: '' })
+  const [statusKamar, setStatusKamar] = useState(false)
+  const [listrik, setListrik] = useState(false)
 
-  useEffect(() => {
-    console.log('idForEditKamat', idForEditKamar);
-  }, [idForEditKamar]);
+  const [dataKamar, setDataKamar] = useState([])
 
-  useEffect(() => {
-    console.log('latitude longitude', latitude, longitude);
-  }, [latitude, longitude]);
+  const [loadingUpload, setLoadingUpload] = useState(false)
+
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [isModalAddKamarVisible, setModalAddKamarVisible] = useState(false);
+  const [isModalConfirmVisible, setModalConfirmVisible] = useState(false)
+  const [isModalMapVisible, setIsModalMapVisible] = useState(false)
+  const [imageTemp, setImageTemp] = useState([])
+  const [idForEditKamar, setIdForEditKamar] = useState(null)
+  const [latitude, setLatitude] = useState(null)
+  const [longitude, setLongitude] = useState(null)
+
+  const id_akun = useSelector(state => state?.login?.user?.id_akun)
 
   const selectPhotos = (type, isKamar) => {
     setModalVisible(false)
@@ -225,48 +235,6 @@ export default function TambahKos({ navigation }) {
       ToastAndroid.show('Lokasi tidak tersedia', ToastAndroid.SHORT)
     })
   }
-
-  const [region, setRegion] = useState({
-    latitude: latitude ? latitude : 35.6762,
-    longitude: longitude ? longitude : 139.6503,
-    latitudeDelta: 3,
-    longitudeDelta: 3,
-  })
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [visible, setIsVisible] = useState(false);
-  const [kamarVisible, setKamarVisible] = useState(false)
-
-  const [fasilitas, setFasilitas] = useState([])
-  const [peraturan, setPeraturan] = useState([])
-  const [nama, setNama] = useState('')
-  const [alamat, setAlamat] = useState('')
-  const [deskripsi, setDeskripsi] = useState('')
-  const [fasilitasInput, setFasilitasInput] = useState('')
-  const [peraturanInput, setPeraturanInput] = useState('')
-
-  const [imageKamarTemp, setImageKamarTemp] = useState([])
-  const [namaKamar, setNamaKamar] = useState('')
-  const [fasilitasKamar, setFasilitasKamar] = useState([])
-  const [hargaKamar, setHargaKamar] = useState(null)
-  const [luasKamar, setLuasKamar] = useState({ panjang: '', lebar: '' })
-  const [statusKamar, setStatusKamar] = useState(false)
-  const [listrik, setListrik] = useState(false)
-
-  const [dataKamar, setDataKamar] = useState([])
-
-  const [loadingUpload, setLoadingUpload] = useState(false)
-
-  const [isModalVisible, setModalVisible] = useState(false);
-  const [isModalAddKamarVisible, setModalAddKamarVisible] = useState(false);
-  const [isModalConfirmVisible, setModalConfirmVisible] = useState(false)
-  const [isModalMapVisible, setIsModalMapVisible] = useState(false)
-  const [imageTemp, setImageTemp] = useState([])
-  const [idForEditKamar, setIdForEditKamar] = useState(null)
-  const [latitude, setLatitude] = useState(null)
-  const [longitude, setLongitude] = useState(null)
-
-  const id_akun = useSelector(state => state?.login?.user?.id_akun)
 
   const deleteTempImg = (uri) => {
     const img = imageTemp.filter((name) => uri !== name.uri)

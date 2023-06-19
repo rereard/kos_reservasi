@@ -447,10 +447,6 @@ export default function Transaksi({ navigation, route }) {
                       status: 'tunggu_konfirm'
                     }).then(
                       setTrigger(!trigger)
-                      // navigation.navigate('Transaksi', {
-                      //   id_transaksi,
-                      //   fromConfirm: false
-                      // })
                     ).catch(e => {
                       console.log(e);
                     })

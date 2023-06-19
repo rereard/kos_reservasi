@@ -28,39 +28,23 @@ export default function Profile({ navigation }) {
 
   return (
     <SafeAreaView style={styles.page}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', backgroundColor: colors.darkBlue }}>
+        <Text style={{ color: colors.white, fontWeight: 'bold', fontSize: 20, marginHorizontal: 15, marginVertical: 20 }}>Profil</Text>
+      </View>
       <ScrollView>
         <View style={styles.container}>
           {user ? (
             <>
-              <Text style={styles.header}>Profile</Text>
               <View style={styles.profileUser}>
-                {/* <Image source={{uri: user?.image}} style={styles.image} /> */}
                 <View style={{ marginTop: 10 }}>
-                  {/* <Text style={styles.userName}>
-                    {user?.firstName} {user?.lastName}
-                  </Text> */}
-                  <Text style={styles.email}>{user?.email}</Text>
+                  <Text style={styles.userName}>
+                    {user?.nama}
+                  </Text>
+                  <Text style={styles.email}>{user?.username}</Text>
                 </View>
               </View>
               <View style={styles.boxActivity}>
-                <View style={styles.activity}>
-                  <View style={{ marginHorizontal: 10 }}>
-                    <Text
-                      style={styles.totalActivity}
-                      onPress={() => navigation.navigate('Receipt')}>
-                      {bookHistories[user?.username]?.length || 0}
-                    </Text>
-                    <Text style={styles.titleActivity}>Booking</Text>
-                  </View>
-                  <View style={{ marginHorizontal: 10 }}>
-                    <Text
-                      style={styles.totalActivity}
-                      onPress={() => navigation.navigate('Favorite')}>
-                      {favorites[user?.username]?.length || 0}
-                    </Text>
-                    <Text style={styles.titleActivity}>Favorites</Text>
-                  </View>
-                </View>
+
               </View>
               <View style={styles.box}>
                 <SettingsRow
@@ -82,24 +66,18 @@ export default function Profile({ navigation }) {
                   data={user?.email}
                   prop="email"
                 />
-                {/* <SettingsRow
-                  title="First Name"
-                  dataEditable={true}
-                  data={user?.firstName}
-                  prop="firstName"
-                />
                 <SettingsRow
-                  title="Last Name"
+                  title="Nomor WhatsApp"
                   dataEditable={true}
-                  data={user?.lastName}
-                  prop="lastName"
-                /> */}
-                <SettingsRow
-                  title="Phone"
-                  dataEditable={true}
-                  data={user?.noWa}
+                  data={user?.noWA}
                   prop="phone"
                 />
+                {user?.tipeAkun === 2 && (
+                  <SettingsRow
+                    title="Info Rekening"
+                    dataEditable={true}
+                  />
+                )}
               </View>
             </>
           ) : (
@@ -167,12 +145,12 @@ const styles = StyleSheet.create({
   },
   userName: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 20,
     textAlign: 'center',
     color: colors.black,
   },
   email: {
-    fontSize: 12,
+    fontSize: 15,
     textAlign: 'center',
     color: colors.darkGrey,
   },
@@ -196,7 +174,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   boxActivity: {
-    marginVertical: 10,
+    marginVertical: 0,
     paddingVertical: 10,
     borderTopWidth: 1,
     borderColor: colors.grey,
