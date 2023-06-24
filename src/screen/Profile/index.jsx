@@ -69,7 +69,7 @@ export default function Profile({ navigation }) {
                 <SettingsRow
                   title="Nomor WhatsApp"
                   dataEditable={true}
-                  data={user?.noWA}
+                  data={user?.noWa}
                   prop="phone"
                 />
                 {user?.tipeAkun === 2 && (

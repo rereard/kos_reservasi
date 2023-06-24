@@ -1,4 +1,4 @@
-import {View, TextInput, StyleSheet} from 'react-native';
+import {View, TextInput, StyleSheet, Text} from 'react-native';
 import React, {useState} from 'react';
 import {colors} from '../../../utils';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -9,7 +9,8 @@ export default function Input({
   type,
   backgroundColor,
   value,
-  keyboard
+  keyboard,
+  inputMode
 }) {
   const [showPassword, setShowPassword] = useState(
     type === 'password' ? true : false,
@@ -37,6 +38,7 @@ export default function Input({
         placeholderTextColor={colors.darkGrey}
         value={value}
         onSubmitEditing={() => {}}
+        inputMode={inputMode}
       />
       {type === 'password' ? (
         <Ionicons name={iconEye} style={styles.icon(type)} onPress={ShowPw} />
@@ -54,7 +56,22 @@ export default function Input({
         <></>
       )}
       {type === 'telephone' ? (
-        <Ionicons name={'call-outline'} style={styles.icon(type)} />
+        // <Ionicons name={'call-outline'} style={styles.icon(type)} />
+        <View style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          // margin: 12,
+          marginVertical: 15.5,
+          paddingHorizontal: 9.5,
+          borderRightWidth: 0.5
+        }}>
+          <Text style={{
+            color: colors.black
+          }}>
+            +62
+          </Text>
+        </View>
       ) : (
         <></>
       )}
@@ -73,7 +90,7 @@ const styles = StyleSheet.create({
     backgroundColor: backgroundColor ? backgroundColor : colors.white,
     paddingRight: type === 'password' || type === 'search' ? 30 : 15,
     paddingLeft:
-      type === 'user' || type === 'telephone' || type === 'email' ? 30 : 15,
+      type === 'user' || type === 'telephone' || type === 'email' ? 50 : 15,
     color: colors.black,
     borderWidth: 1,
     borderColor: colors.darkGrey

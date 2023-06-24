@@ -87,18 +87,30 @@ export default function Sign({ navigation }) {
     firestore().collection('akun').add({
       email,
       nama,
-      noWa,
+      noWa: `62${noWa}`,
       password: passReg,
       username: unameReg,
       tipeAkun: tipeAkun ? 2 : 1
     }).then(() => {
       setDaftarMode(false)
       setLoading(false)
+      ToastAndroid.show('Berhasil mendaftar', ToastAndroid.SHORT)
     }).catch(e => {
       console.log(e);
       ToastAndroid.show('Yahh error', ToastAndroid.SHORT)
       setLoading(false)
     })
+  }
+
+  const validateEmail = (text) => {
+    console.log(text);
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    if (reg.test(text) === false) {
+      console.log("Email is Not Correct");
+      return false;
+    } else {
+      return true
+    }
   }
 
   if (daftarMode) {
@@ -139,34 +151,36 @@ export default function Sign({ navigation }) {
           <View style={styles.Input}>
             <Text style={{ color: colors.white, fontWeight: 'bold', marginBottom: 5, paddingLeft: 5 }}>Email:</Text>
             <Input
-              placeholder="Masukkan email"
+              placeholder="JohnDoe@example.com"
+              inputMode={'email'}
               onChangeText={value => setEmail(value)}
             />
             <View style={{ height: 5 }}></View>
             <Text style={{ color: colors.white, fontWeight: 'bold', marginBottom: 5, paddingLeft: 5 }}>Password:</Text>
             <Input
-              placeholder="Masukkan password"
+              placeholder="example123"
               type={'password'}
               onChangeText={value => setPassReg(value)}
             />
             <View style={{ height: 5 }}></View>
             <Text style={{ color: colors.white, fontWeight: 'bold', marginBottom: 5, paddingLeft: 5 }}>Nama:</Text>
             <Input
-              placeholder="Masukkan nama"
+              placeholder="John Doe"
               onChangeText={value => setNama(value)}
             />
             <View style={{ height: 5 }}></View>
             <Text style={{ color: colors.white, fontWeight: 'bold', marginBottom: 5, paddingLeft: 5 }}>Username:</Text>
             <Input
-              placeholder="Masukkan username"
+              placeholder="johndoe"
               onChangeText={value => setUnameReg(value)}
             />
             <View style={{ height: 5 }}></View>
             <Text style={{ color: colors.white, fontWeight: 'bold', marginBottom: 5, paddingLeft: 5 }}>Nomor WhatsApp:</Text>
             <Input
               keyboard={'phone-pad'}
-              placeholder="Masukkan nomor WA"
+              placeholder="81234567890"
               onChangeText={value => setnoWa(value)}
+              type={'telephone'}
             />
             <View style={{ height: 10 }}></View>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -221,7 +235,11 @@ export default function Sign({ navigation }) {
               }}
               onPress={() => {
                 if (nama !== '' && email !== '' && noWa !== '' && passReg !== '' && unameReg !== '') {
-                  cekAkunTerdaftar()
+                  if (validateEmail(email)) {
+                    cekAkunTerdaftar()
+                  } else {
+                    ToastAndroid.show('Email tidak sesuai!', ToastAndroid.SHORT)
+                  }
                 } else {
                   ToastAndroid.show('Lengkapi data terlebih dahulu', ToastAndroid.SHORT)
                 }
@@ -260,7 +278,6 @@ export default function Sign({ navigation }) {
             <Text style={{ color: colors.white, fontSize: 16, marginBottom: 5 }}>Belum punya akun?</Text>
             <Pressable
               onPress={() => {
-                ToastAndroid.show('ayo daftar', ToastAndroid.SHORT)
                 setDaftarMode(true)
               }}
             >

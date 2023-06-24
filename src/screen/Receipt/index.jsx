@@ -51,6 +51,7 @@ export default function Receipt({ navigation }) {
   const [belumBayar, setBelumBayar] = useState([])
   const [menungguKonfirm, setMenungguKonfirm] = useState([])
   const [selesai, setSelesai] = useState([])
+  const [tolak, setTolak] = useState([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -59,6 +60,7 @@ export default function Receipt({ navigation }) {
       setBelumBayar(dataTransaksi.filter(item => item.status === 'belum_bayar'))
       setMenungguKonfirm(dataTransaksi.filter(item => item.status === 'tunggu_konfirm'))
       setSelesai(dataTransaksi.filter(item => item.status === 'selesai'))
+      setTolak(dataTransaksi.filter(item => item.status === 'batal'))
     }
     console.log(belumBayar, menungguKonfirm, selesai);
   }, [dataTransaksi]);
@@ -103,6 +105,29 @@ export default function Receipt({ navigation }) {
                 <View>
                   <Text style={{ color: colors.black, fontWeight: 'bold', marginBottom: 7, fontSize: 16 }}>Menunggu konfirmasi ({menungguKonfirm.length})</Text>
                   {menungguKonfirm?.map(item => (
+                    <KostCard
+                      key={item?.id}
+                      id={item?.id}
+                      foto={item?.foto_kamar}
+                      nama={item?.nama_kamar}
+                      nama2={item?.nama_kos}
+                      tanggal={item?.tanggal_transaksi}
+                      harga={item?.jumlah_bayar}
+                      status={item?.status}
+                      onPress={() => {
+                        navigation.navigate('Transaksi', {
+                          id_transaksi: item?.id,
+                          fromConfirm: false
+                        })
+                      }}
+                    />
+                  ))}
+                </View>
+              )}
+              {tolak.length !== 0 && (
+                <View>
+                  <Text style={{ color: colors.black, fontWeight: 'bold', marginBottom: 7, fontSize: 16 }}>Ditolak ({tolak.length})</Text>
+                  {tolak?.map(item => (
                     <KostCard
                       key={item?.id}
                       id={item?.id}

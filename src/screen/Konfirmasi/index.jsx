@@ -149,6 +149,7 @@ export default function Konfirmasi({ navigation, route }) {
                 nama_kamar,
                 nama_kos,
                 status: 'belum_bayar',
+                catatan_tolak: '',
                 tanggal_transaksi: new Date().toLocaleString('pt-PT')
               }).then(docRef => {
                 console.log(docRef);

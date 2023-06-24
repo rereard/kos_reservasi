@@ -5,10 +5,11 @@ import {
   Text,
   View,
   Image,
-  Modal,
   ToastAndroid,
   Linking,
-  Pressable
+  Pressable,
+  TouchableOpacity,
+  TextInput
 } from 'react-native';
 import { colors } from '../../utils';
 import { Header } from '../../component/molecules';
@@ -22,7 +23,7 @@ import firestore, { firebase } from '@react-native-firebase/firestore';
 import Filter from '@react-native-firebase/firestore';
 import { formatIDR } from '../../utils';
 import { useSelector } from 'react-redux';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import Modal from "react-native-modal";
 
 const includeExtra = true
 
@@ -39,6 +40,8 @@ export default function Transaksi({ navigation, route }) {
   const [detailPelanggan, setDetailPelanggan] = useState(null)
   const [trigger, setTrigger] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [modalTolak, setModalTolak] = useState(false)
+  const [noteTolak, setNoteTolak] = useState('')
 
   useEffect(() => {
     console.log(route.params);
@@ -73,6 +76,12 @@ export default function Transaksi({ navigation, route }) {
     })
     console.log('trigerred');
   }, [trigger]);
+
+  useEffect(() => {
+    if (detailTransaksi?.status === 'batal') {
+      setFotoBukti(detailTransaksi?.foto_bukti)
+    }
+  }, [detailTransaksi]);
 
   useEffect(() => {
     console.log('triggered')
@@ -129,6 +138,82 @@ export default function Transaksi({ navigation, route }) {
         </View>
       ) : (
         <ScrollView>
+          <Modal
+            isVisible={modalTolak}
+            useNativeDriver={true}
+            backdropOpacity={0.4}
+          >
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+              <View
+                style={{
+                  backgroundColor: colors.white,
+                  borderRadius: 10,
+                  maxHeight: 600,
+                  maxWidth: 700,
+                  width: '95%',
+                  shadowColor: '#000',
+                  shadowOffset: {
+                    width: 0,
+                    height: 2,
+                  },
+                  shadowOpacity: 0.25,
+                  shadowRadius: 3.84,
+                  elevation: 5,
+                  padding: 15,
+                  paddingVertical: 25
+                }}
+              >
+                <Text style={{ color: colors.black, fontWeight: 'bold', fontSize: 18 }}>
+                  Tolak Pembayaran?
+                </Text>
+                <TextInput
+                  style={{
+                    borderBottomColor: colors.darkGrey,
+                    borderBottomWidth: 1,
+                    fontSize: 17,
+                    paddingVertical: 5,
+                    color: colors.black,
+                    paddingHorizontal: 0,
+                  }}
+                  multiline={true}
+                  numberOfLines={4}
+                  placeholderTextColor={colors.darkGrey}
+                  placeholder={'Masukkan catatan penolakan'}
+                  value={noteTolak}
+                  onChangeText={(value) => setNoteTolak(value)}
+                />
+                <View style={{ flexDirection: 'row', marginTop: 20 }}>
+                  <Pressable
+                    style={{ flex: 1, alignItems: 'center', paddingVertical: 10, borderRadius: 10, borderWidth: 1, borderColor: 'red' }}
+                    onPress={() => {
+                      setModalTolak(false)
+                      setNoteTolak('')
+                    }}
+                  >
+                    <Text style={{ color: 'red', fontWeight: 'bold' }}>Batal</Text>
+                  </Pressable>
+                  <View style={{ width: 10 }}></View>
+                  <Pressable
+                    style={{ flex: 1, alignItems: 'center', paddingVertical: 10, borderRadius: 10, borderWidth: 1, borderColor: colors.darkBlue }}
+                    onPress={() => {
+                      console.log(noteTolak);
+                      firestore().collection('transaksi').doc(id_transaksi).update({
+                        status: 'batal',
+                        catatan_tolak: noteTolak
+                      }).then(() => {
+                        setTrigger(!trigger)
+                        setModalTolak(false)
+                      }).catch(e => {
+                        console.log(e);
+                      })
+                    }}
+                  >
+                    <Text style={{ color: colors.darkBlue, fontWeight: 'bold' }}>Ya</Text>
+                  </Pressable>
+                </View>
+              </View>
+            </View>
+          </Modal>
           <View>
             <Image
               source={{ uri: detailTransaksi?.foto_kamar }}
@@ -232,6 +317,12 @@ export default function Transaksi({ navigation, route }) {
                     color: colors.darkBlue,
                   }}>Menunggu konfirmasi</Text>
                 )}
+                {detailTransaksi?.status === 'batal' && (
+                  <Text style={{
+                    textAlign: 'right',
+                    color: 'red',
+                  }}>Transaksi ditolak</Text>
+                )}
               </View>
             </View>
             <View style={{
@@ -314,8 +405,8 @@ export default function Transaksi({ navigation, route }) {
                       uri: detailTransaksi?.foto_bukti
                     }}
                     style={{
-                      height: 200,
-                      width: 200,
+                      height: 250,
+                      width: '100%',
                       borderRadius: 15,
                       marginRight: 7
                     }}
@@ -323,7 +414,7 @@ export default function Transaksi({ navigation, route }) {
                 </Pressable>
               </View>
             )}
-            {detailTransaksi?.status === 'belum_bayar' && (
+            {(detailTransaksi?.status === 'belum_bayar' || detailTransaksi?.status === 'batal') && (
               <View style={{
                 marginTop: 15,
               }}>
@@ -333,10 +424,10 @@ export default function Transaksi({ navigation, route }) {
                   marginBottom: 20,
                   fontSize: 15
                 }}>
-                  Upload bukti pembayaran
+                  {detailTransaksi?.status === 'belum_bayar' ? 'Upload bukti pembayaran' : detailTransaksi?.status === 'batal' && 'Bukti pembayaran:'}
                 </Text>
                 {fotoBukti ? (
-                  <View style={{ flexDirection: 'row' }}>
+                  <View style={{}}>
                     <ImageView
                       images={[{
                         uri: fotoBukti
@@ -346,31 +437,32 @@ export default function Transaksi({ navigation, route }) {
                       onRequestClose={() => setFotoBuktiVisible(false)}
                     />
                     <Pressable onPress={() => setFotoBuktiVisible(true)}>
-                      <Ionicons name={'trash-outline'}
-                        style={{
-                          position: 'absolute',
-                          right: 0,
-                          top: 0,
-                          fontSize: 20,
-                          padding: 10,
-                          zIndex: 3,
-                          color: 'red'
-                        }}
-                        onPress={() => setFotoBukti(null)}
-                      />
+                      {user?.tipeAkun === 1 && (
+                        <Ionicons name={'trash-outline'}
+                          style={{
+                            position: 'absolute',
+                            right: 0,
+                            top: 0,
+                            fontSize: 20,
+                            padding: 10,
+                            zIndex: 3,
+                            color: 'red'
+                          }}
+                          onPress={() => setFotoBukti(null)}
+                        />
+                      )}
                       <Image
                         source={{
                           uri: fotoBukti
                         }}
                         style={{
-                          height: 200,
-                          width: 200,
+                          height: 250,
+                          width: '100%',
                           borderRadius: 15,
                           marginRight: 7
                         }}
                       />
                     </Pressable>
-                    <View style={{ flex: 1 }}></View>
                   </View>
                 ) : (
                   <View style={{ flexDirection: 'row' }}>
@@ -424,7 +516,24 @@ export default function Transaksi({ navigation, route }) {
                 )}
               </View>
             )}
-            {(fotoBukti && detailTransaksi.status === 'belum_bayar') && (
+            {detailTransaksi?.status === 'batal' && (
+              <View style={{
+                marginTop: 15,
+              }}>
+                <Text style={{
+                  color: colors.black,
+                  fontWeight: 'bold',
+                  marginBottom: 5,
+                  fontSize: 15
+                }}>
+                  Catatan penolakan:
+                </Text>
+                <Text style={{ color: colors.darkGrey, fontSize: 15, marginRight: 7 }}>
+                  {detailTransaksi?.catatan_tolak}
+                </Text>
+              </View>
+            )}
+            {((fotoBukti && detailTransaksi.status === 'belum_bayar') || (detailTransaksi?.status === 'batal' && user?.tipeAkun === 1)) && (
               <View style={{
                 marginTop: 20,
                 borderRadius: 10,
@@ -444,7 +553,8 @@ export default function Transaksi({ navigation, route }) {
                   onPress={() => {
                     firestore().collection('transaksi').doc(id_transaksi).update({
                       foto_bukti: fotoBukti,
-                      status: 'tunggu_konfirm'
+                      status: 'tunggu_konfirm',
+                      catatan_tolak: ''
                     }).then(
                       setTrigger(!trigger)
                     ).catch(e => {
@@ -457,7 +567,7 @@ export default function Transaksi({ navigation, route }) {
                     textAlign: 'center',
                     fontSize: 17
                   }}>
-                    Konfirmasi Pembayaran
+                    {detailTransaksi?.status === 'batal' ? 'Konfirmasi Ulang' : detailTransaksi.status === 'belum_bayar' && 'Konfirmasi Pembayaran'}
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -465,52 +575,85 @@ export default function Transaksi({ navigation, route }) {
             {(user?.tipeAkun === 2 && detailTransaksi?.status === 'tunggu_konfirm') && (
               <View style={{
                 marginTop: 20,
-                borderRadius: 10,
-                flexDirection: 'row',
-                justifyContent: 'center',
-                backgroundColor: colors.darkBlue,
-                alignItems: 'center',
-                padding: 8
+                flexDirection: 'row'
               }}>
-                <TouchableOpacity style={{
-                  backgroundColor: colors.darkBlue,
-                  padding: 6,
-                  borderRadius: 15,
+                <View style={{
+                  borderRadius: 10,
                   flexDirection: 'row',
+                  justifyContent: 'center',
+                  backgroundColor: 'red',
                   alignItems: 'center',
-                }}
-                  onPress={() => {
-                    firestore().collection('transaksi').doc(id_transaksi).update({
-                      status: 'selesai'
-                    }).then(
-                      firestore().collection('kamar').doc(detailTransaksi?.id_kamar).update({
-                        statusKamar: true
-                      }).then(
-                        setTrigger(!trigger)
-                        // navigation.navigate('Transaksi', {
-                        //   id_transaksi,
-                        //   fromConfirm: false
-                        // })
-                      )
-                    ).catch(e => {
-                      console.log(e);
-                    })
+                  padding: 8,
+                  flex: 1
+                }}>
+                  <TouchableOpacity style={{
+                    backgroundColor: 'red',
+                    padding: 6,
+                    borderRadius: 15,
+                    flexDirection: 'row',
+                    alignItems: 'center',
                   }}
-                >
-                  <Text style={{
-                    color: colors.white,
-                    textAlign: 'center',
-                    fontSize: 17
-                  }}>
-                    Konfirmasi Pembayaran
-                  </Text>
-                </TouchableOpacity>
+                    onPress={() => {
+                      setModalTolak(true)
+                    }}
+                  >
+                    <Text style={{
+                      color: colors.white,
+                      textAlign: 'center',
+                      fontSize: 17
+                    }}>
+                      Tolak
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+                <View style={{ marginHorizontal: 7 }}></View>
+                <View style={{
+                  borderRadius: 10,
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  backgroundColor: colors.darkBlue,
+                  alignItems: 'center',
+                  padding: 8,
+                  flex: 1
+                }}>
+                  <TouchableOpacity style={{
+                    backgroundColor: colors.darkBlue,
+                    padding: 6,
+                    borderRadius: 15,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                  }}
+                    onPress={() => {
+                      firestore().collection('transaksi').doc(id_transaksi).update({
+                        status: 'selesai'
+                      }).then(
+                        firestore().collection('kamar').doc(detailTransaksi?.id_kamar).update({
+                          statusKamar: true
+                        }).then(
+                          setTrigger(!trigger)
+                        )
+                      ).catch(e => {
+                        console.log(e);
+                      })
+                    }}
+                  >
+                    <Text style={{
+                      color: colors.white,
+                      textAlign: 'center',
+                      fontSize: 17
+                    }}>
+                      Konfirmasi
+                    </Text>
+                  </TouchableOpacity>
+                </View>
               </View>
+            )}
+            {detailTransaksi?.status === 'selesai' && (
+              <></>
             )}
           </View>
         </ScrollView>
       )}
-
     </SafeAreaView>
   )
 }

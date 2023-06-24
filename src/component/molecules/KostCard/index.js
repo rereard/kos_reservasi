@@ -116,12 +116,12 @@ export default function KostCard({onPress, nama, alamatKos, nama2, id, foto, har
                   {(status || status !== 'selesai') && (
                     <Text
                       style={{
-                        color: status === 'belum_bayar' ? 'red' : colors.darkBlue,
+                        color: (status === 'belum_bayar' || status === 'batal') ? 'red' : colors.darkBlue,
                         fontSize: 15,
                         fontWeight: 'bold',
                         textAlign: 'right',
                       }}>
-                        {status === 'belum_bayar' ? 'Belum dibayar' : status === 'tunggu_konfirm' ? 'Menunggu konfirmasi' : status === 'batal' ? 'Dibatalkan' : null}
+                        {status === 'belum_bayar' ? 'Belum dibayar' : status === 'tunggu_konfirm' ? 'Menunggu konfirmasi' : status === 'batal' ? 'Transaksi ditolak' : null}
                     </Text>
                   ) }
                 </View>
