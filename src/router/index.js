@@ -22,7 +22,8 @@ import {
   KamarDetail,
   Konfirmasi,
   TambahKos,
-  Transaksi
+  Transaksi,
+  InvoiceTransaksi
 } from '../screen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -221,6 +222,11 @@ const Router = () => {
           <Stack.Screen
             name="Transaksi"
             component={Transaksi}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="InvoiceTransaksi"
+            component={InvoiceTransaksi}
             options={{headerShown: false}}
           />
         </>

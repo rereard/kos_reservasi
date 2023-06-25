@@ -21,6 +21,7 @@ import KamarDetail from './KamarDetail';
 import Konfirmasi from './Konfirmasi';
 import TambahKos from './TambahKos';
 import Transaksi from './Transaksi';
+import InvoiceTransaksi from './InvoiceTransaksi';
 
 export {
   Sign,
@@ -44,5 +45,6 @@ export {
   KamarDetail,
   Konfirmasi,
   TambahKos,
-  Transaksi
+  Transaksi,
+  InvoiceTransaksi
 };

@@ -649,7 +649,44 @@ export default function Transaksi({ navigation, route }) {
               </View>
             )}
             {detailTransaksi?.status === 'selesai' && (
-              <></>
+              <View style={{
+                borderRadius: 10,
+                flexDirection: 'row',
+                justifyContent: 'center',
+                backgroundColor: colors.darkBlue,
+                alignItems: 'center',
+                padding: 8,
+                flex: 1,
+                marginTop: 20
+              }}>
+                <TouchableOpacity style={{
+                  backgroundColor: colors.darkBlue,
+                  padding: 6,
+                  borderRadius: 15,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}
+                  onPress={() => {
+                    navigation.navigate('InvoiceTransaksi', {
+                      nama_kamar: detailTransaksi?.nama_kamar,
+                      nama_pemilik: detailPemilik?.nama,
+                      nama_pelanggan: detailPelanggan?.nama,
+                      nama_kos: detailTransaksi?.nama_kos,
+                      tanggal_transaksi: detailTransaksi?.tanggal_transaksi,
+                      id_transaksi,
+                      jumlah_bayar: formatIDR.format(detailTransaksi?.jumlah_bayar).replace('IDR', '').trim()
+                    })
+                  }}
+                >
+                  <Text style={{
+                    color: colors.white,
+                    textAlign: 'center',
+                    fontSize: 17
+                  }}>
+                    Lihat Invoice
+                  </Text>
+                </TouchableOpacity>
+              </View>
             )}
           </View>
         </ScrollView>

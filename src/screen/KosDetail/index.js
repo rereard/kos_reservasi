@@ -28,15 +28,15 @@ import { memo } from 'react';
 import { formatIDR } from '../../utils';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
-const FacilityText = ({text}) => {
+const FacilityText = memo(function FacilityText({text}) {
 	return(
 		<Text style={{color: colors.darkGrey, flexBasis: '50%', marginBottom: 7, fontSize: 15}}>
 			{text}
 		</Text>
 	)
-}
+})
 
-const EditIcon = ({onPress}) => {
+const EditIcon = memo(function EditIcon({onPress}) {
 	return(
 		<Ionicons 
 			name={'create-outline'}
@@ -48,9 +48,12 @@ const EditIcon = ({onPress}) => {
 			onPress={onPress}
 		/>
 	)
-}
+})
 
-const ModalEdit = ({ isVisible, setVisible, inputValue, setInputValue, header, setHeader, idKos, trigger, setTrigger, modeEdit }) => {
+const ModalEdit = memo(function({ isVisible, setVisible, inputValue, setInputValue, header, setHeader, idKos, trigger, setTrigger, modeEdit }) {
+
+	const [currentImageIndex, setCurrentImageIndex] = useState(0);
+	const [imageVisible, setImageVisible] = useState(false)
 
 	const forEdit = (modeEdit) => {
 		if(modeEdit === 'nama_kos'){
@@ -73,6 +76,10 @@ const ModalEdit = ({ isVisible, setVisible, inputValue, setInputValue, header, s
 			return {
 				peraturan: inputValue
 			}
+		} else if(modeEdit === 'foto_kos'){
+			return {
+				foto_kos: inputValue
+			}
 		}
 	}
 
@@ -89,6 +96,49 @@ const ModalEdit = ({ isVisible, setVisible, inputValue, setInputValue, header, s
 		const filtered = inputValue.filter(item => item.id !== id)
 		setInputValue(filtered)
 	}
+
+	const deleteImgKamar = (uri) => {
+    const img = inputValue.filter((name) => uri !== name.uri)
+    setInputValue(img)
+  }
+
+	const selectPhotos = (type) => {
+    const options = type === 'camera' ? {
+      mediaType: 'photo',
+      includeExtra,
+      includeBase64: true,
+      quality: 0.1,
+    } : {
+      selectionLimit: 1,
+      mediaType: 'photo',
+      includeBase64: true,
+      includeExtra,
+      quality: 0.1
+    };
+    if (type === 'camera') {
+      launchCamera(options, (res) => {
+        console.log('Response = ', res);
+        if (res.didCancel) {
+          console.log('User cancelled image picker');
+        } else if (res.errorCode) {
+          console.log('ImagePicker Error: ', res.errorMessage);
+        } else {
+          setInputValue([...inputValue, { uri: `data:image/jpeg;base64,${res.assets[0].base64}` }]) 
+        }
+      });
+    } else {
+      launchImageLibrary(options, (res) => {
+        console.log('Response = ', res);
+        if (res.didCancel) {
+          console.log('User cancelled image picker');
+        } else if (res.errorCode) {
+          console.log('ImagePicker Error: ', res.errorMessage);
+        } else {
+          setInputValue([...inputValue, { uri: `data:image/jpeg;base64,${res.assets[0].base64}` }])
+        }
+      });
+    }
+  }
 
 	const choosable = modeEdit === 'fasilitas' ? fasilitas_kos : modeEdit === 'peraturan' && peraturan_kos
 
@@ -128,10 +178,10 @@ const ModalEdit = ({ isVisible, setVisible, inputValue, setInputValue, header, s
 					}}
 				>
 					<ScrollView>
-						<Text style={{ color: colors.black, fontWeight: 'bold', fontSize: 20, marginVertical: 10 }}>
+						<Text style={{ color: colors.black, fontWeight: 'bold', fontSize: 20, marginBottom: 10 }}>
 							Edit {header}
 						</Text>
-						{typeof inputValue === 'object' ? (
+						{(typeof inputValue === 'object' && modeEdit !== 'foto_kos') ? (
 							<View style={{
 								flexDirection: 'row',
 								flexWrap: 'wrap',
@@ -175,26 +225,133 @@ const ModalEdit = ({ isVisible, setVisible, inputValue, setInputValue, header, s
 									</Pressable>
 								))}
 							</View>
-						) : (
+						) : (typeof inputValue === 'object' && modeEdit === 'foto_kos') ? (
 							<>
-								<TextInput 
-									style={{
-										borderBottomColor: colors.darkGrey,
-										borderBottomWidth: 1,
+							<ImageView
+							images={inputValue}
+							imageIndex={currentImageIndex}
+							visible={imageVisible}
+							onRequestClose={() => setImageVisible(false)}
+							FooterComponent={({ imageIndex }) => (
+								<View style={{
+									height: 64,
+									backgroundColor: "#00000077",
+									alignItems: "center",
+									justifyContent: "center"
+								}}>
+									<Text style={{
 										fontSize: 17,
-										marginBottom: 25,
-										color: colors.black,
-									}}
-									multiline={true}
-									placeholder='Type something'
-									placeholderTextColor={colors.darkGrey}
-									value={inputValue}
-									onChangeText={(value) => {
-										setInputValue(value)
-										console.log(inputValue);
-									}}
-								/>
+										color: "#FFF"
+									}}>
+										{`${imageIndex + 1} / ${inputValue.length}`}
+									</Text>
+								</View>
+							)}
+						/>
+							<ScrollView horizontal style={{
+								marginVertical: 20,
+								marginTop: 0,
+							}}>
+								<View style={{ alignItems: 'center', flexDirection: 'row' }}>
+									{inputValue?.map((img, index) => (
+										<Pressable key={index} onPress={() => {
+											setImageVisible(true)
+											setCurrentImageIndex(index)
+										}}>
+											<Ionicons key={index} name={'trash-outline'}
+												style={{
+													position: 'absolute',
+													right: 0,
+													top: 0,
+													fontSize: 20,
+													padding: 10,
+													zIndex: 3,
+													color: 'red'
+												}}
+												onPress={() => deleteImgKamar(img.uri)}
+											/>
+											<Image
+												source={{
+													uri: img.uri
+												}}
+												style={{
+													height: 150,
+													width: 150,
+													borderRadius: 15,
+													marginRight: 7
+												}}
+											/>
+										</Pressable>
+									))}
+									<Pressable
+										style={{
+											justifyContent: 'center',
+											borderWidth: 1,
+											borderStyle: 'dashed',
+											borderColor: colors.darkBlue,
+											borderRadius: 10,
+											padding: 7,
+											margin: 10,
+											marginTop: 0,
+											display: inputValue.length === 5 ? 'none' : 'flex'
+										}}
+										onPress={() => selectPhotos('camera')}
+									>
+										<Ionicons
+											name='camera-outline'
+											style={{
+												fontSize: 30,
+												color: colors.darkBlue,
+												textAlign: 'center',
+											}}
+										/>
+										<Text style={{ color: colors.darkBlue, fontSize: 10 }}>Ambil Foto</Text>
+									</Pressable>
+									<Pressable
+										style={{
+											justifyContent: 'center',
+											borderWidth: 1,
+											borderStyle: 'dashed',
+											borderColor: colors.darkBlue,
+											borderRadius: 10,
+											padding: 7,
+											margin: 10,
+											marginTop: 0,
+											display: inputValue.length === 5 ? 'none' : 'flex'
+										}}
+										onPress={() => selectPhotos('gallery')}
+									>
+										<Ionicons
+											name='image-outline'
+											style={{
+												fontSize: 30,
+												color: colors.darkBlue,
+												textAlign: 'center',
+											}}
+										/>
+										<Text style={{ color: colors.darkBlue, fontSize: 10 }}>Buka Galeri</Text>
+									</Pressable>
+								</View>
+							</ScrollView>
 							</>
+						) : (
+							<TextInput 
+								style={{
+									borderBottomColor: colors.darkGrey,
+									borderBottomWidth: 1,
+									fontSize: 17,
+									marginBottom: 25,
+									color: colors.black,
+								}}
+								multiline={true}
+								placeholder='Type something'
+								placeholderTextColor={colors.darkGrey}
+								value={inputValue}
+								onChangeText={(value) => {
+									setInputValue(value)
+									console.log(inputValue);
+								}}
+							/>
 						)}
 						<View style={{ flexDirection: 'row' }}>
 							<Pressable
@@ -231,9 +388,9 @@ const ModalEdit = ({ isVisible, setVisible, inputValue, setInputValue, header, s
 			</View>
 		</Modal>
 	)
-}
+})
 
-const RuleText = ({text, index}) => {
+const RuleText = memo(function({text, index}) {
 	return(
 		<View style={{flexDirection: 'row'}}>
 			<Text style={{color: colors.darkGrey}}>{index}.</Text>
@@ -250,7 +407,7 @@ const RuleText = ({text, index}) => {
 			</Text>
 		</View>
 	)
-}
+})
 
 export default function KosDetail({navigation, route}){
 	const id = route.params.id_kos
@@ -270,9 +427,11 @@ export default function KosDetail({navigation, route}){
 	const [modeEdit, setModeEdit] = useState('')
 	const [daftarKamar, setDaftarKamar] = useState([])
 	const [modalKamar, setModalKamar] = useState(false)
+	const [modalDeleteKamar, setModalDeleteKamar] = useState(false)
 	const [selectedKamar, setSelectedKamar] = useState(null)
 	const [loadingWrite, setLoadingWrite] = useState(false)
 	const [rangeKamar, setRangeKamar] = useState({})
+	const [idForDel, setIdForDel] = useState(null)
 
 	useEffect(() => {
 		console.log('imageKos', imageKos);
@@ -445,6 +604,26 @@ export default function KosDetail({navigation, route}){
 						}}>
 							<Header onPress={() => navigation.goBack()} size={35} />
 						</View>
+						{user?.tipeAkun === 2  && (
+							<Ionicons 
+								name={'create-outline'}
+								style={{
+									color: colors.white,
+									fontSize: 28,
+									paddingHorizontal: 10,
+									paddingVertical: 5,
+									position: 'absolute',
+									zIndex: 1,
+									right: 0
+								}}
+								onPress={() => {
+									setModalEditVisible(true)
+									setHeaderEdit('foto kos')
+									setInputEdit(imageKos)
+									setModeEdit('foto_kos')
+								}}
+							/>
+						)}
 					</View>
 					<View style={{
 						padding: 10,
@@ -716,7 +895,10 @@ export default function KosDetail({navigation, route}){
 										nama={item?.namaKamar}
 										img={item?.fotoKamar[0]?.uri}
 										harga={item?.hargaKamar}
-										// onPressDelete={() => deleteDataKamarById(item.idKamar)}
+										onPressDelete={() => {
+											setModalDeleteKamar(true)
+											setIdForDel(item?.id)
+										}}
 										onPress={() => {
 											setSelectedKamar(item)
 											setModalKamar(true)
@@ -743,10 +925,15 @@ export default function KosDetail({navigation, route}){
 							</View>
 						)}
 					</View>
-					
-					{/* {daftarKamar.map} */}
 				</ScrollView>
 			)}
+			<ModalDeleteKamar 
+				isVisible={modalDeleteKamar}
+				setVisible={setModalDeleteKamar}
+				id_kamar={idForDel}
+				trigger={trigger}
+				setTrigger={setTrigger}
+			/>
 			<ModalKamar
 				isVisible={modalKamar}
 				setVisible={setModalKamar}
@@ -764,6 +951,65 @@ export default function KosDetail({navigation, route}){
 }
 
 const includeExtra = true
+
+const ModalDeleteKamar = memo(function ModalDeleteKamar({ isVisible, setVisible, id_kamar, trigger, setTrigger }) {
+	return(
+		<Modal
+			isVisible={isVisible}
+			backdropOpacity={0.4}
+			useNativeDriver={true}
+		>
+			<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+				<View
+					style={{
+						backgroundColor: colors.white,
+						borderRadius: 10,
+						width: '95%',
+						maxHeight: 500,
+						maxWidth: 500,
+						shadowColor: '#000',
+						shadowOffset: {
+							width: 0,
+							height: 2,
+						},
+						shadowOpacity: 0.25,
+						shadowRadius: 3.84,
+						elevation: 5,
+						padding: 5
+					}}
+				>
+					<Text style={{ color: colors.black, fontWeight: 'bold', fontSize: 18, marginHorizontal: 15, marginVertical: 15 }}>Hapus kamar ini?</Text>
+					<Text style={{ color: colors.darkGrey, fontSize: 16, marginHorizontal: 15, marginBottom: 20 }}>Kamar yang telah dihapus tidak dapat dipulihkan</Text>
+					<View style={{ margin: 20, flexDirection: 'row', marginTop: 0 }}>
+						<Pressable
+							style={{ flex: 1, alignItems: 'center', paddingVertical: 10, borderRadius: 10, borderWidth: 1, borderColor: 'red' }}
+							onPress={() => {
+								setVisible(false)
+							}}
+						>
+							<Text style={{ color: 'red', fontWeight: 'bold' }}>Batal</Text>
+						</Pressable>
+						<View style={{ width: 10 }}></View>
+						<Pressable
+							style={{ flex: 1, alignItems: 'center', paddingVertical: 10, borderRadius: 10, borderWidth: 1, borderColor: colors.darkBlue }}
+							onPress={() => {
+								firestore().collection('kamar').doc(id_kamar).delete().then(() => {
+									ToastAndroid.show('Berhasil menghapus kamar', ToastAndroid.SHORT)
+									setTrigger(!trigger)
+									setVisible(false)
+								}).catch((e) => {
+									ToastAndroid.show('Yahh error', ToastAndroid.SHORT)
+								})
+							}}
+						>
+							<Text style={{ color: colors.darkBlue, fontWeight: 'bold' }}>Hapus</Text>
+						</Pressable>
+					</View>
+				</View>
+			</View>
+		</Modal>
+	)
+})
 
 const ModalKamar = memo(function ModalKamar({ isVisible, setVisible, dataKamar, setDataKamar, loadingWrite, setLoadingWrite, id_kos, id_pemilik, trigger, setTrigger }) {
 
@@ -1214,52 +1460,54 @@ const InputText = memo(function InputText({ label, onChangeText, numberOfLines, 
 
 const KamarCard = memo(function KamarCard({ nama, harga, img, onPressDelete, onPress }) {
 	return(
-		<Pressable onPress={onPress}>
-      <View style={{
-        padding: 10,
-        backgroundColor: colors.white,
-        borderRadius: 10,
-        shadowColor: '#000',
-        shadowOffset: {
-          width: 0,
-          height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5,
-        flexDirection: 'row',
-        // marginHorizontal: 15,
-        marginVertical: 5,
-        marginBottom: 20
-      }}>
-        <Ionicons name={'trash-outline'}
-          style={{
-            position: 'absolute',
-            right: 0,
-            top: 0,
-            fontSize: 20,
-            padding: 10,
-            zIndex: 3,
-            color: 'red'
-          }}
-          onPress={onPressDelete}
-        />
-        <Image
-          source={{
-            uri: img
-          }}
-          style={{
-            height: 105,
-            width: 105,
-            borderRadius: 15
-          }}
-        />
-        <View style={{ padding: 10, justifyContent: 'center' }}>
-          <Text style={{ color: colors.black, fontSize: 17, fontWeight: '500' }}>{nama}</Text>
-          <Text style={{ color: colors.darkGrey, fontSize: 17, fontWeight: '500' }}>Rp {formatIDR.format(harga).replace('IDR', '').trim()}/bulan</Text>
-        </View>
-      </View>
-    </Pressable>
+		<View>
+			<Ionicons name={'trash-outline'}
+				style={{
+					position: 'absolute',
+					right: 0,
+					top: 0,
+					fontSize: 20,
+					padding: 10,
+					zIndex: 5,
+					color: 'red'
+				}}
+				onPress={onPressDelete}
+			/>
+			<Pressable onPress={onPress}>
+				<View style={{
+					padding: 10,
+					backgroundColor: colors.white,
+					borderRadius: 10,
+					shadowColor: '#000',
+					shadowOffset: {
+						width: 0,
+						height: 2,
+					},
+					shadowOpacity: 0.25,
+					shadowRadius: 4,
+					elevation: 5,
+					flexDirection: 'row',
+					// marginHorizontal: 15,
+					marginVertical: 5,
+					marginBottom: 20
+				}}>
+					<Image
+						source={{
+							uri: img
+						}}
+						style={{
+							height: 105,
+							width: 105,
+							borderRadius: 15
+						}}
+					/>
+					<View style={{ padding: 10, justifyContent: 'center' }}>
+						<Text style={{ color: colors.black, fontSize: 17, fontWeight: '500' }}>{nama}</Text>
+						<Text style={{ color: colors.darkGrey, fontSize: 17, fontWeight: '500' }}>Rp {formatIDR.format(harga).replace('IDR', '').trim()}/bulan</Text>
+					</View>
+				</View>
+			</Pressable>
+		</View>
 	)
 })
 

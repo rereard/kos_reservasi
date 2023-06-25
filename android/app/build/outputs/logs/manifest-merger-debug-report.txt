@@ -18,12 +18,14 @@ MERGED from [:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservati
 MERGED from [:react-native-date-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-date-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-gesture-handler] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-get-location] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-get-location\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-html-to-pdf] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-html-to-pdf\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-21:12
 MERGED from [:react-native-maps] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-maps\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-safe-area-context] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-svg] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-vector-icons] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-webview] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-21:12
 MERGED from [com.facebook.react:react-native:0.70.5] C:\Users\rerea\.gradle\caches\transforms-3\c42994f06a1765e865cf76ce626c107d\transformed\jetified-react-native-0.70.5-debug\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\rerea\.gradle\caches\transforms-3\617e46414208deb5f150c4055a6f195e\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.react:hermes-engine:0.70.5] C:\Users\rerea\.gradle\caches\transforms-3\f8f5d8199f39748e2186e831483b337a\transformed\jetified-hermes-engine-0.70.5-debug\AndroidManifest.xml:2:1-9:12
@@ -62,6 +64,7 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\rerea\.gradle\ca
 MERGED from [androidx.core:core-ktx:1.6.0] C:\Users\rerea\.gradle\caches\transforms-3\5849b52a9ab883d95864a5e988a3005f\transformed\jetified-core-ktx-1.6.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\rerea\.gradle\caches\transforms-3\d1251cc12ff41e00d2e34bf6a6a992f6\transformed\exifinterface-1.3.3\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\rerea\.gradle\caches\transforms-3\bab6b7532eaf2e7c61a3618727d05af3\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\rerea\.gradle\caches\transforms-3\052fb55cc257d6410e2b197a15a46d40\transformed\webkit-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\rerea\.gradle\caches\transforms-3\236058a9369b78f78259f6f0a969c8e8\transformed\sqlite-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-auth:20.5.0] C:\Users\rerea\.gradle\caches\transforms-3\19b28cb06c8e58106354be3642a74a69\transformed\jetified-play-services-auth-20.5.0\AndroidManifest.xml:17:1-40:12
 MERGED from [com.google.android.gms:play-services-maps:18.0.2] C:\Users\rerea\.gradle\caches\transforms-3\52a2fce4aee195acae89b335dcc6797a\transformed\jetified-play-services-maps-18.0.2\AndroidManifest.xml:17:1-44:12
@@ -103,6 +106,7 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.0] C:\Users\rerea\.gradle\
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\rerea\.gradle\caches\transforms-3\12d2d57d58334cc07eda87592dbe14aa\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.henninghall:numberpickerview:v1.1.5] C:\Users\rerea\.gradle\caches\transforms-3\57902dda37b457dd1e4a7f3608a15771\transformed\jetified-numberpickerview-v1.1.5\AndroidManifest.xml:2:1-11:12
 MERGED from [net.time4j:time4j-android:4.8-2021a] C:\Users\rerea\.gradle\caches\transforms-3\9f01719158416c5a07733f03235fdeb2\transformed\jetified-time4j-android-4.8-2021a\AndroidManifest.xml:2:1-13:12
+MERGED from [com.tom-roush:pdfbox-android:1.8.10.3] C:\Users\rerea\.gradle\caches\transforms-3\9d51fa609b451e9e7bc3cd01a55fc53c\transformed\jetified-pdfbox-android-1.8.10.3\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.maps.android:android-maps-utils:3.4.0] C:\Users\rerea\.gradle\caches\transforms-3\a25766ca99efca916b22b74803de85d8\transformed\jetified-android-maps-utils-3.4.0\AndroidManifest.xml:2:1-15:12
 MERGED from [com.facebook.fresco:fbcore:2.6.0] C:\Users\rerea\.gradle\caches\transforms-3\d7c9f947b0ef865e76675fc3d1b3a2b4\transformed\jetified-fbcore-2.6.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\rerea\.gradle\caches\transforms-3\57fba4ef8a72e9689bbb3607b00155c5\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -161,6 +165,8 @@ MERGED from [:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservati
 MERGED from [:react-native-firebase_app] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\@react-native-firebase\app\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-30:19
 MERGED from [:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
 MERGED from [:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
+MERGED from [:react-native-webview] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
+MERGED from [:react-native-webview] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-19:19
 MERGED from [com.facebook.react:react-native:0.70.5] C:\Users\rerea\.gradle\caches\transforms-3\c42994f06a1765e865cf76ce626c107d\transformed\jetified-react-native-0.70.5-debug\AndroidManifest.xml:9:5-20
 MERGED from [com.facebook.react:react-native:0.70.5] C:\Users\rerea\.gradle\caches\transforms-3\c42994f06a1765e865cf76ce626c107d\transformed\jetified-react-native-0.70.5-debug\AndroidManifest.xml:9:5-20
 MERGED from [com.facebook.soloader:soloader:0.10.4] C:\Users\rerea\.gradle\caches\transforms-3\cc8a391cec11a7833f3c1791519d0b3d\transformed\jetified-soloader-0.10.4\AndroidManifest.xml:11:5-20
@@ -295,6 +301,8 @@ MERGED from [:react-native-gesture-handler] C:\Kuliah\Tugas\Hacktiv8\HotelReserv
 MERGED from [:react-native-gesture-handler] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-gesture-handler\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-get-location] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-get-location\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-get-location] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-get-location\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-html-to-pdf] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-html-to-pdf\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-html-to-pdf] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-html-to-pdf\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-maps] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-maps\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -307,6 +315,8 @@ MERGED from [:react-native-svg] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_m
 MERGED from [:react-native-svg] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-vector-icons] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-vector-icons] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-webview] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-webview] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.70.5] C:\Users\rerea\.gradle\caches\transforms-3\c42994f06a1765e865cf76ce626c107d\transformed\jetified-react-native-0.70.5-debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.70.5] C:\Users\rerea\.gradle\caches\transforms-3\c42994f06a1765e865cf76ce626c107d\transformed\jetified-react-native-0.70.5-debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\rerea\.gradle\caches\transforms-3\617e46414208deb5f150c4055a6f195e\transformed\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
@@ -383,6 +393,8 @@ MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\rerea\.gradle\
 MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\rerea\.gradle\caches\transforms-3\d1251cc12ff41e00d2e34bf6a6a992f6\transformed\exifinterface-1.3.3\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\rerea\.gradle\caches\transforms-3\bab6b7532eaf2e7c61a3618727d05af3\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\rerea\.gradle\caches\transforms-3\bab6b7532eaf2e7c61a3618727d05af3\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\rerea\.gradle\caches\transforms-3\052fb55cc257d6410e2b197a15a46d40\transformed\webkit-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.webkit:webkit:1.4.0] C:\Users\rerea\.gradle\caches\transforms-3\052fb55cc257d6410e2b197a15a46d40\transformed\webkit-1.4.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\rerea\.gradle\caches\transforms-3\236058a9369b78f78259f6f0a969c8e8\transformed\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\rerea\.gradle\caches\transforms-3\236058a9369b78f78259f6f0a969c8e8\transformed\sqlite-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-auth:20.5.0] C:\Users\rerea\.gradle\caches\transforms-3\19b28cb06c8e58106354be3642a74a69\transformed\jetified-play-services-auth-20.5.0\AndroidManifest.xml:20:5-44
@@ -465,6 +477,8 @@ MERGED from [com.github.henninghall:numberpickerview:v1.1.5] C:\Users\rerea\.gra
 MERGED from [com.github.henninghall:numberpickerview:v1.1.5] C:\Users\rerea\.gradle\caches\transforms-3\57902dda37b457dd1e4a7f3608a15771\transformed\jetified-numberpickerview-v1.1.5\AndroidManifest.xml:7:5-9:41
 MERGED from [net.time4j:time4j-android:4.8-2021a] C:\Users\rerea\.gradle\caches\transforms-3\9f01719158416c5a07733f03235fdeb2\transformed\jetified-time4j-android-4.8-2021a\AndroidManifest.xml:7:5-9:41
 MERGED from [net.time4j:time4j-android:4.8-2021a] C:\Users\rerea\.gradle\caches\transforms-3\9f01719158416c5a07733f03235fdeb2\transformed\jetified-time4j-android-4.8-2021a\AndroidManifest.xml:7:5-9:41
+MERGED from [com.tom-roush:pdfbox-android:1.8.10.3] C:\Users\rerea\.gradle\caches\transforms-3\9d51fa609b451e9e7bc3cd01a55fc53c\transformed\jetified-pdfbox-android-1.8.10.3\AndroidManifest.xml:7:5-9:41
+MERGED from [com.tom-roush:pdfbox-android:1.8.10.3] C:\Users\rerea\.gradle\caches\transforms-3\9d51fa609b451e9e7bc3cd01a55fc53c\transformed\jetified-pdfbox-android-1.8.10.3\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.maps.android:android-maps-utils:3.4.0] C:\Users\rerea\.gradle\caches\transforms-3\a25766ca99efca916b22b74803de85d8\transformed\jetified-android-maps-utils-3.4.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.maps.android:android-maps-utils:3.4.0] C:\Users\rerea\.gradle\caches\transforms-3\a25766ca99efca916b22b74803de85d8\transformed\jetified-android-maps-utils-3.4.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:2.6.0] C:\Users\rerea\.gradle\caches\transforms-3\d7c9f947b0ef865e76675fc3d1b3a2b4\transformed\jetified-fbcore-2.6.0\AndroidManifest.xml:5:5-7:41
@@ -569,6 +583,16 @@ ADDED from [:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservatio
 		ADDED from [:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-67
 	android:name
 		ADDED from [:react-native-image-picker] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-image-picker\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:16:17-67
+provider#com.reactnativecommunity.webview.RNCWebViewFileProvider
+ADDED from [:react-native-webview] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-18:20
+	android:grantUriPermissions
+		ADDED from [:react-native-webview] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-47
+	android:authorities
+		ADDED from [:react-native-webview] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-64
+	android:exported
+		ADDED from [:react-native-webview] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
+	android:name
+		ADDED from [:react-native-webview] C:\Kuliah\Tugas\Hacktiv8\HotelReservation\node_modules\react-native-webview\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-83
 meta-data#com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar
 ADDED from [com.google.firebase:firebase-firestore:24.6.1] C:\Users\rerea\.gradle\caches\transforms-3\7f6b12a36d8f174341cf513731d34cbf\transformed\jetified-firebase-firestore-24.6.1\AndroidManifest.xml:19:13-21:85
 	android:value
